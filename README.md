@@ -1,19 +1,19 @@
 # CCI Intermediate Project
 A project that involves the collaboration of CCI program students
 
-Liveline (Deadline but more positive):
+## Liveline (Deadline but more positive):
 
-Game's Name:
+## Game's Name:
 
-Genre:
+## Genre:
 
-Story:
+## Story:
 
-Hook:
+## Hook:
 
-Collaborators (and their roles if decided):
+## Collaborators (and their roles if decided):
 
-Tasks:
+## Tasks:
 
 - 2nd of June:
 
