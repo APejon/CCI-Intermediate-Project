@@ -8,18 +8,22 @@ public class MainMenu : MonoBehaviour
 
     // Reference to the Start button
     public Button startButton;
-    // options
-    // credits
-    // Website
-    // exit button
-
-    // Timer variable
+    public Button optionsButton;
+    public Button websiteButton;
+    public Button ExitbuttonButton;
     public GameObject introScreen;
-    // Game hud (main gameplay)
-    // credits
-    // options
+    public GameObject OptionsScreen;
 
+    public void OptionsClicked(){
+        Debug.Log("Options");
 
+    }
+
+    public GameObject Gamehud()
+    {
+        GameObject x = new GameObject();
+        return x;
+    }
 
     // Start is called before the first frame update
     void Start()
