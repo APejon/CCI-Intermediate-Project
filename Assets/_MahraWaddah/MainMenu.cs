@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsClicked(){
         Debug.Log("Options");
-
+        
     }
 
     public GameObject Gamehud()
