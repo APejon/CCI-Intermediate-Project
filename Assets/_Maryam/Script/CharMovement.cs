@@ -17,14 +17,17 @@ public class CharMovement : MonoBehaviour
     private Animator anim;
     private string WalkAnim = "IsWalking";
     private string AttackAnim = "IsAttacking";
-    //private string Ground_tag = "Ground";
-    // private bool isGrounded;
+    private bool isDead = false;   // to track if the player is dead
+                                   //  public AttackHitBox attackHitBox;
+    private string Ground_tag = "Ground";
+    private bool isGrounded;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        // attackHitBox = GetComponentInChildren<AttackHitBox>();
     }
     void Start()
     {
@@ -36,18 +39,14 @@ public class CharMovement : MonoBehaviour
     {
         PlayerMoveKeyboard();
         AnimatePlayer();
-
-        // Attack input
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetBool(AttackAnim, true);
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            anim.SetBool(AttackAnim, false);
-        }
-
+        HandleAttack();
     }
+    private void FixedUpdate()
+    {
+        Playerjump();
+        HandleAttack();
+    }
+
     void PlayerMoveKeyboard()
     {
         dirX = Input.GetAxisRaw("Horizontal");
@@ -74,4 +73,45 @@ public class CharMovement : MonoBehaviour
 
 
     }
-}
+    void Playerjump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            //isGrounded = false;
+            anim.SetBool("IsJumping", true);
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            isGrounded = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(Ground_tag))
+       {
+           isGrounded = true;
+           anim.SetBool("IsJumping", false);
+       }
+    }
+      void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag.Equals("Ground"))
+           {
+                isGrounded = false;
+            }
+        }
+        void HandleAttack()
+        {
+            // If attack button is pressed, trigger the attack animation
+            if (Input.GetKeyDown(KeyCode.W) && !isDead)
+            {
+                anim.SetTrigger(AttackAnim);
+            }
+
+        }
+       // void Die()
+       // {
+        //    isDead = true; // set player to dead
+        //    anim.SetTrigger("Die"); // trigger death animation
+                                    //SceneManager.LoadScene(2);
+          //  Debug.Log("playerDie1");// Destroy(gameObject);
+      //  }
+    }
