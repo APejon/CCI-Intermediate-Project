@@ -169,28 +169,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet Example_2
-      rect:
-        serializedVersion: 2
-        x: 1458
-        y: 361
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 732ce19f113072d10800000000000000
-      internalID: 2100651126920495671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Attcaking1
       rect:
         serializedVersion: 2
