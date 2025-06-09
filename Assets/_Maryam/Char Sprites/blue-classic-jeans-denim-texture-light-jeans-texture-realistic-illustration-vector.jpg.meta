@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blue-classic-jeans-denim-texture-light-jeans-texture-realistic-illustration-vector_0: -3550678830930219849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
