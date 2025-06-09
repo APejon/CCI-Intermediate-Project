@@ -2,7 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
+
+
 {
+
     // Reference to the main menu UI panel
     public GameObject mainMenuPanel;
 
@@ -81,10 +84,23 @@ public void btncredits  ()
         creditsPanel.SetActive(true);
     }
 
-    public void HideCredits()
+    public void TurnOffAllScreens()
     {
+        mainMenuPanel.SetActive(false);
+        OptionsScreen.SetActive(false);
         creditsPanel.SetActive(false);
     }
+
+
+
+
+    public void btnOption()
+    {
+      
+      TurnOffAllScreens();
+      OptionsScreen.SetActive(true);
+    }
+
 
 
 }
