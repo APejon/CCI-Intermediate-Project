@@ -284,6 +284,7 @@ Transform:
   - {fileID: 1604507094}
   - {fileID: 1824809948}
   - {fileID: 1785922631}
+  - {fileID: 133934410}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &33725040
@@ -305,16 +306,47 @@ MonoBehaviour:
   attackKey: space
   moveSpeed: 5
   jumpForce: 3
-  groundCheckPoint: {fileID: 0}
+  groundCheckPoint: {fileID: 133934410}
   groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   hurtBoxIdle: {fileID: 1824809947}
   hurtBoxCrouch: {fileID: 1453606918}
   hurtBoxJump: {fileID: 1785922630}
   hitBoxAttack: {fileID: 1604507092}
   attackDuration: 0.75
+--- !u!1 &133934409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 133934410}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &133934410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133934409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 33725039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &267598655
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +359,7 @@ GameObject:
   - component: {fileID: 267598658}
   - component: {fileID: 267598657}
   - component: {fileID: 267598656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GROUND
   m_TagString: Ground
   m_Icon: {fileID: 0}
