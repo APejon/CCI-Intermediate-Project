@@ -7,10 +7,7 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuPanel;
 
     // Reference to the Start button
-    public Button startButton;
-    public Button optionsButton;
-    public Button websiteButton;
-    public Button ExitbuttonButton;
+    public GameObject creditsPanel;
     public GameObject introScreen;
     public GameObject OptionsScreen;
 
@@ -67,5 +64,27 @@ public class MainMenu : MonoBehaviour
 
 
     // Update the timer display on the screen
+
+
+    public void btnExitbutton()
+    {
+        // This will quit the application
+        Application.Quit();
+
+        // This is only for the editor (won’t affect the actual build)
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+public void btncredits  ()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsPanel.SetActive(false);
+    }
+
 
 }

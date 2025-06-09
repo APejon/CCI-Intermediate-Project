@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class OpenWebsite : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string url = "https://example.com"; // Replace with your desired URL
 
-    // Update is called once per frame
-    void Update()
+    public void btnOpenWeb()
     {
-        
+        Application.OpenURL(url);
     }
 }
