@@ -319,7 +319,11 @@ MonoBehaviour:
   attackDuration: 0.75
   facingRight: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   enemy: {fileID: 0}
+=======
+  enemy: {fileID: 338160026}
+>>>>>>> Stashed changes
 =======
   enemy: {fileID: 338160026}
 >>>>>>> Stashed changes
@@ -1472,7 +1476,11 @@ Transform:
   m_Father: {fileID: 33725039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1688482319
+=======
+--- !u!1 &1782512010
+>>>>>>> Stashed changes
 =======
 --- !u!1 &1782512010
 >>>>>>> Stashed changes
@@ -1484,21 +1492,28 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 1688482322}
   - component: {fileID: 1688482321}
   - component: {fileID: 1688482320}
   m_Layer: 0
   m_Name: AudioManager
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1782512012}
   - component: {fileID: 1782512011}
   m_Layer: 0
   m_Name: HurtBox JUMP
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_IsActive: 1
 --- !u!114 &1688482320
@@ -1508,10 +1523,16 @@ MonoBehaviour:
 --- !u!61 &1782512011
 BoxCollider2D:
 >>>>>>> Stashed changes
+=======
+  m_IsActive: 0
+--- !u!61 &1782512011
+BoxCollider2D:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1688482319}
   m_Enabled: 1
@@ -1621,6 +1642,8 @@ AudioSource:
     m_RotationOrder: 4
 --- !u!4 &1688482322
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1782512010}
   m_Enabled: 1
   serializedVersion: 3
@@ -1662,12 +1685,16 @@ AudioSource:
   m_Size: {x: 1, y: 0.73640656}
   m_EdgeRadius: 0
 --- !u!4 &1782512012
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1688482319}
   serializedVersion: 2
@@ -1678,6 +1705,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1782512010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1686,6 +1715,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 338160026}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1785922630
@@ -1963,7 +1995,12 @@ SceneRoots:
   - {fileID: 338160026}
   - {fileID: 267598659}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1688482322}
+=======
+  - {fileID: 1249137208}
+  - {fileID: 895779737}
+>>>>>>> Stashed changes
 =======
   - {fileID: 1249137208}
   - {fileID: 895779737}
