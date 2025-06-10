@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FighterController : MonoBehaviour
 {
+    /* ---------- Inspector Fields ---------- */
     [Header("Input Keys")]
     public string leftKey = "a";
     public string rightKey = "d";
@@ -28,27 +29,34 @@ public class FighterController : MonoBehaviour
     [Header("Attack Settings")]
     public float attackDuration = 0.75f;
 
-    private Rigidbody2D rb2D;
-    private Animator anim;
-    private bool isGrounded = true;
-    private bool isAttacking = false;
-    private bool isCrouching = false;
-    
     [Header("Sprite Facing")]
-    public bool facingRight = true;   // start facing right
-    private Vector3 _initialScale;
-    
+    public bool facingRight = true;      // start facing right
+
     [Header("Enemy Reference")]
     public Transform enemy;
-    
-    // Make moveInput protected so AI can override it:
-    [HideInInspector] public float moveInput = 0f;
+    public bool isBot = false;
 
+    /* ---------- Private State ---------- */
+    private Rigidbody2D rb2D;
+    private Animator   anim;
+    private Vector3    _initialScale;
+
+    private bool   isGrounded;
+    private bool   isAttacking;
+    private bool   isCrouching;
+    [HideInInspector] public float moveInput;   // AI can write
+
+    /* ---------- Public Read-only Helpers ---------- */
+    public bool IsCrouching => isCrouching;
+    public bool IsAttacking => isAttacking;
+
+    /* ---------- Unity Hooks ---------- */
     void Start()
     {
+        rb2D        = GetComponent<Rigidbody2D>();
+        anim        = GetComponent<Animator>();
         _initialScale = transform.localScale;
-        rb2D = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+
         ActivateHurtBox(hurtBoxIdle);
     }
 
@@ -56,125 +64,71 @@ public class FighterController : MonoBehaviour
     {
         CheckGrounded();
 
-        if (isGrounded)
+        // Auto-face target when grounded
+        if (isGrounded && enemy) FaceTowards(enemy.position);
+
+        if (isAttacking) return;   // movement already frozen in FixedUpdate
+
+        if (!isBot)
         {
-            if(enemy != null) FaceTowards(enemy.position);
+            HandleMovementInput();
+            HandleJumpInput();
+            HandleCrouchInput();
+            HandleAttackInput();
         }
 
-        if (isAttacking) return;
-
-        HandleMovementInput();
-        HandleJumpInput();
-        HandleCrouchInput();
-        HandleAttackInput();
         UpdateAnimatorParameters();
-    }
-    
-    // Call this after you decide to move or attack
-    public void FaceTowards(Vector3 targetPosition)
-    {
-        bool shouldFaceRight = targetPosition.x > transform.position.x;
-        if (shouldFaceRight != facingRight)
-            Flip();
-    }
-
-    private void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 s = _initialScale;
-        s.x *= facingRight ? 1 : -1;
-        transform.localScale = s;
     }
 
     void FixedUpdate()
     {
-        rb2D.linearVelocity = new Vector2(moveInput * moveSpeed, rb2D.linearVelocity.y);
+        // Freeze horizontal motion while attacking
+        float horizontal = isAttacking ? 0f : moveInput;
+        rb2D.linearVelocity = new Vector2(horizontal * moveSpeed, rb2D.linearVelocity.y);
     }
 
-    private void CheckGrounded()
+    /* ---------- Facing ---------- */
+    public void FaceTowards(Vector3 targetPosition)
     {
-        isGrounded = Physics2D.OverlapCircle(
-            groundCheckPoint.position,
-            groundCheckRadius,
-            groundLayer
-        );
-
-        if (isGrounded && !hurtBoxIdle.activeSelf && !isCrouching)
+        bool shouldFaceRight = targetPosition.x > transform.position.x;
+        if (shouldFaceRight != facingRight)
         {
-            ActivateHurtBox(hurtBoxIdle);
+            facingRight = shouldFaceRight;
+            Vector3 s   = _initialScale;
+            s.x        *= facingRight ? 1 : -1;
+            transform.localScale = s;
         }
     }
 
+    /* ---------- Input-handling (player side) ---------- */
     private void HandleMovementInput()
     {
         moveInput = 0f;
-        if (Input.GetKey(leftKey)) moveInput = -1f;
-        else if (Input.GetKey(rightKey)) moveInput = 1f;
+        if (Input.GetKey(leftKey))  moveInput = -1f;
+        if (Input.GetKey(rightKey)) moveInput =  1f;
     }
 
     private void HandleJumpInput()
     {
         if (Input.GetKeyDown(jumpKey) && isGrounded && !isCrouching)
-        {
-            ActivateHurtBox(hurtBoxJump);
-            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
-            isGrounded = false;
-        }
+            TryJump();
     }
 
     private void HandleCrouchInput()
     {
         if (Input.GetKeyDown(crouchKey) && isGrounded)
-        {
-            isCrouching = true;
-            ActivateHurtBox(hurtBoxCrouch);
-        }
+            TryCrouch(true);
         else if (Input.GetKeyUp(crouchKey))
-        {
-            isCrouching = false;
-            ActivateHurtBox(hurtBoxIdle);
-        }
+            TryCrouch(false);
     }
 
     private void HandleAttackInput()
     {
-        if (Input.GetKeyDown(attackKey) && !isAttacking)
-        {
-            StartCoroutine(AttackCoroutine());
-        }
+        if (Input.GetKeyDown(attackKey))
+            TryAttack();
     }
 
-    private IEnumerator AttackCoroutine()
-    {
-        isAttacking = true;
-        hitBoxAttack.SetActive(true);
-        if (anim != null) anim.SetBool("isAttacking", true);
-
-        yield return new WaitForSeconds(attackDuration);
-
-        hitBoxAttack.SetActive(false);
-        if (anim != null) anim.SetBool("isAttacking", false);
-        isAttacking = false;
-    }
-
-    private void ActivateHurtBox(GameObject target)
-    {
-        hurtBoxIdle.SetActive(false);
-        hurtBoxCrouch.SetActive(false);
-        hurtBoxJump.SetActive(false);
-        target.SetActive(true);
-    }
-
-    private void UpdateAnimatorParameters()
-    {
-        if (anim == null) return;
-
-        anim.SetBool("isGrounded", isGrounded);
-        anim.SetBool("isCrouching", isCrouching);
-        anim.SetFloat("Speed", Mathf.Abs(moveInput));
-    }
-
-    // ~~~ These wrappers let the AI script trigger behaviors ~~~ //
+    /* ---------- Public wrappers for AI ---------- */
     public void SetMoveInput(float input)
     {
         moveInput = Mathf.Clamp(input, -1f, 1f);
@@ -184,16 +138,15 @@ public class FighterController : MonoBehaviour
     {
         if (isGrounded && !isCrouching && !isAttacking)
         {
-            // reuse your existing logic:
             ActivateHurtBox(hurtBoxJump);
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
-            isGrounded = false;
+            isGrounded    = false;
         }
     }
 
     public void TryCrouch(bool on)
     {
-        if (isGrounded && !isAttacking)
+        if (!isAttacking && isGrounded)
         {
             isCrouching = on;
             ActivateHurtBox(on ? hurtBoxCrouch : hurtBoxIdle);
@@ -206,9 +159,48 @@ public class FighterController : MonoBehaviour
             StartCoroutine(AttackCoroutine());
     }
 
-    private void OnDrawGizmosSelected()
+    /* ---------- Internals ---------- */
+    private IEnumerator AttackCoroutine()
     {
-        if (groundCheckPoint != null)
+        isAttacking = true;
+        hitBoxAttack.SetActive(true);
+        anim?.SetBool("isAttacking", true);
+
+        yield return new WaitForSeconds(attackDuration);
+
+        hitBoxAttack.SetActive(false);
+        anim?.SetBool("isAttacking", false);
+        isAttacking = false;
+    }
+
+    private void CheckGrounded()
+    {
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheckPoint.position, groundCheckRadius, groundLayer);
+
+        if (isGrounded && !isCrouching && !hurtBoxIdle.activeSelf)
+            ActivateHurtBox(hurtBoxIdle);
+    }
+
+    private void ActivateHurtBox(GameObject target)
+    {
+        hurtBoxIdle .SetActive(false);
+        hurtBoxCrouch.SetActive(false);
+        hurtBoxJump .SetActive(false);
+        target.SetActive(true);
+    }
+
+    private void UpdateAnimatorParameters()
+    {
+        if (!anim) return;
+        anim.SetBool ("isGrounded", isGrounded);
+        anim.SetBool ("isCrouching", isCrouching);
+        anim.SetFloat("Speed",      Mathf.Abs(moveInput));
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheckPoint)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
