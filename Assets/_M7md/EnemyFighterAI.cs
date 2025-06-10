@@ -1,71 +1,83 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(FighterController))]
 public class EnemyFighterAI : MonoBehaviour
 {
-    [Header("Attack Range & Speed")]
-    public Transform player;                    // assign your Player’s transform
-    public float attackRange     = 1.5f;
-    public float chaseSpeed  = 5f;              // when player detected
+    [Header("Target & Ranges")]
+    public Transform player;
+    public float attackRange    = 1.5f;
+
+    [Header("Speeds")]
+    public float chaseSpeed     = 5f;
 
     [Header("Attack Settings")]
-    public float attackCooldown   = 1.2f;       // seconds between attacks
-    public float decisionInterval = 0.2f;       // AI "think" every 0.2s
-
-    [Header("Optional Jump/Crouch")]
-    [Range(0,1)] public float jumpChance   = 0.1f;  // random chance to jump
-    [Range(0,1)] public float crouchChance = 0.05f; // random chance to crouch
+    public float attackCooldown = 1.2f;
+    
+    [Header("Random Jump/Crouch (per second)")]
+    [Range(0,1)] public float jumpChancePerSec   = 0.1f;
+    [Range(0,1)] public float crouchChancePerSec = 0.05f;
+    public float crouchDuration   = 0.5f;    // how long a random crouch lasts
 
     private FighterController ctrl;
-    private float lastAttackTime;
+    private float  lastAttackTime;
+    private float  crouchReleaseTime;
 
     void Start()
     {
         ctrl = GetComponent<FighterController>();
-        StartCoroutine(AIBehaviorLoop());
     }
 
-    private IEnumerator AIBehaviorLoop()
+    void Update()
     {
-        while (true)
+        // 1) Always face the player
+        ctrl.FaceTowards(player.position);
+
+        float dist = Vector2.Distance(transform.position, player.position);
+
+        // 2) Continuous movement toward/away
+        if (dist > attackRange)
         {
-            yield return new WaitForSeconds(decisionInterval);
-
-            // Distance to player
-            float dist = Vector2.Distance(transform.position, player.position);
-
-            // Reset inputs
+            // chase
+            float dir = Mathf.Sign(player.position.x - transform.position.x);
+            ctrl.SetMoveInput(dir * (chaseSpeed / ctrl.moveSpeed));
+        }
+        else
+        {
+            // in attack range → stop moving and maybe attack
             ctrl.SetMoveInput(0f);
+
+            if (Time.time >= lastAttackTime + attackCooldown)
+            {
+                ctrl.TryAttack();
+                lastAttackTime = Time.time;
+            }
+        }
+
+        // 3) Random jump
+        if (Random.value < jumpChancePerSec * Time.deltaTime)
+            ctrl.TryJump();
+
+        // 4) Random crouch with automatic release
+        if (Time.time >= crouchReleaseTime)
+        {
+            // if currently crouching, stand back up
             ctrl.TryCrouch(false);
-            
-                // --- Chase or Attack ---
-                if (dist > attackRange)
-                {
-                    // 1. Move toward the player
-                    float dir = Mathf.Sign(player.position.x - transform.position.x);
-                    ctrl.SetMoveInput(dir * chaseSpeed / ctrl.moveSpeed);
-                }
-                else
-                {
-                    // 2. In attack range?
-                    if (Time.time - lastAttackTime >= attackCooldown)
-                    {
-                        ctrl.TryAttack();
-                        lastAttackTime = Time.time;
-                    }
-                }
 
-                // --- Optional random jump/crouch for variety ---
-                if (Random.value < jumpChance)   ctrl.TryJump();
-                if (Random.value < crouchChance) ctrl.TryCrouch(true);
-
+            // maybe re-crouch now
+            if (Random.value < crouchChancePerSec * Time.deltaTime)
+            {
+                ctrl.TryCrouch(true);
+                crouchReleaseTime = Time.time + crouchDuration;
+            }
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        if (player != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
     }
 }

@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
-
-
 {
 
     // Reference to the main menu UI panel
@@ -13,12 +11,27 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsPanel;
     public GameObject introScreen;
     public GameObject OptionsScreen;
+  //  public GameObject Winscreen;
+    
+    public AudioSource audioSource;
 
     public void OptionsClicked(){
         Debug.Log("Options");
+        OptionsScreen.SetActive(true);
         
     }
 
+    public void returnClicked()
+    {
+        Debug.Log("Return");
+        creditsPanel.SetActive(false);
+    }
+         public void returnClicked1()
+    {
+        Debug.Log("Return");
+        OptionsScreen.SetActive(false);
+    }
+      
     public GameObject Gamehud()
     {
         GameObject x = new GameObject();
@@ -30,7 +43,7 @@ public class MainMenu : MonoBehaviour
     {
         // Make sure the menu is visible at the start
         mainMenuPanel.SetActive(true);
-
+        audioSource = GetComponent<AudioSource>();
         // Add listener to the Start button
         //startButton.onClick.AddListener(OnStartButtonClicked);
 
@@ -92,15 +105,21 @@ public void btncredits  ()
     }
 
 
-
-
     public void btnOption()
     {
       
       TurnOffAllScreens();
       OptionsScreen.SetActive(true);
     }
+    
+    public void ReturnToMainMenu()
+    {
+       // mainMenuPanel.LoadScene("MainMenu"); // Replace "MainMenu" with your scene name
+    }
 
-
+    public void MuteGame()
+    {
+        audioSource.mute = !audioSource.mute;
+    }
 
 }
