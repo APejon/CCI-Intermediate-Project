@@ -33,10 +33,20 @@ public class FighterController : MonoBehaviour
     private bool isGrounded = true;
     private bool isAttacking = false;
     private bool isCrouching = false;
-    private float moveInput = 0f;
+    
+    [Header("Sprite Facing")]
+    public bool facingRight = true;   // start facing right
+    private Vector3 _initialScale;
+    
+    [Header("Enemy Reference")]
+    public Transform enemy;
+    
+    // Make moveInput protected so AI can override it:
+    [HideInInspector] public float moveInput = 0f;
 
     void Start()
     {
+        _initialScale = transform.localScale;
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         ActivateHurtBox(hurtBoxIdle);
@@ -46,6 +56,11 @@ public class FighterController : MonoBehaviour
     {
         CheckGrounded();
 
+        if (isGrounded)
+        {
+            if(enemy != null) FaceTowards(enemy.position);
+        }
+
         if (isAttacking) return;
 
         HandleMovementInput();
@@ -53,6 +68,22 @@ public class FighterController : MonoBehaviour
         HandleCrouchInput();
         HandleAttackInput();
         UpdateAnimatorParameters();
+    }
+    
+    // Call this after you decide to move or attack
+    public void FaceTowards(Vector3 targetPosition)
+    {
+        bool shouldFaceRight = targetPosition.x > transform.position.x;
+        if (shouldFaceRight != facingRight)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 s = _initialScale;
+        s.x *= facingRight ? 1 : -1;
+        transform.localScale = s;
     }
 
     void FixedUpdate()
@@ -141,6 +172,38 @@ public class FighterController : MonoBehaviour
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isCrouching", isCrouching);
         anim.SetFloat("Speed", Mathf.Abs(moveInput));
+    }
+
+    // ~~~ These wrappers let the AI script trigger behaviors ~~~ //
+    public void SetMoveInput(float input)
+    {
+        moveInput = Mathf.Clamp(input, -1f, 1f);
+    }
+
+    public void TryJump()
+    {
+        if (isGrounded && !isCrouching && !isAttacking)
+        {
+            // reuse your existing logic:
+            ActivateHurtBox(hurtBoxJump);
+            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
+            isGrounded = false;
+        }
+    }
+
+    public void TryCrouch(bool on)
+    {
+        if (isGrounded && !isAttacking)
+        {
+            isCrouching = on;
+            ActivateHurtBox(on ? hurtBoxCrouch : hurtBoxIdle);
+        }
+    }
+
+    public void TryAttack()
+    {
+        if (!isAttacking)
+            StartCoroutine(AttackCoroutine());
     }
 
     private void OnDrawGizmosSelected()
