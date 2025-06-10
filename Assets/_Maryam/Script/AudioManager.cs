@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
 
@@ -44,5 +44,11 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = gameTheme;
         musicSource.loop = true;
         musicSource.Play();
+    }
+    // When entering gameplay scene
+    void StartGame()
+    {
+        SceneManager.LoadScene(0);
+        AudioManager.Instance.PlayGameTheme();
     }
 }
