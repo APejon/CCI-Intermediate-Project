@@ -205,7 +205,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0717134, y: 0.67142856}
+    oldSize: {x: 1.5003989, y: 0.94000006}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -943,8 +943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1688482321}
-  titleTheme: {fileID: 0}
-  gameTheme: {fileID: 8300000, guid: 69deb31b30c7615489fd56c78778d71b, type: 3}
+  titleTheme: {fileID: 8300000, guid: 69deb31b30c7615489fd56c78778d71b, type: 3}
+  gameTheme: {fileID: 8300000, guid: 9dd4298a58af75b469515530e1e782d7, type: 3}
 --- !u!82 &1688482321
 AudioSource:
   m_ObjectHideFlags: 0
