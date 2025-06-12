@@ -11,11 +11,15 @@ public class UiManager : MonoBehaviour
     public GameObject gameUIPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
+    public GameObject gameCredits;
 
-  //  [Header("Buttons")]
+    //  [Header("Buttons")]
     public Button startButton;
     public Button restartButton;
     public Button quitButton;
+    public Button openWebButton;
+
+    public string url = "https://itch.io/profile/jalboot"; // Replace with your desired URL
 
     void Awake()
     {
@@ -37,13 +41,46 @@ public class UiManager : MonoBehaviour
         if (startButton != null) startButton.onClick.AddListener(() => SceneLoader.Instance.LoadGameScene());
         if (restartButton != null) restartButton.onClick.AddListener(() => SceneLoader.Instance.RestartScene());
         if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
-
+        if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
         ShowMainMenu();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OpenWeb()
     {
-        
+        Application.OpenURL(url);
+    }
+    // === UI Control Methods ===
+    public void ShowMainMenu()
+    {
+        SetActivePanel(mainMenuPanel);
+    }
+
+    public void ShowGameUI()
+    {
+        SetActivePanel(gameUIPanel);
+    }
+
+    public void ShowPauseMenu()
+    {
+        SetActivePanel(pausePanel);
+    }
+    public void ShowGameCredits()
+    {
+        SetActivePanel(gameCredits);
+    }
+    public void ShowGameOver()
+    {
+        SetActivePanel(gameOverPanel);
+    }
+
+    private void SetActivePanel(GameObject targetPanel)
+    {
+        // Deactivate all
+        mainMenuPanel?.SetActive(false);
+        gameUIPanel?.SetActive(false);
+        pausePanel?.SetActive(false);
+        gameOverPanel?.SetActive(false);
+        gameCredits?.SetActive(false);
+        // Activate target
+        targetPanel?.SetActive(true);
     }
 }
