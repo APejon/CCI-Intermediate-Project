@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class FighterController : MonoBehaviour
 {
-    /* ---------- Inspector Fields ---------- */
-    [Header("Input Keys")]
-    public string leftKey = "a";
+    /* ── Inspector Fields ───────────────────────────────────────── */
+    [Header("Input Keys (player-controlled only)")]
+    public string leftKey  = "a";
     public string rightKey = "d";
-    public string jumpKey = "w";
+    public string jumpKey  = "w";
     public string crouchKey = "s";
     public string attackKey = "space";
 
-    [Header("Movement Settings")]
+    [Header("Movement")]
     public float moveSpeed = 5f;
     public float jumpForce = 12f;
 
@@ -20,54 +21,62 @@ public class FighterController : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
 
-    [Header("Hurtboxes / Hitboxes")]
+    [Header("Hurt- / Hit-Boxes")]
     public GameObject hurtBoxIdle;
     public GameObject hurtBoxCrouch;
     public GameObject hurtBoxJump;
     public GameObject hitBoxAttack;
 
-    [Header("Attack Settings")]
+    [Header("Attack")]
     public float attackDuration = 0.75f;
 
-    [Header("Sprite Facing")]
-    public bool facingRight = true;      // start facing right
+    [Header("Facing")]
+    public bool  facingRight = true;          // start orientation
+    public Transform enemy;                   // optional auto-face target
 
-    [Header("Enemy Reference")]
-    public Transform enemy;
-    public bool isBot = false;
+    /* ── Public Flags ───────────────────────────────────────────── */
+    [HideInInspector] public bool isBot = false;
 
-    /* ---------- Private State ---------- */
-    private Rigidbody2D rb2D;
-    private Animator   anim;
-    private Vector3    _initialScale;
-
-    private bool   isGrounded;
-    private bool   isAttacking;
-    private bool   isCrouching;
-    [HideInInspector] public float moveInput;   // AI can write
-
-    /* ---------- Public Read-only Helpers ---------- */
+    /* ── Read-only accessors for AI / GM ────────────────────────── */
     public bool IsCrouching => isCrouching;
     public bool IsAttacking => isAttacking;
 
-    /* ---------- Unity Hooks ---------- */
+    /* ── Win / Lose pose hooks (optional) ───────────────────────── */
+    public Action PlayWinPose    = null;
+    public Action PlayDefeatPose = null;
+
+    /* ── Private state ──────────────────────────────────────────── */
+    Rigidbody2D rb2D;
+    Animator    anim;
+    Vector3     initialScale;
+
+    bool  isGrounded;
+    bool  isAttacking;
+    bool  isCrouching;
+    float moveInput;                    // –1 .. 1 ; AI writes directly
+
+    /* ── Unity Hooks ───────────────────────────────────────────── */
     void Start()
     {
         rb2D        = GetComponent<Rigidbody2D>();
         anim        = GetComponent<Animator>();
-        _initialScale = transform.localScale;
+        initialScale = transform.localScale;
 
         ActivateHurtBox(hurtBoxIdle);
+
+        /* default pose triggers if user didn’t assign custom lambdas */
+        PlayWinPose    ??= () => anim?.SetTrigger("Win");
+        PlayDefeatPose ??= () => anim?.SetTrigger("Lose");
     }
 
     void Update()
     {
         CheckGrounded();
 
-        // Auto-face target when grounded
-        if (isGrounded && enemy) FaceTowards(enemy.position);
+        if (isGrounded && enemy)
+            FaceTowards(enemy.position);
 
-        if (isAttacking) return;   // movement already frozen in FixedUpdate
+        if (isAttacking) return;                    // locked-out during swing
 
         if (!isBot)
         {
@@ -82,39 +91,39 @@ public class FighterController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Freeze horizontal motion while attacking
-        float horizontal = isAttacking ? 0f : moveInput;
-        rb2D.linearVelocity = new Vector2(horizontal * moveSpeed, rb2D.linearVelocity.y);
+        /* freeze horizontal speed while attacking */
+        float horiz = isAttacking ? 0f : moveInput;
+        rb2D.linearVelocity = new Vector2(horiz * moveSpeed, rb2D.linearVelocity.y);
     }
 
-    /* ---------- Facing ---------- */
-    public void FaceTowards(Vector3 targetPosition)
+    /* ── Facing ─────────────────────────────────────────────────── */
+    public void FaceTowards(Vector3 pos)
     {
-        bool shouldFaceRight = targetPosition.x > transform.position.x;
+        bool shouldFaceRight = pos.x > transform.position.x;
         if (shouldFaceRight != facingRight)
         {
             facingRight = shouldFaceRight;
-            Vector3 s   = _initialScale;
+            Vector3 s   = initialScale;
             s.x        *= facingRight ? 1 : -1;
             transform.localScale = s;
         }
     }
 
-    /* ---------- Input-handling (player side) ---------- */
-    private void HandleMovementInput()
+    /* ── Player-side input helpers ──────────────────────────────── */
+    void HandleMovementInput()
     {
         moveInput = 0f;
         if (Input.GetKey(leftKey))  moveInput = -1f;
         if (Input.GetKey(rightKey)) moveInput =  1f;
     }
 
-    private void HandleJumpInput()
+    void HandleJumpInput()
     {
         if (Input.GetKeyDown(jumpKey) && isGrounded && !isCrouching)
             TryJump();
     }
 
-    private void HandleCrouchInput()
+    void HandleCrouchInput()
     {
         if (Input.GetKeyDown(crouchKey) && isGrounded)
             TryCrouch(true);
@@ -122,17 +131,14 @@ public class FighterController : MonoBehaviour
             TryCrouch(false);
     }
 
-    private void HandleAttackInput()
+    void HandleAttackInput()
     {
         if (Input.GetKeyDown(attackKey))
             TryAttack();
     }
 
-    /* ---------- Public wrappers for AI ---------- */
-    public void SetMoveInput(float input)
-    {
-        moveInput = Mathf.Clamp(input, -1f, 1f);
-    }
+    /* ── Public wrappers for AI / GM ────────────────────────────── */
+    public void SetMoveInput(float x) => moveInput = Mathf.Clamp(x, -1f, 1f);
 
     public void TryJump()
     {
@@ -146,7 +152,7 @@ public class FighterController : MonoBehaviour
 
     public void TryCrouch(bool on)
     {
-        if (!isAttacking && isGrounded)
+        if (isGrounded && !isAttacking)
         {
             isCrouching = on;
             ActivateHurtBox(on ? hurtBoxCrouch : hurtBoxIdle);
@@ -159,10 +165,16 @@ public class FighterController : MonoBehaviour
             StartCoroutine(AttackCoroutine());
     }
 
-    /* ---------- Internals ---------- */
-    private IEnumerator AttackCoroutine()
+    /* ── Attack Logic ───────────────────────────────────────────── */
+    IEnumerator AttackCoroutine()
     {
         isAttacking = true;
+        moveInput   = 0f;                           // stop walk instantly
+
+        /* tag the HitBox with its owner each swing */
+        var hb = hitBoxAttack.GetComponent<HitBox>();
+        if (hb) hb.owner = this;
+
         hitBoxAttack.SetActive(true);
         anim?.SetBool("isAttacking", true);
 
@@ -173,7 +185,37 @@ public class FighterController : MonoBehaviour
         isAttacking = false;
     }
 
-    private void CheckGrounded()
+    public void CancelAttack()                     // called by GameManager
+    {
+        if (!isAttacking) return;
+
+        StopAllCoroutines();
+        hitBoxAttack.SetActive(false);
+        anim?.SetBool("isAttacking", false);
+        isAttacking = false;
+    }
+
+    /* ── Motion / control helpers for GameManager ──────────────── */
+    public void EnableControl(bool on)
+    {
+        enabled        = on;                       // toggles Update/FixedUpdate
+        if (!on) rb2D.linearVelocity = Vector2.zero;     // brake instantly when off
+    }
+
+    public void Knockback(Vector2 impulse)
+    {
+        rb2D.linearVelocity = Vector2.zero;
+        rb2D.AddForce(impulse, ForceMode2D.Impulse);
+    }
+
+    public void ResetMotion()
+    {
+        rb2D.linearVelocity        = Vector2.zero;
+        rb2D.angularVelocity = 0f;
+    }
+
+    /* ── Grounding & hurt-box state ─────────────────────────────── */
+    void CheckGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(
             groundCheckPoint.position, groundCheckRadius, groundLayer);
@@ -182,7 +224,7 @@ public class FighterController : MonoBehaviour
             ActivateHurtBox(hurtBoxIdle);
     }
 
-    private void ActivateHurtBox(GameObject target)
+    void ActivateHurtBox(GameObject target)
     {
         hurtBoxIdle .SetActive(false);
         hurtBoxCrouch.SetActive(false);
@@ -190,7 +232,8 @@ public class FighterController : MonoBehaviour
         target.SetActive(true);
     }
 
-    private void UpdateAnimatorParameters()
+    /* ── Animator feed ──────────────────────────────────────────── */
+    void UpdateAnimatorParameters()
     {
         if (!anim) return;
         anim.SetBool ("isGrounded", isGrounded);
@@ -198,6 +241,7 @@ public class FighterController : MonoBehaviour
         anim.SetFloat("Speed",      Mathf.Abs(moveInput));
     }
 
+    /* ── Debug visuals ──────────────────────────────────────────── */
     void OnDrawGizmosSelected()
     {
         if (groundCheckPoint)

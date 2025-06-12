@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5569404513524108500}
   m_Layer: 0
   m_Name: HurtBox CROUCH
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.23153478}
+  m_Offset: {x: -0.26279786, y: -0.20864594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.53693044}
+  m_Size: {x: 0.4744043, y: 0.4911527}
   m_EdgeRadius: 0
 --- !u!1 &4765961070540426355
 GameObject:
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 985913960920034004}
   m_Layer: 0
   m_Name: HurtBox IDLE
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.296707, y: -0.027975231}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -154,7 +154,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.40658596, y: 0.862667}
   m_EdgeRadius: 0
 --- !u!1 &5787185917743253441
 GameObject:
@@ -286,7 +286,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2839912, y: -0.015259236}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -296,7 +296,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.43201762, y: 0.9084447}
   m_EdgeRadius: 0
 --- !u!50 &7544324456001466928
 Rigidbody2D:
@@ -357,7 +357,6 @@ MonoBehaviour:
   facingRight: 1
   enemy: {fileID: 0}
   isBot: 0
-  moveInput: 0
 --- !u!95 &6803257801195666659
 Animator:
   serializedVersion: 7
@@ -390,6 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1785041679795202899}
   - component: {fileID: 278576865784564086}
+  - component: {fileID: 5750983232913715381}
   m_Layer: 0
   m_Name: HitBox ATTACK
   m_TagString: Untagged
@@ -446,7 +446,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.84, y: 0.2}
+  m_Offset: {x: 0.7297946, y: 0.1923704}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -456,8 +456,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.35, y: 0.25}
+  m_Size: {x: 0.5365012, y: 0.12283978}
   m_EdgeRadius: 0
+--- !u!114 &5750983232913715381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6486042379679588252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d7bc17cb8fcc84abe49d43b0aff5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 5945607321705911263}
+  impactSfx: {fileID: 0}
+  impactFx: {fileID: 0}
 --- !u!1 &7193655926623224316
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +516,7 @@ GameObject:
   - component: {fileID: 5256776503181432655}
   m_Layer: 0
   m_Name: HurtBox JUMP
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -555,7 +570,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.13179672}
+  m_Offset: {x: -0.296707, y: -0.11145109}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -565,5 +580,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.73640656}
+  m_Size: {x: 0.40658596, y: 0.69571525}
   m_EdgeRadius: 0
