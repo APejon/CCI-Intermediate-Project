@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public FighterController player2;
     public Transform         player1Spawn;
     public Transform         player2Spawn;
-
+    
     [Header("UI (TMP)")]
     public TMP_Text player1ScoreText;   // left-side “★··” etc.
     public TMP_Text player2ScoreText;   // right-side “★··” etc.
@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
     /* ── Runtime State ─────────────────────────────────────────── */
     int  p1Score, p2Score;
     bool roundLocked;           // true while pause coroutine is running
+    
+    /* ── Stage limits (tweak in the Inspector) ──────────────────── */
+    [Header("Stage Boundaries")]
+    public float leftBoundary  = -8f;
+    public float rightBoundary =  8f;
+    public float gizmoHeight   = 5f; 
 
     /* ── Constants for score glyphs ────────────────────────────── */
     const char STAR = '★';
@@ -113,5 +119,17 @@ public class GameManager : MonoBehaviour
 
         player1.ResetMotion();
         player2.ResetMotion();
+    }
+    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        float halfH  = gizmoHeight * 0.5f;
+        Vector3 btmL = new(leftBoundary , transform.position.y - halfH, 0f);
+        Vector3 topL = new(leftBoundary , transform.position.y + halfH, 0f);
+        Vector3 btmR = new(rightBoundary, btmL.y,                         0f);
+        Vector3 topR = new(rightBoundary, topL.y,                         0f);
+        Gizmos.DrawLine(btmL, topL);
+        Gizmos.DrawLine(btmR, topR);
     }
 }

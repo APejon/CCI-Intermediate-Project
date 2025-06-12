@@ -55,12 +55,19 @@ public class FighterController : MonoBehaviour
     bool  isCrouching;
     float moveInput;                    // –1 .. 1 ; AI writes directly
 
+    private float leftBoundary;
+    private float rightBoundary;
+
     /* ── Unity Hooks ───────────────────────────────────────────── */
     void Start()
     {
         rb2D        = GetComponent<Rigidbody2D>();
         anim        = GetComponent<Animator>();
+        
         initialScale = transform.localScale;
+        
+        leftBoundary  = GameManager.Instance ? GameManager.Instance.leftBoundary  : -999f;
+        rightBoundary = GameManager.Instance ? GameManager.Instance.rightBoundary :  999f;
 
         ActivateHurtBox(hurtBoxIdle);
 
@@ -94,6 +101,10 @@ public class FighterController : MonoBehaviour
         /* freeze horizontal speed while attacking */
         float horiz = isAttacking ? 0f : moveInput;
         rb2D.linearVelocity = new Vector2(horiz * moveSpeed, rb2D.linearVelocity.y);
+        
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, leftBoundary, rightBoundary);
+        transform.position = pos;
     }
 
     /* ── Facing ─────────────────────────────────────────────────── */
