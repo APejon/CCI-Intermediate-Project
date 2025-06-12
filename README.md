@@ -3,7 +3,7 @@ A project that involves the collaboration of CCI program students
 
 ## Liveline (Deadline but more positive):
 
-## Game's Name:
+## Game's Name: Trial
 
 ## Genre:
 
@@ -32,3 +32,5 @@ A project that involves the collaboration of CCI program students
 - 9th of June:
 
 - 10th of June:
+
+helloo
