@@ -3,7 +3,7 @@ A project that involves the collaboration of CCI program students
 
 ## Liveline (Deadline but more positive):
 
-## Game's Name: WhipLash
+## Game's Name: Trial
 
 ## Genre:
 
