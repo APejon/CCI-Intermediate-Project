@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 
 public class CharMovement : MonoBehaviour
-{
+{0
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float MovementSpeed = 5f;
     public float jumpForce = 5f;
