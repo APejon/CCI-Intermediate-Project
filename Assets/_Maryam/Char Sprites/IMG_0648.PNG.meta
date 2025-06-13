@@ -1,10 +1,31 @@
 fileFormatVersion: 2
-guid: e8b9398e9d61b2b4dbc596e6c9a8b7d9
+guid: 4d394fd6959b43647b9c366fb4a77486
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3695602732754031975
-    second: ChatGPT Image Jun 12, 2025, 10_25_55 AM_0
+      213: 878463355533298886
+    second: IMG_0648_0
+  - first:
+      213: -6521043277353177478
+    second: IMG_0648_1
+  - first:
+      213: 437271227927432213
+    second: IMG_0648_2
+  - first:
+      213: 5129224568375724550
+    second: IMG_0648_3
+  - first:
+      213: 7830805820161786073
+    second: IMG_0648_4
+  - first:
+      213: -6211055735624305883
+    second: IMG_0648_5
+  - first:
+      213: -3591356635373923413
+    second: IMG_0648_6
+  - first:
+      213: -2608722707430284005
+    second: IMG_0648_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +134,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image Jun 12, 2025, 10_25_55 AM_0
+      name: kn
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 3303
+        y: 79
+        width: 645
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99aab3b05e496bcc0800000000000000
-      internalID: -3695602732754031975
+      spriteID: 523f5fd47b5edc9a0800000000000000
+      internalID: -6211055735624305883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kn1
+      rect:
+        serializedVersion: 2
+        x: 4116
+        y: 73
+        width: 467
+        height: 414
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba39bcefa20f82ec0800000000000000
+      internalID: -3591356635373923413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kn2
+      rect:
+        serializedVersion: 2
+        x: 4791
+        y: 81
+        width: 959
+        height: 413
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b156f1ae484fbcbd0800000000000000
+      internalID: -2608722707430284005
       vertices: []
       indices: 
       edges: []
@@ -138,7 +203,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6d2efe52cb37af0449f48324058c592e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +213,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ChatGPT Image Jun 12, 2025, 10_25_55 AM_0: -3695602732754031975
+      kn: -6211055735624305883
+      kn1: -3591356635373923413
+      kn2: -2608722707430284005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
