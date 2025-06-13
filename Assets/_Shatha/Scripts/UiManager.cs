@@ -8,7 +8,7 @@ public class UiManager : MonoBehaviour
 
    // [Header("Panels")]
     public GameObject mainMenuPanel;
-    public GameObject gameUIPanel;
+   // public GameObject gameUIPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject gameCredits;
@@ -55,10 +55,10 @@ public class UiManager : MonoBehaviour
         ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
     }
 
-    public void ShowGameUI()
-    {
-        SetActivePanel(gameUIPanel);
-    }
+   // public void ShowGameUI()
+   // {
+     //   SetActivePanel(gameUIPanel);
+   // }
 
     public void ShowPauseMenu()
     {
@@ -77,7 +77,7 @@ public class UiManager : MonoBehaviour
     {
         // Deactivate all
         mainMenuPanel?.SetActive(false);
-        gameUIPanel?.SetActive(false);
+       // gameUIPanel?.SetActive(false);
         pausePanel?.SetActive(false);
         gameOverPanel?.SetActive(false);
         gameCredits?.SetActive(false);
