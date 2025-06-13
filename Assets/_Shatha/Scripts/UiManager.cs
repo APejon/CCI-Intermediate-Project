@@ -51,7 +51,8 @@ public class UiManager : MonoBehaviour
     // === UI Control Methods ===
     public void ShowMainMenu()
     {
-        SetActivePanel(mainMenuPanel);
+        //SetActivePanel(mainMenuPanel);
+        ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
     }
 
     public void ShowGameUI()

@@ -73,7 +73,11 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         // Hide the main menu
-        mainMenuPanel.SetActive(false);
+
+        ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
+
+        //mainMenuPanel.SetActive(false);
+
         // introScreen.StartIntro = true;
 
     }
