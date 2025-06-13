@@ -8,7 +8,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip titleTheme;
     public AudioClip gameTheme;
-
+    public AudioClip buttonClickSound;
+    public AudioSource sfxSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -50,5 +51,28 @@ public class AudioManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         AudioManager.Instance.PlayGameTheme();
+    }
+
+    // New method to play button click sound
+    public void PlayButtonClick()
+    {
+        if (buttonClickSound != null && sfxSource != null)
+        {
+            sfxSource.PlayOneShot(buttonClickSound);
+        }
+    }
+
+    // Call this from your button instead of StartGame()
+    public void StartGameWithSound()
+    {
+        PlayButtonClick();
+        StartCoroutine(DelayedStartGame());
+    }
+
+    private System.Collections.IEnumerator DelayedStartGame()
+    {
+        yield return new WaitForSeconds(0.2f); // wait to let the click sound play
+        SceneManager.LoadScene(0);
+        PlayGameTheme();
     }
 }
