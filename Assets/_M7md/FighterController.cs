@@ -126,6 +126,7 @@ public class FighterController : MonoBehaviour
         moveInput = 0f;
         if (Input.GetKey(leftKey))  moveInput = -1f;
         if (Input.GetKey(rightKey)) moveInput =  1f;
+        Debug.Log(moveInput);
     }
 
     void HandleJumpInput()
@@ -170,41 +171,44 @@ public class FighterController : MonoBehaviour
         }
     }
 
+    /* ── Attack: event-driven instead of coroutine ─────────────────── */
+
     public void TryAttack()
     {
-        if (!isAttacking)
-            StartCoroutine(AttackCoroutine());
+        if (isAttacking) return;                 // still recovering
+
+        isAttacking = true;
+        moveInput   = 0f;                        // stop walking immediately
     }
 
-    /* ── Attack Logic ───────────────────────────────────────────── */
-    IEnumerator AttackCoroutine()
-    {
-        isAttacking = true;
-        moveInput   = 0f;                           // stop walk instantly
+    /* ---------- CALLED BY ANIMATION EVENTS ---------- */
 
-        /* tag the HitBox with its owner each swing */
+    // first event: turn the hit-box ON (clip frame: start of active)
+    public void FC_EnableHitBox()
+    {
         var hb = hitBoxAttack.GetComponent<HitBox>();
         if (hb) hb.owner = this;
-
         hitBoxAttack.SetActive(true);
-        anim?.SetBool("isAttacking", true);
-
-        yield return new WaitForSeconds(attackDuration);
-
-        hitBoxAttack.SetActive(false);
-        anim?.SetBool("isAttacking", false);
-        isAttacking = false;
+        Debug.Log("FC_EnableHitBox");
     }
 
-    public void CancelAttack()                     // called by GameManager
+    // second event: turn it OFF and finish the attack state
+    public void FC_EndAttack()
+    {
+        hitBoxAttack.SetActive(false);
+        isAttacking = false;
+        Debug.Log("FC_EndAttack");
+    }
+
+    /* ── CancelAttack for GameManager still works ──────────────────── */
+    public void CancelAttack()
     {
         if (!isAttacking) return;
 
-        StopAllCoroutines();
         hitBoxAttack.SetActive(false);
-        anim?.SetBool("isAttacking", false);
         isAttacking = false;
     }
+
 
     /* ── Motion / control helpers for GameManager ──────────────── */
     public void EnableControl(bool on)
