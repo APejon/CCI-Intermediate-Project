@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crouching
+  m_Name: laying on the ground
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -6211055735624305883, guid: 4d394fd6959b43647b9c366fb4a77486, type: 3}
-    - time: 0.29166666
-      value: {fileID: -3591356635373923413, guid: 4d394fd6959b43647b9c366fb4a77486, type: 3}
-    - time: 0.5833333
-      value: {fileID: -2608722707430284005, guid: 4d394fd6959b43647b9c366fb4a77486, type: 3}
+      value: {fileID: -7302735100178908579, guid: 65f8299ed6bbeaf408fc37b1ef8d29b2, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 24
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,15 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -6211055735624305883, guid: 4d394fd6959b43647b9c366fb4a77486, type: 3}
-    - {fileID: -3591356635373923413, guid: 4d394fd6959b43647b9c366fb4a77486, type: 3}
-    - {fileID: -2608722707430284005, guid: 4d394fd6959b43647b9c366fb4a77486, type: 3}
+    - {fileID: -7302735100178908579, guid: 65f8299ed6bbeaf408fc37b1ef8d29b2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.625
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

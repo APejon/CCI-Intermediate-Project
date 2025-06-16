@@ -18,6 +18,9 @@ public class UiManager : MonoBehaviour
     public Button restartButton;
     public Button quitButton;
     public Button openWebButton;
+    public Button muteButton;
+
+    private bool isMuted = false;
 
     public string url = "https://itch.io/profile/jalboot"; // Replace with your desired URL
 
@@ -42,6 +45,7 @@ public class UiManager : MonoBehaviour
         if (restartButton != null) restartButton.onClick.AddListener(() => SceneLoader.Instance.RestartScene());
         if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
+        if (muteButton != null) muteButton.onClick.AddListener(ToggleMute);
         ShowMainMenu();
     }
     public void OpenWeb()
@@ -63,6 +67,7 @@ public class UiManager : MonoBehaviour
     public void ShowPauseMenu()
     {
         SetActivePanel(pausePanel);
+        muteButton?.gameObject.SetActive(true);
     }
     public void ShowGameCredits()
     {
