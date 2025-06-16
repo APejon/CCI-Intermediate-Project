@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class UiManager : MonoBehaviour
 {
 
@@ -8,7 +8,7 @@ public class UiManager : MonoBehaviour
 
    // [Header("Panels")]
     public GameObject mainMenuPanel;
-    public GameObject gameUIPanel;
+   // public GameObject gamePlayUI;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject gameCredits;
@@ -55,12 +55,13 @@ public class UiManager : MonoBehaviour
     // === UI Control Methods ===
     public void ShowMainMenu()
     {
-        SetActivePanel(mainMenuPanel);
+        //SetActivePanel(mainMenuPanel);
+        ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
     }
 
     public void ShowGameUI()
     {
-        SetActivePanel(gameUIPanel);
+        SceneManager.LoadScene(0);
     }
 
     public void ShowPauseMenu()
@@ -81,12 +82,15 @@ public class UiManager : MonoBehaviour
     {
         // Deactivate all
         mainMenuPanel?.SetActive(false);
-        gameUIPanel?.SetActive(false);
+       // gamePlayUI?.SetActive(false);
         pausePanel?.SetActive(false);
         gameOverPanel?.SetActive(false);
         gameCredits?.SetActive(false);
-        muteButton?.gameObject.SetActive(false);
+        pausePanel.SetActive(false);
         // Activate target
         targetPanel?.SetActive(true);
+
+        // Activate the chosen panel
+
     }
 }
