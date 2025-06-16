@@ -51,8 +51,8 @@ public class UiManager : MonoBehaviour
     // === UI Control Methods ===
     public void ShowMainMenu()
     {
-        //SetActivePanel(mainMenuPanel);
-        ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
+        SetActivePanel(mainMenuPanel); //why????
+        //ScreenFader.Instance.FadeIn(mainMenuPanel, 1f);
     }
 
     public void ShowGameUI()
@@ -76,8 +76,9 @@ public class UiManager : MonoBehaviour
     private void SetActivePanel(GameObject targetPanel)
     {
         // Deactivate all
+        //ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
         mainMenuPanel?.SetActive(false);
-       // gamePlayUI?.SetActive(false);
+        //gamePlayUI?.SetActive(false);
         pausePanel?.SetActive(false);
         gameOverPanel?.SetActive(false);
         gameCredits?.SetActive(false);
@@ -87,5 +88,10 @@ public class UiManager : MonoBehaviour
 
         // Activate the chosen panel
 
+    }
+
+    private void ScreenFader(GameObject PANEL, bool InOrOut)
+    {
+        mainMenuPanel?.SetActive(true);
     }
 }
