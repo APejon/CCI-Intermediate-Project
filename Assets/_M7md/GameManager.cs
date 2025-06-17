@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public float gizmoHeight   = 5f; 
 
     /* ── Constants for score glyphs ────────────────────────────── */
-    const char STAR = '★';
+    const char STAR = 'O';
     const char DOT  = '·';
 
     void Start() => RefreshScoreUI();  // initialise “···”
@@ -52,10 +52,6 @@ public class GameManager : MonoBehaviour
     {
         if (roundLocked) return;
         roundLocked = true;
-
-        /* 0)  make sure no hit-box survives the pause */
-        attacker.CancelAttack();
-        defender.CancelAttack();
 
         /* 1)  knock-back the loser */
         Vector2 dir = (defender.transform.position.x < attacker.transform.position.x)
@@ -97,7 +93,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
 
         // Game finished – fighters stay frozen. Replace with
-        // SceneManager.LoadScene("MainMenu") if you need a transition.
+        // SceneManager.LoadScene("MainMenu"); if you need a transition.
     }
 
     /* ── Helpers ───────────────────────────────────────────────── */

@@ -32,7 +32,7 @@ public class FighterController : MonoBehaviour
 
     [Header("Facing")]
     public bool  facingRight = true;          // start orientation
-    public Transform enemy;                   // optional auto-face target
+    public Transform opponent;                   // optional auto-face target
 
     /* ── Public Flags ───────────────────────────────────────────── */
     [HideInInspector] public bool isBot = false;
@@ -72,19 +72,21 @@ public class FighterController : MonoBehaviour
         ActivateHurtBox(hurtBoxIdle);
 
         /* default pose triggers if user didn’t assign custom lambdas */
-        PlayWinPose    ??= () => anim?.SetTrigger("Win");
-        PlayDefeatPose ??= () => anim?.SetTrigger("Lose");
+        PlayWinPose    ??= () => anim?.SetTrigger("Win"); //IGNORE
+        PlayDefeatPose ??= () => anim?.SetTrigger("Lose"); //IGNORE
     }
 
     void Update()
     {
         CheckGrounded();
-
-        if (isGrounded && enemy)
-            FaceTowards(enemy.position);
+        
+        // Faces towards the opponent if there is one
+        if (isGrounded && opponent)
+            FaceTowards(opponent.position);
 
         if (isAttacking) return;                    // locked-out during swing
 
+        // If this is not a bot/ai, allows control handeling methods
         if (!isBot)
         {
             HandleMovementInput();
@@ -126,7 +128,6 @@ public class FighterController : MonoBehaviour
         moveInput = 0f;
         if (Input.GetKey(leftKey))  moveInput = -1f;
         if (Input.GetKey(rightKey)) moveInput =  1f;
-        Debug.Log(moveInput);
     }
 
     void HandleJumpInput()
@@ -170,9 +171,7 @@ public class FighterController : MonoBehaviour
             ActivateHurtBox(on ? hurtBoxCrouch : hurtBoxIdle);
         }
     }
-
-    /* ── Attack: event-driven instead of coroutine ─────────────────── */
-
+    
     public void TryAttack()
     {
         if (isAttacking) return;                 // still recovering
@@ -180,6 +179,8 @@ public class FighterController : MonoBehaviour
         isAttacking = true;
         moveInput   = 0f;                        // stop walking immediately
     }
+
+    /* ── Attack ─────────────────── */
 
     /* ---------- CALLED BY ANIMATION EVENTS ---------- */
 
@@ -189,15 +190,18 @@ public class FighterController : MonoBehaviour
         var hb = hitBoxAttack.GetComponent<HitBox>();
         if (hb) hb.owner = this;
         hitBoxAttack.SetActive(true);
-        Debug.Log("FC_EnableHitBox");
     }
 
-    // second event: turn it OFF and finish the attack state
-    public void FC_EndAttack()
+    // second event: turns it OFF 
+    public void FC_DisableHitBox()
     {
         hitBoxAttack.SetActive(false);
+    }
+    
+    // second event: end animation / attack state
+    public void FC_EndAttackAnimation()
+    {
         isAttacking = false;
-        Debug.Log("FC_EndAttack");
     }
 
     /* ── CancelAttack for GameManager still works ──────────────────── */
@@ -253,7 +257,8 @@ public class FighterController : MonoBehaviour
         if (!anim) return;
         anim.SetBool ("isGrounded", isGrounded);
         anim.SetBool ("isCrouching", isCrouching);
-        anim.SetFloat("Speed",      Mathf.Abs(moveInput));
+        anim.SetBool ("isAttacking", isAttacking);
+        //anim.SetFloat("Speed",      Mathf.Abs(moveInput));
     }
 
     /* ── Debug visuals ──────────────────────────────────────────── */
