@@ -349,13 +349,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  hurtBoxIdle: {fileID: 4765961070540426355}
-  hurtBoxCrouch: {fileID: 123609430725455133}
-  hurtBoxJump: {fileID: 8515989616698339182}
-  hitBoxAttack: {fileID: 6486042379679588252}
-  attackDuration: 0.2
+  hurtIdle: {fileID: 4765961070540426355}
+  hurtCrouch: {fileID: 123609430725455133}
+  hurtJump: {fileID: 8515989616698339182}
+  hitAttack: {fileID: 6486042379679588252}
   facingRight: 1
-  enemy: {fileID: 0}
+  opponent: {fileID: 0}
   isBot: 0
 --- !u!95 &6803257801195666659
 Animator:

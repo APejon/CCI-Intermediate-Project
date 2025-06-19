@@ -252,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OPPONENT FIGHTER
       objectReference: {fileID: 0}
+    - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: enemy
       value: 
@@ -1373,6 +1377,9 @@ MonoBehaviour:
   pauseAfterPoint: 3
   maxScore: 3
   knockForce: {x: 6, y: 4}
+  leftBoundary: -8
+  rightBoundary: 8
+  gizmoHeight: 5
 --- !u!1 &1077197863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,14 +1484,13 @@ MonoBehaviour:
   player: {fileID: 33725039}
   attackRange: 1.5
   attackCooldown: 1.2
-  chaseSpeed: 5
-  idleProbability: 0.5
-  retreatProbability: 0.3
-  idleDurationRange: {x: 0.4, y: 1.5}
-  advanceDurationRange: {x: 0.6, y: 2}
-  retreatDurationRange: {x: 0.4, y: 1.2}
-  jumpChancePerSec: 0.25
-  crouchChancePerSec: 0
+  idleProb: 0.3
+  retreatProb: 0.2
+  idleDur: {x: 0.4, y: 1.5}
+  advDur: {x: 0.6, y: 2}
+  retDur: {x: 0.4, y: 1.2}
+  jumpChance: 0.1
+  crouchChance: 0.05
   crouchDuration: 0.5
 --- !u!114 &1122516106 stripped
 MonoBehaviour:
@@ -1760,7 +1766,7 @@ SpriteRenderer:
   m_Size: {x: 15.36, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1465375813
