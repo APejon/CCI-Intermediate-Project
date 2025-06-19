@@ -1,25 +1,115 @@
 fileFormatVersion: 2
-guid: bb51ba1d2c40a8940855d477f0fa3d8a
+guid: e101330e9f826cb42b43fe4eb9f685a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7881414284890356871
-    second: pixel_art_large_0
+      213: -3463353118338443419
+    second: power-removebg-preview_0
   - first:
-      213: 5927740863143096507
-    second: pixel_art_large_1
+      213: -2376252558970310456
+    second: power-removebg-preview_1
   - first:
-      213: 5558235188130072983
-    second: pixel_art_large_2
+      213: 399633069053570452
+    second: power-removebg-preview_2
   - first:
-      213: -2032359962526960845
-    second: pixel_art_large_3
+      213: -7669234364394544560
+    second: power-removebg-preview_3
   - first:
-      213: -6499074040274553689
-    second: pixel_art_large_4
+      213: 3088141477299366414
+    second: power-removebg-preview_4
   - first:
-      213: 7485855255564759518
-    second: pixel_art_large_5
+      213: -4292802545230824360
+    second: power-removebg-preview_5
+  - first:
+      213: 4894012541610389355
+    second: power-removebg-preview_6
+  - first:
+      213: -382118590825163055
+    second: power-removebg-preview_7
+  - first:
+      213: 2958693507242686118
+    second: power-removebg-preview_8
+  - first:
+      213: -2138648540617450343
+    second: power-removebg-preview_9
+  - first:
+      213: 512789928647102015
+    second: power-removebg-preview_10
+  - first:
+      213: -1865167980276766790
+    second: power-removebg-preview_11
+  - first:
+      213: -2623879011048965819
+    second: power-removebg-preview_12
+  - first:
+      213: -7389044577112297513
+    second: power-removebg-preview_13
+  - first:
+      213: -5144482359608212251
+    second: power-removebg-preview_14
+  - first:
+      213: -1143016074465499782
+    second: power-removebg-preview_15
+  - first:
+      213: 201124838624514063
+    second: power-removebg-preview_16
+  - first:
+      213: -6567421658586890973
+    second: power-removebg-preview_17
+  - first:
+      213: -8408048644368737208
+    second: power-removebg-preview_18
+  - first:
+      213: 1389829830626367188
+    second: power-removebg-preview_19
+  - first:
+      213: 7365134745580335237
+    second: power-removebg-preview_20
+  - first:
+      213: -2242715674477235077
+    second: power-removebg-preview_21
+  - first:
+      213: 8548156841769624503
+    second: power-removebg-preview_22
+  - first:
+      213: -1863571099934245004
+    second: power-removebg-preview_23
+  - first:
+      213: 2861605300686483968
+    second: power-removebg-preview_24
+  - first:
+      213: -1578102704573485265
+    second: power-removebg-preview_25
+  - first:
+      213: -4902957027351378214
+    second: power-removebg-preview_26
+  - first:
+      213: 2091955090103573707
+    second: power-removebg-preview_27
+  - first:
+      213: -142366971881252842
+    second: power-removebg-preview_28
+  - first:
+      213: 7967877463761232047
+    second: power-removebg-preview_29
+  - first:
+      213: -3322837659139537495
+    second: power-removebg-preview_30
+  - first:
+      213: 1648855729514006713
+    second: power-removebg-preview_31
+  - first:
+      213: -2529532978586082415
+    second: power-removebg-preview_32
+  - first:
+      213: 9039572045584279672
+    second: power-removebg-preview_33
+  - first:
+      213: -8910709828271024482
+    second: power-removebg-preview_34
+  - first:
+      213: 375040919661687094
+    second: power-removebg-preview_35
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,133 +218,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixel_art_large_0
+      name: power-removebg-preview_24
       rect:
         serializedVersion: 2
-        x: 88
-        y: 398
-        width: 67
-        height: 156
+        x: 20
+        y: 26
+        width: 95
+        height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973cb6527779f9290800000000000000
-      internalID: -7881414284890356871
+      spriteID: 002faca0cd676b720800000000000000
+      internalID: 2861605300686483968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_art_large_1
+      name: power-removebg-preview_25
       rect:
         serializedVersion: 2
-        x: 158
-        y: 398
-        width: 57
-        height: 156
+        x: 139
+        y: 13
+        width: 142
+        height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb0363498e0934250800000000000000
-      internalID: 5927740863143096507
+      spriteID: f2f60da83f3791ae0800000000000000
+      internalID: -1578102704573485265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_art_large_2
+      name: power-removebg-preview_30
       rect:
         serializedVersion: 2
-        x: 222
-        y: 398
-        width: 57
-        height: 156
+        x: 287
+        y: 23
+        width: 136
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 799c19e6471d22d40800000000000000
-      internalID: 5558235188130072983
+      spriteID: 9a582b011c8e2e1d0800000000000000
+      internalID: -3322837659139537495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_art_large_3
+      name: power-removebg-preview_34
       rect:
         serializedVersion: 2
-        x: 302
-        y: 398
-        width: 96
-        height: 156
+        x: 437
+        y: 19
+        width: 146
+        height: 116
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 333bad9c16b9bc3e0800000000000000
-      internalID: -2032359962526960845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pixel_art_large_4
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 398
-        width: 22
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7a4f87c0896aec5a0800000000000000
-      internalID: -6499074040274553689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pixel_art_large_5
-      rect:
-        serializedVersion: 2
-        x: 431
-        y: 398
-        width: 57
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed1bde371b913e760800000000000000
-      internalID: 7485855255564759518
+      spriteID: e96d2554f9cc65480800000000000000
+      internalID: -8910709828271024482
       vertices: []
       indices: 
       edges: []
@@ -263,7 +309,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c9266cc11e712494a8907b546514d6a9
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +319,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixel_art_large_0: -7881414284890356871
-      pixel_art_large_1: 5927740863143096507
-      pixel_art_large_2: 5558235188130072983
-      pixel_art_large_3: -2032359962526960845
-      pixel_art_large_4: -6499074040274553689
-      pixel_art_large_5: 7485855255564759518
+      power-removebg-preview_36: -1532945818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

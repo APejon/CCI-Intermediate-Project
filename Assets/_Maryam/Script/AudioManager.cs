@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+
 public class AudioManager : MonoBehaviour
 {
-
     public static AudioManager Instance;
 
     public AudioSource musicSource;
@@ -10,6 +12,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip gameTheme;
     public AudioClip buttonClickSound;
     public AudioSource sfxSource;
+
+    public bool isMuted = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -75,4 +80,21 @@ public class AudioManager : MonoBehaviour
         SceneManager.LoadScene(0);
         PlayGameTheme();
     }
+
+        public void MuteToggle(bool muted)
+        {
+            if (isMuted == false)
+            {
+                AudioListener.volume = 0;
+                Debug.Log("mute");
+                isMuted = true;
+            }
+            else if(isMuted == true)
+            {
+                AudioListener.volume = 1;
+                Debug.Log("play");
+                isMuted = false;
+            }
+        }
+    
 }
