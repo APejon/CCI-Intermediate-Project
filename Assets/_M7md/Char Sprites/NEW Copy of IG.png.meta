@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: df877b8d8ab144542b4114a3645432cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2047785033905683042
+    second: Copy of IG_0
+  - first:
+      213: 2725604509404755583
+    second: Copy of IG_1
+  - first:
+      213: 4959148826283651446
+    second: Copy of IG_2
+  - first:
+      213: 7833167116856977858
+    second: Copy of IG_3
+  - first:
+      213: 9131157290488196208
+    second: Copy of IG_4
+  - first:
+      213: 8653491876970977732
+    second: Copy of IG_5
+  - first:
+      213: -24890555104501476
+    second: Copy of IG_6
+  - first:
+      213: -6759581995465561213
+    second: Copy of IG_7
+  - first:
+      213: 1867175881783071415
+    second: Copy of IG_8
+  - first:
+      213: -2112430658018717336
+    second: Copy of IG_9
+  - first:
+      213: -1394176225208894487
+    second: Copy of IG_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 700
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Copy of IG_0
+      rect:
+        serializedVersion: 2
+        x: 4572
+        y: 1365
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a3f4283a13b6c10800000000000000
+      internalID: 2047785033905683042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_1
+      rect:
+        serializedVersion: 2
+        x: 4415
+        y: 856
+        width: 710
+        height: 502
+      alignment: 9
+      pivot: {x: 0.4520157, y: 0.5067866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76f5454cda43d520800000000000000
+      internalID: 2725604509404755583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 37
+        width: 471
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9e78aadfff4bc60800000000000000
+      internalID: 7833167116856977858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_4
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 70
+        width: 485
+        height: 706
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c64cf3d2368be70800000000000000
+      internalID: 9131157290488196208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_5
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 361
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c955919301671870800000000000000
+      internalID: 8653491876970977732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_6
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 0
+        width: 528
+        height: 722
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11ebb80c2297aff0800000000000000
+      internalID: -24890555104501476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_7
+      rect:
+        serializedVersion: 2
+        x: 2214
+        y: 68
+        width: 1084
+        height: 673
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b262a2df32132a0800000000000000
+      internalID: -6759581995465561213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_8
+      rect:
+        serializedVersion: 2
+        x: 3379
+        y: 85
+        width: 729
+        height: 425
+      alignment: 9
+      pivot: {x: 0.3845903, y: 0.49184924}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b25bde529a89e910800000000000000
+      internalID: 1867175881783071415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_9
+      rect:
+        serializedVersion: 2
+        x: 4110
+        y: 98
+        width: 677
+        height: 425
+      alignment: 9
+      pivot: {x: 0.26348075, y: 0.4756067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861562832832fa2e0800000000000000
+      internalID: -2112430658018717336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of IG_10
+      rect:
+        serializedVersion: 2
+        x: 4789
+        y: 89
+        width: 959
+        height: 425
+      alignment: 9
+      pivot: {x: 0.18027048, y: 0.5082491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ebf02e1c14e6ace0800000000000000
+      internalID: -1394176225208894487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eb3b25e0870230a448b3f93f78a4e00b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Copy of IG_0: 2047785033905683042
+      Copy of IG_1: 2725604509404755583
+      Copy of IG_10: -1394176225208894487
+      Copy of IG_2: 4959148826283651446
+      Copy of IG_3: 7833167116856977858
+      Copy of IG_4: 9131157290488196208
+      Copy of IG_5: 8653491876970977732
+      Copy of IG_6: -24890555104501476
+      Copy of IG_7: -6759581995465561213
+      Copy of IG_8: 1867175881783071415
+      Copy of IG_9: -2112430658018717336
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

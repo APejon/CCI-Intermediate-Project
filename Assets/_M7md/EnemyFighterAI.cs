@@ -3,146 +3,113 @@ using UnityEngine;
 [RequireComponent(typeof(FighterController))]
 public class EnemyFighterAI : MonoBehaviour
 {
-    /* ───── Target & Combat ───── */
+    /* ── Configurable in Inspector ────────────────────────────── */
     [Header("Target & Ranges")]
     public Transform player;
-    public float   attackRange    = 1.5f;
+    public float attackRange = 1.5f, attackCooldown = 1.2f;
 
-    [Header("Attack")]
-    public float   attackCooldown = 1.2f;
+    [Header("Behaviour Probabilities")]
+    [Range(0, 1)] public float idleProb = 0.30f;
+    [Range(0, 1)] public float retreatProb = 0.20f;
 
-    /* ───── Locomotion ───── */
-    [Header("Movement")]
-    public float   chaseSpeed     = 5f;      // controller supplies actual speed
+    [Header("Behaviour Durations")]
+    public Vector2 idleDur = new(0.4f, 1.5f);
+    public Vector2 advDur  = new(0.6f, 2.0f);
+    public Vector2 retDur  = new(0.4f, 1.2f);
 
-    /* ───── Behaviour Switching ───── */
-    public enum Behaviour { Idle, Advance, Retreat }
-
-    [Header("Behaviour Probabilities (Advance = 1 – idle – retreat)")]
-    [Range(0, 1)] public float idleProbability    = 0.30f;
-    [Range(0, 1)] public float retreatProbability = 0.20f;
-
-    [Header("Behaviour Durations (seconds)")]
-    public Vector2 idleDurationRange    = new Vector2(0.4f, 1.5f);
-    public Vector2 advanceDurationRange = new Vector2(0.6f, 2.0f);
-    public Vector2 retreatDurationRange = new Vector2(0.4f, 1.2f);
-
-    /* ───── Random Jump / Crouch ───── */
     [Header("Random Jump / Crouch")]
-    [Range(0, 1)] public float jumpChancePerSec   = 0.10f;
-    [Range(0, 1)] public float crouchChancePerSec = 0.05f;
-    public float   crouchDuration = 0.5f;
+    [Range(0, 1)] public float jumpChance = 0.10f;
+    [Range(0, 1)] public float crouchChance = 0.05f;
+    public float crouchDuration = 0.5f;
 
-    /* ───── Internals ───── */
+    /* ── Internals ───────────────────────────────────────────── */
+    enum Behaviour { Idle, Advance, Retreat }
+
     FighterController ctrl;
-    Behaviour currentBehaviour;
-    float behaviourEndTime;
-    float lastAttackTime;
-    float crouchReleaseTime;
+    Behaviour mode;
+    float modeEnd, lastAttack, crouchRelease;
 
-    /* ───── Unity Hooks ───── */
+    /* ── Unity hooks ──────────────────────────────────────────── */
     void Start()
     {
-        ctrl       = GetComponent<FighterController>();
-        ctrl.isBot = true;                         // ensure controller ignores player input
-        PickNextBehaviour();                      // initialise first behaviour
+        ctrl = GetComponent<FighterController>();
+        ctrl.isBot = true;
+        PickNextMode();
     }
 
     void Update()
     {
-        if (!player) return;
+        if (!player || !enabled) return;     // disabled during round pause
 
-        /* Face player at all times */
-        ctrl.FaceTowards(player.position);
+        if (Time.time >= modeEnd) PickNextMode();
+        ExecuteMode();
 
-        /* Switch behaviour when the timer expires */
-        if (Time.time >= behaviourEndTime)
-            PickNextBehaviour();
-
-        /* Execute current behaviour */
-        ExecuteBehaviour();
-
-        /* Handle attacking if in range */
-        float dist = Vector2.Distance(transform.position, player.position);
-        if (dist <= attackRange && Time.time >= lastAttackTime + attackCooldown)
+        float d = Vector2.Distance(transform.position, player.position);
+        if (d <= attackRange && Time.time >= lastAttack + attackCooldown)
         {
             ctrl.TryAttack();
-            lastAttackTime = Time.time;
+            lastAttack = Time.time;
         }
 
-        /* Opportunistic jump (only if not crouching) */
-        if (!ctrl.IsCrouching &&
-            Random.value < jumpChancePerSec * Time.deltaTime)
-        {
+        if (!ctrl.IsCrouching && Random.value < jumpChance * Time.deltaTime)
             ctrl.TryJump();
-        }
 
-        /* Temporary random crouch */
-        if (Time.time >= crouchReleaseTime)
+        if (Time.time >= crouchRelease)
         {
-            ctrl.TryCrouch(false);         // stand up if crouching
-
-            if (Random.value < crouchChancePerSec * Time.deltaTime)
+            ctrl.TryCrouch(false);
+            if (Random.value < crouchChance * Time.deltaTime)
             {
                 ctrl.TryCrouch(true);
-                crouchReleaseTime = Time.time + crouchDuration;
+                crouchRelease = Time.time + crouchDuration;
             }
         }
     }
 
-    /* ───── Behaviour Helpers ───── */
-    void ExecuteBehaviour()
+    /* ── Modes -------------------------------------------------- */
+    void ExecuteMode()
     {
-        switch (currentBehaviour)
+        switch (mode)
         {
-            case Behaviour.Idle:
-                ctrl.SetMoveInput(0f);
-                break;
-
-            case Behaviour.Advance:
-                MoveTowardsPlayer(+1f);
-                break;
-
-            case Behaviour.Retreat:
-                MoveTowardsPlayer(-1f);
-                break;
+            case Behaviour.Idle:    ctrl.SetMoveInput(0f);     break;
+            case Behaviour.Advance: Move( +1f);                break;
+            case Behaviour.Retreat: Move( -1f);                break;
         }
     }
 
-    void MoveTowardsPlayer(float directionSign)
+    void Move(float sign)
     {
-        float dir = Mathf.Sign(player.position.x - transform.position.x) * directionSign;
-        ctrl.SetMoveInput(dir);            // –1 left, +1 right; controller clamps value
+        float dir = Mathf.Sign(player.position.x - transform.position.x) * sign;
+
+        // stop pushing when at wall
+        float left  = GameManager.Instance ? GameManager.Instance.leftBoundary  : -999f;
+        float right = GameManager.Instance ? GameManager.Instance.rightBoundary :  999f;
+        bool atLeft  = transform.position.x <= left  + 0.05f;
+        bool atRight = transform.position.x >= right - 0.05f;
+
+        if ((dir < 0 && atLeft) || (dir > 0 && atRight)) dir = 0;
+        ctrl.SetMoveInput(dir);
     }
 
-    void PickNextBehaviour()
+    void PickNextMode()
     {
-        /* Choose behaviour based on probabilities */
         float r = Random.value;
-        if (r < idleProbability)
-            currentBehaviour = Behaviour.Idle;
-        else if (r < idleProbability + retreatProbability)
-            currentBehaviour = Behaviour.Retreat;
-        else
-            currentBehaviour = Behaviour.Advance;
+        mode = r < idleProb             ? Behaviour.Idle :
+               r < idleProb + retreatProb ? Behaviour.Retreat :
+                                             Behaviour.Advance;
 
-        /* Choose duration based on the behaviour */
-        Vector2 range = advanceDurationRange;
-        switch (currentBehaviour)
+        Vector2 range = mode switch
         {
-            case Behaviour.Idle:    range = idleDurationRange;    break;
-            case Behaviour.Retreat: range = retreatDurationRange; break;
-        }
-        behaviourEndTime = Time.time + Random.Range(range.x, range.y);
+            Behaviour.Idle    => idleDur,
+            Behaviour.Retreat => retDur,
+            _                 => advDur
+        };
+        modeEnd = Time.time + Random.Range(range.x, range.y);
     }
 
-    /* ───── Visual Debug ───── */
+    /* ── Visual aid -------------------------------------------- */
     void OnDrawGizmosSelected()
     {
-        if (player)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
