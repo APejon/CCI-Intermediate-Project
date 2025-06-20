@@ -50,7 +50,7 @@ public class CharMovement : MonoBehaviour
 
     void PlayerMoveKeyboard()
     {
-        dirX = Input.GetAxisRaw("Horizontal");
+        dirX = Input.GetAxis("Horizontal_P2");
         transform.position += new Vector3(dirX, 0f, 0f) * MovementSpeed * Time.deltaTime;
     }
     void AnimatePlayer()
@@ -76,7 +76,7 @@ public class CharMovement : MonoBehaviour
     }
     void Playerjump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonDown("Jump_P2") && isGrounded)
         {
             //isGrounded = false;
             anim.SetBool("IsJumping", true);
@@ -102,7 +102,7 @@ public class CharMovement : MonoBehaviour
         void HandleAttack()
         {
             // If attack button is pressed, trigger the attack animation
-            if (Input.GetKeyDown(KeyCode.W) && !isDead)
+            if (Input.GetButtonDown("Fire1") && !isDead)
             {
                 anim.SetTrigger(AttackAnim);
             }

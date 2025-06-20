@@ -44,7 +44,14 @@ public class EnemyFighterAI : MonoBehaviour
         if (Time.time >= modeEnd) PickNextMode();
         ExecuteMode();
 
-        float d = Vector2.Distance(transform.position, player.position);
+        // What direction facing
+        Vector2 vDir = (player.position - transform.position);
+        vDir.Normalize();
+        
+        float d = player.position.x - transform.position.x;
+        d = Mathf.Abs(d);
+        
+        //float d = Vector2.Distance(transform.position, player.position);
         if (d <= attackRange && Time.time >= lastAttack + attackCooldown)
         {
             ctrl.TryAttack();
