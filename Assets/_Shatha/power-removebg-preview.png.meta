@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: e101330e9f826cb42b43fe4eb9f685a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3463353118338443419
+    second: power-removebg-preview_0
+  - first:
+      213: -2376252558970310456
+    second: power-removebg-preview_1
+  - first:
+      213: 399633069053570452
+    second: power-removebg-preview_2
+  - first:
+      213: -7669234364394544560
+    second: power-removebg-preview_3
+  - first:
+      213: 3088141477299366414
+    second: power-removebg-preview_4
+  - first:
+      213: -4292802545230824360
+    second: power-removebg-preview_5
+  - first:
+      213: 4894012541610389355
+    second: power-removebg-preview_6
+  - first:
+      213: -382118590825163055
+    second: power-removebg-preview_7
+  - first:
+      213: 2958693507242686118
+    second: power-removebg-preview_8
+  - first:
+      213: -2138648540617450343
+    second: power-removebg-preview_9
+  - first:
+      213: 512789928647102015
+    second: power-removebg-preview_10
+  - first:
+      213: -1865167980276766790
+    second: power-removebg-preview_11
+  - first:
+      213: -2623879011048965819
+    second: power-removebg-preview_12
+  - first:
+      213: -7389044577112297513
+    second: power-removebg-preview_13
+  - first:
+      213: -5144482359608212251
+    second: power-removebg-preview_14
+  - first:
+      213: -1143016074465499782
+    second: power-removebg-preview_15
+  - first:
+      213: 201124838624514063
+    second: power-removebg-preview_16
+  - first:
+      213: -6567421658586890973
+    second: power-removebg-preview_17
+  - first:
+      213: -8408048644368737208
+    second: power-removebg-preview_18
+  - first:
+      213: 1389829830626367188
+    second: power-removebg-preview_19
+  - first:
+      213: 7365134745580335237
+    second: power-removebg-preview_20
+  - first:
+      213: -2242715674477235077
+    second: power-removebg-preview_21
+  - first:
+      213: 8548156841769624503
+    second: power-removebg-preview_22
+  - first:
+      213: -1863571099934245004
+    second: power-removebg-preview_23
+  - first:
+      213: 2861605300686483968
+    second: power-removebg-preview_24
+  - first:
+      213: -1578102704573485265
+    second: power-removebg-preview_25
+  - first:
+      213: -4902957027351378214
+    second: power-removebg-preview_26
+  - first:
+      213: 2091955090103573707
+    second: power-removebg-preview_27
+  - first:
+      213: -142366971881252842
+    second: power-removebg-preview_28
+  - first:
+      213: 7967877463761232047
+    second: power-removebg-preview_29
+  - first:
+      213: -3322837659139537495
+    second: power-removebg-preview_30
+  - first:
+      213: 1648855729514006713
+    second: power-removebg-preview_31
+  - first:
+      213: -2529532978586082415
+    second: power-removebg-preview_32
+  - first:
+      213: 9039572045584279672
+    second: power-removebg-preview_33
+  - first:
+      213: -8910709828271024482
+    second: power-removebg-preview_34
+  - first:
+      213: 375040919661687094
+    second: power-removebg-preview_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: power-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 26
+        width: 95
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002faca0cd676b720800000000000000
+      internalID: 2861605300686483968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: power-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 13
+        width: 142
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f60da83f3791ae0800000000000000
+      internalID: -1578102704573485265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: power-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 23
+        width: 136
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a582b011c8e2e1d0800000000000000
+      internalID: -3322837659139537495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: power-removebg-preview_34
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 19
+        width: 146
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e96d2554f9cc65480800000000000000
+      internalID: -8910709828271024482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c9266cc11e712494a8907b546514d6a9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      power-removebg-preview_36: -1532945818
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
