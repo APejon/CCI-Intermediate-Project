@@ -158,6 +158,9 @@ public class FighterController : MonoBehaviour
     {
         isAttacking = false;
         anim.SetBool("isAttacking", false);
+
+        if (isCrouching && !Input.GetKey(crouchKey))
+            TryCrouch(false);            // stand up if key no longer held
     }
 
     /* ── Helpers ------------------------------------------------ */
