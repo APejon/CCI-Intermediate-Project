@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     const char DOT = '·';
 
     int p1Score, p2Score;
-    bool roundLocked;
+    public bool roundLocked;
     float currentTimer;
     Coroutine timerCoroutine;
     public bool optionsOpen = false;
@@ -69,18 +69,14 @@ public class GameManager : MonoBehaviour
         roundLocked = true;
 
         if (timerCoroutine != null) StopCoroutine(timerCoroutine);
-
-        Vector2 dir = (defender.transform.position.x < attacker.transform.position.x)
-            ? new Vector2(-knockForce.x, knockForce.y)
-            : new Vector2(knockForce.x, knockForce.y);
-        defender.Knockback(dir);
+        defender.Knockback(knockForce);
 
         if (attacker == player1) ++p1Score;
         else ++p2Score;
 
         RefreshScoreUI();
-        player1.EnableControl(false);
-        player2.EnableControl(false);
+        player1.PauseControl(true);
+        player2.PauseControl(true);
 
         if (p1Score >= maxScore || p2Score >= maxScore)
             StartCoroutine(EndGameRoutine(attacker));
@@ -101,8 +97,8 @@ public class GameManager : MonoBehaviour
         }
 
         roundLocked = true;
-        player1.EnableControl(false);
-        player2.EnableControl(false);
+        player1.PauseControl(true);
+        player2.PauseControl(true);
 
         if (p1Score == 0 && p2Score == 0)
         {
@@ -129,8 +125,8 @@ public class GameManager : MonoBehaviour
 
         ResetPositions();
         centerMessageText.text = "";
-        player1.EnableControl(true);
-        player2.EnableControl(true);
+        player1.PauseControl(false);
+        player2.PauseControl(false);
         roundLocked = false;
         timerCoroutine = StartCoroutine(MatchTimerRoutine());
     }

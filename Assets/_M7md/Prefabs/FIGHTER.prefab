@@ -353,6 +353,7 @@ MonoBehaviour:
   hurtCrouch: {fileID: 123609430725455133}
   hurtJump: {fileID: 8515989616698339182}
   hitAttack: {fileID: 6486042379679588252}
+  knockbackForce: {x: 5, y: 5}
   facingRight: 1
   opponent: {fileID: 0}
   isBot: 0

@@ -28,6 +28,7 @@ public class FighterController : MonoBehaviour
     public GameObject hurtCrouch;
     public GameObject hurtJump; 
     public GameObject hitAttack;
+    public Vector2 knockbackForce;
 
     /* ── Facing & target ───────────────────────────────────────── */
     public bool facingRight = true;
@@ -42,7 +43,9 @@ public class FighterController : MonoBehaviour
     Rigidbody2D rb;
     Animator    anim;
     Vector3     startScale;
-    bool isGrounded, isAttacking, isCrouching;
+    
+    
+    bool isGrounded, isAttacking, isCrouching, isKnockback = false;
     float moveInput;
 
     void Awake()
@@ -57,7 +60,7 @@ public class FighterController : MonoBehaviour
     void Update()
     {
         CheckGrounded();
-
+        
         if (isGrounded && opponent) FaceTowards(opponent.position);
         if (!isBot && Input.GetKeyUp(crouchKey))
             TryCrouch(false);
@@ -77,12 +80,14 @@ public class FighterController : MonoBehaviour
         
         /* ---- NEW: walk toggle ---- */
         bool walking = !isAttacking && Mathf.Abs(moveInput) > 0.01f;
-        anim.SetBool("isWalking", walking);
+        anim.SetBool("isWalking", walking); 
     }
 
     void FixedUpdate()
     {
-        // apply horizontal motion (clamped in GameManager bounds)
+        
+        if (isKnockback || GameManager.Instance.roundLocked) return;
+
         float horiz = isAttacking ? 0f : moveInput;
         rb.linearVelocity = new Vector2(horiz * moveSpeed, rb.linearVelocity.y);
 
@@ -97,25 +102,28 @@ public class FighterController : MonoBehaviour
     /* ── Player-side input helpers ─────────────────────────────── */
     void HandleMoveKeys()
     {
+        if (GameManager.Instance.roundLocked) return;
         moveInput = Input.GetKey(leftKey)  ? -1f :
                     Input.GetKey(rightKey) ?  1f : 0f;
     }
 
     void HandleJumpKey()
     {
+        if (GameManager.Instance.roundLocked) return;
         if (Input.GetKeyDown(jumpKey) && isGrounded && !isCrouching)
             TryJump();
     }
 
     void HandleCrouchKeys()
     {
+        if (GameManager.Instance.roundLocked) return;
         if (Input.GetKeyDown(crouchKey) && isGrounded)      TryCrouch(true);
         if (Input.GetKeyUp(crouchKey))                      TryCrouch(false);
     }
 
     void HandleAttackKey()
     {
-        if (Input.GetKeyDown(attackKey)) TryAttack();
+        if (Input.GetKeyDown(attackKey) && !GameManager.Instance.roundLocked) TryAttack();
     }
 
     /* ── Public actions for AI / GM ────────────────────────────── */
@@ -194,15 +202,30 @@ public class FighterController : MonoBehaviour
     }
 
     /* ── Round control (called by GameManager) ------------------ */
-    public void EnableControl(bool on)
+    public void PauseControl(bool on)
     {
-        enabled = on;
-        if (!on) rb.linearVelocity = Vector2.zero;
+        GameManager.Instance.roundLocked = on;
     }
     public void ResetMotion() => rb.linearVelocity = Vector2.zero;
     public void Knockback(Vector2 impulse)
     {
+        Debug.Log("Knockback Force: " + impulse);
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(impulse, ForceMode2D.Impulse);
+
+        float sign = opponent.position.x > transform.position.x ? -1f : 1f;
+        Vector2 knockDir = new Vector2(sign * Mathf.Abs(impulse.x), impulse.y);
+        Debug.Log("Knock Direction: " + knockDir);
+
+        rb.AddForce(knockDir, ForceMode2D.Impulse);
+        isKnockback = true;
+
+        Invoke(nameof(EndKnockback), 0.2f); // adjust duration as needed
     }
+
+    void EndKnockback()
+    {
+        isKnockback = false;
+    }
+
+
 }

@@ -21,7 +21,6 @@ public class HitBox : MonoBehaviour
             return;
 
         alreadyHit.Add(defender);
-
         GameManager.Instance.RegisterPoint(owner, defender, transform.position);
     }
 
