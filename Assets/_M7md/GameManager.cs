@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement; // For potential scene controls
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text player2ScoreText;
     public TMP_Text centerMessageText;
     public TMP_Text timerText;
+    public TMP_Text countdownText; // ✅ NEW: Countdown display text
 
     [Header("Round Flow")]
     public float pauseAfterPoint = 3f;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         RefreshScoreUI();
         currentTimer = matchTime;
-        timerCoroutine = StartCoroutine(MatchTimerRoutine());
+        StartCoroutine(InitialCountdownAndStart());
     }
 
     void Update()
@@ -118,6 +119,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator InitialCountdownAndStart()
+    {
+        roundLocked = true;
+        player1.PauseControl(true);
+        player2.PauseControl(true);
+
+        yield return StartCoroutine(CountdownRoutine());
+
+        player1.PauseControl(false);
+        player2.PauseControl(false);
+        roundLocked = false;
+
+        timerCoroutine = StartCoroutine(MatchTimerRoutine());
+    }
+
     IEnumerator PointPauseRoutine()
     {
         centerMessageText.text = "Point!";
@@ -125,10 +141,25 @@ public class GameManager : MonoBehaviour
 
         ResetPositions();
         centerMessageText.text = "";
+
+        yield return StartCoroutine(CountdownRoutine());
+
         player1.PauseControl(false);
         player2.PauseControl(false);
         roundLocked = false;
+
         timerCoroutine = StartCoroutine(MatchTimerRoutine());
+    }
+
+    IEnumerator CountdownRoutine()
+    {
+        string[] countdownSteps = { "3", "2", "1", "Fight!" };
+        foreach (string step in countdownSteps)
+        {
+            countdownText.text = step;
+            yield return new WaitForSecondsRealtime(1f);
+        }
+        countdownText.text = "";
     }
 
     IEnumerator EndGameRoutine(FighterController winner)
@@ -169,5 +200,3 @@ public class GameManager : MonoBehaviour
         Gizmos.DrawLine(btmR, topR);
     }
 }
-
-
