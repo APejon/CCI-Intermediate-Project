@@ -1,100 +1,85 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class AudioDictionary
+{
+    public List<string> keys = new();
+    public List<AudioClip> clips = new();
+
+    public Dictionary<string, AudioClip> ToDictionary()
+    {
+        Dictionary<string, AudioClip> dict = new();
+
+        for (int i = 0; i < Mathf.Min(keys.Count, clips.Count); i++)
+        {
+            if (!string.IsNullOrEmpty(keys[i]) && clips[i] != null)
+            {
+                dict[keys[i]] = clips[i];
+            }
+        }
+
+        return dict;
+    }
+}
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static AudioManager Instance { get; private set; }
 
-    public AudioSource musicSource;
-    public AudioClip titleTheme;
-    public AudioClip gameTheme;
-    public AudioClip buttonClickSound;
-    public AudioSource sfxSource;
+    [Header("Audio Sources")]
+    public AudioSource uiSource;
+    public AudioSource player1Source;
+    public AudioSource player2Source;
+    public AudioSource otherSource;
 
-    public bool isMuted = false;
+    [Header("Audio Clip Dictionaries")]
+    public AudioDictionary uiSounds;
+    public AudioDictionary player1Sounds;
+    public AudioDictionary player2Sounds;
+    public AudioDictionary otherSounds;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Internal map of key -> (clip, source)
+    private Dictionary<string, (AudioClip, AudioSource)> soundMap = new();
 
-    void Awake()
+    private void Awake()
     {
-        // Singleton pattern to keep the audio manager alive between scenes
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        BuildSoundMap();
+    }
+
+    private void BuildSoundMap()
+    {
+        foreach (var pair in uiSounds.ToDictionary())
+            soundMap[pair.Key] = (pair.Value, uiSource);
+
+        foreach (var pair in player1Sounds.ToDictionary())
+            soundMap[pair.Key] = (pair.Value, player1Source);
+
+        foreach (var pair in player2Sounds.ToDictionary())
+            soundMap[pair.Key] = (pair.Value, player2Source);
+
+        foreach (var pair in otherSounds.ToDictionary())
+            soundMap[pair.Key] = (pair.Value, otherSource);
+    }
+
+    public void Play(string key)
+    {
+        if (soundMap.TryGetValue(key, out var data))
+        {
+            data.Item2.PlayOneShot(data.Item1);
         }
         else
         {
-            Destroy(gameObject);
+            Debug.LogWarning($"Audio key '{key}' not found.");
         }
     }
-
-    void Start()
-    {
-        PlayTitleTheme();
-    }
-
-    // Update is called once per frame
-
-    public void PlayTitleTheme()
-    {
-        musicSource.clip = titleTheme;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
-
-    public void PlayGameTheme()
-    {
-        musicSource.clip = gameTheme;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
-    // When entering gameplay scene
-    void StartGame()
-    {
-        SceneManager.LoadScene(0);
-        AudioManager.Instance.PlayGameTheme();
-    }
-
-    // New method to play button click sound
-    public void PlayButtonClick()
-    {
-        if (buttonClickSound != null && sfxSource != null)
-        {
-            sfxSource.PlayOneShot(buttonClickSound);
-        }
-    }
-
-    // Call this from your button instead of StartGame()
-    public void StartGameWithSound()
-    {
-        PlayButtonClick();
-        StartCoroutine(DelayedStartGame());
-    }
-
-    private System.Collections.IEnumerator DelayedStartGame()
-    {
-        yield return new WaitForSeconds(0.2f); // wait to let the click sound play
-        SceneManager.LoadScene(0);
-        PlayGameTheme();
-    }
-
-        public void MuteToggle(bool muted)
-        {
-            if (isMuted == false)
-            {
-                AudioListener.volume = 0;
-                Debug.Log("mute");
-                isMuted = true;
-            }
-            else if(isMuted == true)
-            {
-                AudioListener.volume = 1;
-                Debug.Log("play");
-                isMuted = false;
-            }
-        }
-    
 }
