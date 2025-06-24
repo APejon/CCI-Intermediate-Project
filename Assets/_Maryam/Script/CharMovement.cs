@@ -8,17 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class CharMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float MovementSpeed = 5f;
     public float jumpForce = 5f;
     private float dirX;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    private string WalkAnim = "IsWalking";
-    private string AttackAnim = "IsAttacking";
-    private bool isDead = false;   // to track if the player is dead
-                                   //  public AttackHitBox attackHitBox;
+    private string WalkAnim = "isDucking";
+    private string AttackAnim = "isBlocking";
+    private bool isDead = false;
     private string Ground_tag = "Ground";
     private bool isGrounded;
 
@@ -31,26 +29,25 @@ public class CharMovement : MonoBehaviour
     }
     void Start()
     {
-    
+
     }
 
-      // Update is called once per frame
+    // Update is called once per frame
 
     void Update()
     {
         PlayerMoveKeyboard();
+        HandleDuckInput();
         AnimatePlayer();
-        HandleAttack();
     }
     private void FixedUpdate()
     {
-        Playerjump();
-        HandleAttack();
+      //  Playerjump();
     }
 
     void PlayerMoveKeyboard()
     {
-        dirX = Input.GetAxis("Horizontal_P2");
+        dirX = Input.GetAxis("Horizontal");
         transform.position += new Vector3(dirX, 0f, 0f) * MovementSpeed * Time.deltaTime;
     }
     void AnimatePlayer()
@@ -74,45 +71,40 @@ public class CharMovement : MonoBehaviour
 
 
     }
-    void Playerjump()
+    //  void Playerjump()
+    //   {
+    //  if (Input.GetButtonDown("Jump") && isGrounded)
+    //   {
+    //isGrounded = false;
+    //  anim.SetBool("isJumping", true);
+    //     rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+    //     isGrounded = false;
+    //   }
+    //  }
+    void HandleDuckInput()
     {
-        if (Input.GetButtonDown("Jump_P2") && isGrounded)
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            //isGrounded = false;
-            anim.SetBool("IsJumping", true);
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isGrounded = false;
+            anim.SetBool(AttackAnim, true); // isDucking
+        }
+        else
+        {
+            anim.SetBool(AttackAnim, false); // Stop ducking when key is released
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(Ground_tag))
-       {
-           isGrounded = true;
-           anim.SetBool("IsJumping", false);
-       }
-    }
-      void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.tag.Equals("Ground"))
-           {
-                isGrounded = false;
-            }
+            isGrounded = true;
+          //  anim.SetBool("isJumping", false);
         }
-        void HandleAttack()
-        {
-            // If attack button is pressed, trigger the attack animation
-            if (Input.GetButtonDown("Fire1") && !isDead)
-            {
-                anim.SetTrigger(AttackAnim);
-            }
-
-        }
-       // void Die()
-       // {
-        //    isDead = true; // set player to dead
-        //    anim.SetTrigger("Die"); // trigger death animation
-                                    //SceneManager.LoadScene(2);
-          //  Debug.Log("playerDie1");// Destroy(gameObject);
-      //  }
     }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(Ground_tag))
+        {
+            isGrounded = false;
+        }
+    }
+}
