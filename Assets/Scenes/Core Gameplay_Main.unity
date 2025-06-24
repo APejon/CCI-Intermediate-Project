@@ -376,6 +376,10 @@ PrefabInstance:
       value: .
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: facingRight
       value: 1
       objectReference: {fileID: 0}
@@ -1706,7 +1710,7 @@ MonoBehaviour:
   pauseAfterPoint: 3
   maxScore: 3
   knockForce: {x: 3, y: 2.5}
-  matchTime: 30
+  matchTime: 10000
   leftBoundary: -8
   rightBoundary: 8
   gizmoHeight: 5
@@ -2626,12 +2630,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f147e560f3d7341469164299ec4fc8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 1688482321}
-  titleTheme: {fileID: 0}
-  gameTheme: {fileID: 8300000, guid: 69deb31b30c7615489fd56c78778d71b, type: 3}
-  buttonClickSound: {fileID: 0}
-  sfxSource: {fileID: 0}
-  isMuted: 0
+  uiSource: {fileID: 0}
+  player1Source: {fileID: 0}
+  player2Source: {fileID: 0}
+  otherSource: {fileID: 0}
+  uiSounds:
+    keys: []
+    clips: []
+  player1Sounds:
+    keys: []
+    clips: []
+  player2Sounds:
+    keys: []
+    clips: []
+  otherSounds:
+    keys: []
+    clips: []
 --- !u!82 &1688482321
 AudioSource:
   m_ObjectHideFlags: 0

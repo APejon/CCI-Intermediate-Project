@@ -45,8 +45,8 @@ public class EnemyFighterAI : MonoBehaviour
         ExecuteMode();
 
         // What direction facing
-        Vector2 vDir = (player.position - transform.position);
-        vDir.Normalize();
+        // Vector2 vDir = (player.position - transform.position);
+        // vDir.Normalize();
         
         float d = player.position.x - transform.position.x;
         d = Mathf.Abs(d);
@@ -100,15 +100,11 @@ public class EnemyFighterAI : MonoBehaviour
     void PickNextMode()
     {
         float r = Random.value;
-        mode = r < idleProb             ? Behaviour.Idle :
-               r < idleProb + retreatProb ? Behaviour.Retreat :
-                                             Behaviour.Advance;
+        mode = r < idleProb ? Behaviour.Idle : r < idleProb + retreatProb ? Behaviour.Retreat : Behaviour.Advance;
 
         Vector2 range = mode switch
         {
-            Behaviour.Idle    => idleDur,
-            Behaviour.Retreat => retDur,
-            _                 => advDur
+            Behaviour.Idle    => idleDur, Behaviour.Retreat => retDur, _ => advDur
         };
         modeEnd = Time.time + Random.Range(range.x, range.y);
     }

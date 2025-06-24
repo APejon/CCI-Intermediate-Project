@@ -164,6 +164,7 @@ public class FighterController : MonoBehaviour
 
     public void FC_EndAttackAnimation()
     {
+        Debug.Log("FC_EndAttack Called!!!");
         isAttacking = false;
         anim.SetBool("isAttacking", false);
 
@@ -202,10 +203,10 @@ public class FighterController : MonoBehaviour
     }
 
     /* ── Round control (called by GameManager) ------------------ */
-    public void PauseControl(bool on)
-    {
-        GameManager.Instance.roundLocked = on;
-    }
+    // public void PauseControl(bool on)
+    // {
+    //     GameManager.Instance.roundLocked = on;
+    // }
     public void ResetMotion() => rb.linearVelocity = Vector2.zero;
     public void Knockback(Vector2 impulse)
     {

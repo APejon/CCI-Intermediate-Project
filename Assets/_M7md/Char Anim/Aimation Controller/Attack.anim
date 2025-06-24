@@ -26,7 +26,7 @@ AnimationClip:
       value: {fileID: -1884271498509478534, guid: 14e883a8d7163774b941d3eb3d428ea6, type: 3}
     - time: 0.21666667
       value: {fileID: 2123415609, guid: 14e883a8d7163774b941d3eb3d428ea6, type: 3}
-    - time: 0.33333334
+    - time: 0.28333333
       value: {fileID: 2123415609, guid: 14e883a8d7163774b941d3eb3d428ea6, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -93,7 +93,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
+  - time: 0.28333333
     functionName: FC_EndAttackAnimation
     data: 
     objectReferenceParameter: {fileID: 0}

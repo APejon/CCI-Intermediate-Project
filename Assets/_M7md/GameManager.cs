@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
         else ++p2Score;
 
         RefreshScoreUI();
-        player1.PauseControl(true);
-        player2.PauseControl(true);
+        //player1.PauseControl(true);
+        //player2.PauseControl(true);
 
         if (p1Score >= maxScore || p2Score >= maxScore)
             StartCoroutine(EndGameRoutine(attacker));
@@ -97,8 +97,8 @@ public class GameManager : MonoBehaviour
         }
 
         roundLocked = true;
-        player1.PauseControl(true);
-        player2.PauseControl(true);
+        // player1.PauseControl(true);
+        // player2.PauseControl(true);
 
         if (p1Score == 0 && p2Score == 0)
         {
@@ -125,8 +125,8 @@ public class GameManager : MonoBehaviour
 
         ResetPositions();
         centerMessageText.text = "";
-        player1.PauseControl(false);
-        player2.PauseControl(false);
+        // player1.PauseControl(false);
+        // player2.PauseControl(false);
         roundLocked = false;
         timerCoroutine = StartCoroutine(MatchTimerRoutine());
     }
