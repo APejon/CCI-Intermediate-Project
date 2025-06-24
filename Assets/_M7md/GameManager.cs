@@ -155,6 +155,9 @@ public class GameManager : MonoBehaviour
 
         player1.ResetMotion();
         player2.ResetMotion();
+        
+        player1.ResetKnock();
+        player2.ResetKnock();
     }
 
     void OnDrawGizmos()

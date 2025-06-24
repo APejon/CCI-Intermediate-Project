@@ -43,9 +43,9 @@ public class FighterController : MonoBehaviour
     Rigidbody2D rb;
     Animator    anim;
     Vector3     startScale;
-    
-    
-    bool isGrounded, isAttacking, isCrouching, isKnockback = false;
+
+
+    private bool isGrounded, isAttacking, isCrouching, isKnocked = false;
     float moveInput;
 
     void Awake()
@@ -86,7 +86,7 @@ public class FighterController : MonoBehaviour
     void FixedUpdate()
     {
         
-        if (isKnockback || GameManager.Instance.roundLocked) return;
+        if (isKnocked || GameManager.Instance.roundLocked) return;
 
         float horiz = isAttacking ? 0f : moveInput;
         rb.linearVelocity = new Vector2(horiz * moveSpeed, rb.linearVelocity.y);
@@ -109,7 +109,7 @@ public class FighterController : MonoBehaviour
 
     void HandleJumpKey()
     {
-        if (GameManager.Instance.roundLocked) return;
+        if (GameManager.Instance.roundLocked || isKnocked) return;
         if (Input.GetKeyDown(jumpKey) && isGrounded && !isCrouching)
             TryJump();
     }
@@ -164,9 +164,8 @@ public class FighterController : MonoBehaviour
 
     public void FC_EndAttackAnimation()
     {
-        Debug.Log("FC_EndAttack Called!!!");
         isAttacking = false;
-        anim.SetBool("isAttacking", false);
+        anim.SetBool("isAttacking", isAttacking);
 
         if (isCrouching && !Input.GetKey(crouchKey))
             TryCrouch(false);            // stand up if key no longer held
@@ -183,6 +182,11 @@ public class FighterController : MonoBehaviour
 
     void CheckGrounded()
     {
+        if (skipGroundCheck)
+        {
+            isGrounded = false;
+            return;
+        }
         isGrounded = Physics2D.OverlapCircle
         (
             groundCheckPoint.position, groundCheckRadius, groundLayer
@@ -218,15 +222,29 @@ public class FighterController : MonoBehaviour
         Debug.Log("Knock Direction: " + knockDir);
 
         rb.AddForce(knockDir, ForceMode2D.Impulse);
-        isKnockback = true;
-
-        Invoke(nameof(EndKnockback), 0.2f); // adjust duration as needed
+        GroundCheckDisable();
+        
+        anim.SetTrigger("Knocked");
+        isKnocked = true;
+        
+        //Invoke(nameof(EndKnockback), 0.2f); // adjust duration as needed
     }
-
-    void EndKnockback()
+    
+    bool skipGroundCheck;
+    
+    void GroundCheckDisable()
     {
-        isKnockback = false;
+        skipGroundCheck = true;
+        Invoke(nameof(EnableGroundCheck), 0.2f); // or use animation event
     }
 
+    void EnableGroundCheck() => skipGroundCheck = false;
+
+    public void ResetKnock()
+    {
+        isKnocked = false;
+        anim.SetTrigger("Reset");
+    }
+    
 
 }

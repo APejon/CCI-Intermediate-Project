@@ -389,11 +389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: knockbackForce.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: knockbackForce.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   timerText: {fileID: 296047760}
   pauseAfterPoint: 3
   maxScore: 3
-  knockForce: {x: 3, y: 2.5}
+  knockForce: {x: 4, y: 3}
   matchTime: 10000
   leftBoundary: -8
   rightBoundary: 8
@@ -2145,8 +2145,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2435,7 +2435,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1196877599
+  m_SortingLayerID: -241669975
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1641128107
