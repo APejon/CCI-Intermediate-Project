@@ -57,20 +57,23 @@ public class UiManager : MonoBehaviour
 
     public void ShowGameUI()
     {
-        SceneManager.LoadScene(0);
+        FadeInFadeOut.Instance.FadeAndDo(() =>
+        {
+            SceneManager.LoadScene(0);
+        });
     }
 
     public void ShowPauseMenu()
     {
-        SetActivePanel(pausePanel);
+        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(pausePanel));
     }
     public void ShowGameCredits()
     {
-        SetActivePanel(gameCredits);
+        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gameCredits));
     }
     public void ShowGameOver()
     {
-        SetActivePanel(gameOverPanel);
+        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gameOverPanel));
     }
 
     private void SetActivePanel(GameObject targetPanel)

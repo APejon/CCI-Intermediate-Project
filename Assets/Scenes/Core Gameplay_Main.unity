@@ -1707,6 +1707,7 @@ MonoBehaviour:
   player2ScoreText: {fileID: 1603122608}
   centerMessageText: {fileID: 1596150697}
   timerText: {fileID: 296047760}
+  countdownText: {fileID: 1596150697}
   pauseAfterPoint: 3
   maxScore: 3
   knockForce: {x: 4, y: 3}
