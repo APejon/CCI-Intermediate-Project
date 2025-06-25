@@ -23,11 +23,13 @@ public class FighterController : MonoBehaviour
     public LayerMask groundLayer;
 
     /* ── Hurt- / Hit-boxes ─────────────────────────────────────── */
-    [Header("Hurt-/Hit-Boxes")]
+    [Header("Hurt-/Hit-Boxes")] 
     public GameObject hurtIdle;
     public GameObject hurtCrouch;
-    public GameObject hurtJump; 
-    public GameObject hitAttack;
+    public GameObject hurtJump;
+    public GameObject hitStand;
+    public GameObject hitCrouch; 
+    public GameObject hitJump;
     public Vector2 knockbackForce;
 
     /* ── Facing & target ───────────────────────────────────────── */
@@ -153,14 +155,31 @@ public class FighterController : MonoBehaviour
     }
 
     /* ── Animation Events --------------------------------------- */
-    public void FC_EnableHitBox()
+    public void FC_EnableHitBox() // Stand Hitbox
     {
-        var hb = hitAttack.GetComponent<HitBox>();
+        var hb = hitStand.GetComponent<HitBox>();
         if (hb) hb.owner = this;
-        hitAttack.SetActive(true);
+        hitStand.SetActive(true);
+    }
+    public void FC_DisableHitBox() => hitStand.SetActive(false);
+    
+    public void FC_EnableJumpHitbox() // Jump Hitbox
+    {
+        var hb = hitJump.GetComponent<HitBox>();
+        if (hb) hb.owner = this;
+        hitJump.SetActive(true);
     }
 
-    public void FC_DisableHitBox() => hitAttack.SetActive(false);
+    public void FC_DisableJumpHitbox() => hitJump.SetActive(false);
+
+    public void FC_EnableCrouchHitbox() // Crouch Hitbox
+    {
+        var hb = hitJump.GetComponent<HitBox>();
+        if (hb) hb.owner = this;
+        hitCrouch.SetActive(true);
+    }
+    
+    public void FC_DisableCrouchHitbox() => hitCrouch.SetActive(false);
 
     public void FC_EndAttackAnimation()
     {
@@ -235,10 +254,15 @@ public class FighterController : MonoBehaviour
     void GroundCheckDisable()
     {
         skipGroundCheck = true;
+        Debug.Log("Ground Check Disabled");
         Invoke(nameof(EnableGroundCheck), 0.2f); // or use animation event
     }
 
-    void EnableGroundCheck() => skipGroundCheck = false;
+    void EnableGroundCheck()
+    {
+        Debug.Log("Ground Check Enabled");
+        skipGroundCheck = false;
+    }
 
     public void ResetKnock()
     {

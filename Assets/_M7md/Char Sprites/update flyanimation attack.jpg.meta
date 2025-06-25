@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 14e883a8d7163774b941d3eb3d428ea6
+guid: 7f4aa3ae189395143a14425383f6ebdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2034321092269586283
-    second: Remove background project (6)_0
-  - first:
-      213: -8484760197792937482
-    second: Remove background project (6)_1
-  - first:
-      213: 9145012266124840694
-    second: Remove background project (6)_2
-  - first:
-      213: -1884271498509478534
-    second: Remove background project (6)_3
+      213: 1819273064025853057
+    second: update flyanimation attack_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack2
+      name: update flyanimation attack_0
       rect:
         serializedVersion: 2
-        x: 1959
-        y: 151
-        width: 750
-        height: 450
+        x: 0
+        y: 0
+        width: 5506
+        height: 1978
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7513fe2e09b9d5e0800000000000000
-      internalID: -1884271498509478534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle
-      rect:
-        serializedVersion: 2
-        x: 1927
-        y: 921
-        width: 750
-        height: 470
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60cbbb6ed9bbb0346b21dbdcc2ed1fd8
-      internalID: 609178913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump
-      rect:
-        serializedVersion: 2
-        x: 481
-        y: 901
-        width: 750
-        height: 510
-      alignment: 9
-      pivot: {x: 0.6884748, y: 0.48460215}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ba735efb45fa89468dee6f1e19f4cf8
-      internalID: 1595119290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack1
-      rect:
-        serializedVersion: 2
-        x: 555
-        y: 191
-        width: 750
-        height: 450
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ff31d3da31da9e449af96afde598583
-      internalID: 2123415609
+      spriteID: 18c82ba763b5f3910800000000000000
+      internalID: 1819273064025853057
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00aca52396572794a9a3342f00d14592
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -222,11 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Attack1: 2123415609
-      Attack2: -1884271498509478534
-      Idle: 609178913
-      Jump: 1595119290
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

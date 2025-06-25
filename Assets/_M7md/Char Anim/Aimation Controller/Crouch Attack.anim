@@ -24,9 +24,9 @@ AnimationClip:
       value: {fileID: -2112430658018717336, guid: df877b8d8ab144542b4114a3645432cb, type: 3}
     - time: 0.16666667
       value: {fileID: -1394176225208894487, guid: df877b8d8ab144542b4114a3645432cb, type: 3}
-    - time: 0.25
+    - time: 0.21666667
       value: {fileID: -2112430658018717336, guid: df877b8d8ab144542b4114a3645432cb, type: 3}
-    - time: 0.33333334
+    - time: 0.28333333
       value: {fileID: -2112430658018717336, guid: df877b8d8ab144542b4114a3645432cb, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,7 +79,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.33333334
+  - time: 0.16666667
+    functionName: FC_EnableCrouchHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.21666667
+    functionName: FC_DisableCrouchHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.28333333
     functionName: FC_EndAttackAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
