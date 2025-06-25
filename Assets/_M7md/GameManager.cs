@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement; // For potential scene controls
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text player2ScoreText;
     public TMP_Text centerMessageText;
     public TMP_Text timerText;
+    public TMP_Text countdownText; // ✅ NEW: Countdown display
 
     [Header("Round Flow")]
     public float pauseAfterPoint = 3f;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         RefreshScoreUI();
         currentTimer = matchTime;
-        timerCoroutine = StartCoroutine(MatchTimerRoutine());
+        StartCoroutine(StartCountdownThenFight());
     }
 
     void Update()
@@ -75,8 +76,6 @@ public class GameManager : MonoBehaviour
         else ++p2Score;
 
         RefreshScoreUI();
-        //player1.PauseControl(true);
-        //player2.PauseControl(true);
 
         if (p1Score >= maxScore || p2Score >= maxScore)
             StartCoroutine(EndGameRoutine(attacker));
@@ -97,8 +96,6 @@ public class GameManager : MonoBehaviour
         }
 
         roundLocked = true;
-        // player1.PauseControl(true);
-        // player2.PauseControl(true);
 
         if (p1Score == 0 && p2Score == 0)
         {
@@ -106,11 +103,11 @@ public class GameManager : MonoBehaviour
         }
         else if (p1Score > p2Score)
         {
-            centerMessageText.text = "Time’s up! Player 1 wins!";
+            centerMessageText.text = "Time’s up! Khaled wins!";
         }
         else if (p2Score > p1Score)
         {
-            centerMessageText.text = "Time’s up! Player 2 wins!";
+            centerMessageText.text = "Time’s up! Saeed wins!";
         }
         else
         {
@@ -120,21 +117,36 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PointPauseRoutine()
     {
-        centerMessageText.text = "Point!";
+        centerMessageText.text = "POINT!";
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
 
         ResetPositions();
         centerMessageText.text = "";
-        // player1.PauseControl(false);
-        // player2.PauseControl(false);
-        roundLocked = false;
-        timerCoroutine = StartCoroutine(MatchTimerRoutine());
+        StartCoroutine(StartCountdownThenFight());
     }
 
     IEnumerator EndGameRoutine(FighterController winner)
     {
-        centerMessageText.text = (winner == player1 ? "Player 1" : "Player 2") + " wins!";
+        centerMessageText.text = (winner == player1 ? "Khaled" : "Saeed") + " Wins!";
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
+    }
+
+    IEnumerator StartCountdownThenFight()
+    {
+        roundLocked = true;
+
+        string[] steps = { "3", "2", "1", "FIGHT!" };
+        foreach (string step in steps)
+        {
+            countdownText.text = step;
+            yield return new WaitForSecondsRealtime(1f);
+        }
+
+        countdownText.text = "";
+        roundLocked = false;
+
+        if (timerCoroutine == null)
+            timerCoroutine = StartCoroutine(MatchTimerRoutine());
     }
 
     void RefreshScoreUI()
@@ -155,7 +167,7 @@ public class GameManager : MonoBehaviour
 
         player1.ResetMotion();
         player2.ResetMotion();
-        
+
         player1.ResetKnock();
         player2.ResetKnock();
     }
@@ -172,5 +184,3 @@ public class GameManager : MonoBehaviour
         Gizmos.DrawLine(btmR, topR);
     }
 }
-
-
