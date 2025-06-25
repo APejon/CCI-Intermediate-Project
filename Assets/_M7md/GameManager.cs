@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text player2ScoreText;
     public TMP_Text centerMessageText;
     public TMP_Text timerText;
-    public TMP_Text countdownText; // ✅ NEW: Countdown display
+    public TMP_Text countdownText;
 
     [Header("Round Flow")]
     public float pauseAfterPoint = 3f;
@@ -55,13 +55,27 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if (UiManager.Instance != null)
-            {
-                UiManager.Instance.ShowPauseMenu();
-            }
+            TogglePause();
         }
+    }
+
+    void TogglePause()
+    {
+        bool pausing = Time.timeScale == 1f;
+        Time.timeScale = pausing ? 0f : 1f;
+
+        if (UiManager.Instance != null)
+        {
+            if (pausing)
+                UiManager.Instance.ShowPauseMenu();
+            else
+                UiManager.Instance.ShowGameUI(); // Or hide pause panel however you prefer
+        }
+
+        Debug.Log(pausing ? "Game Paused" : "Game Resumed");
     }
 
     public void RegisterPoint(FighterController attacker, FighterController defender, Vector2 hitPoint)
@@ -103,11 +117,11 @@ public class GameManager : MonoBehaviour
         }
         else if (p1Score > p2Score)
         {
-            centerMessageText.text = "Time’s up! Khaled wins!";
+            centerMessageText.text = "Time’s up! Player 1 wins!";
         }
         else if (p2Score > p1Score)
         {
-            centerMessageText.text = "Time’s up! Saeed wins!";
+            centerMessageText.text = "Time’s up! Player 2 wins!";
         }
         else
         {
@@ -117,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PointPauseRoutine()
     {
-        centerMessageText.text = "POINT!";
+        centerMessageText.text = "Point!";
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
 
         ResetPositions();
@@ -127,7 +141,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EndGameRoutine(FighterController winner)
     {
-        centerMessageText.text = (winner == player1 ? "Khaled" : "Saeed") + " Wins!";
+        centerMessageText.text = (winner == player1 ? "Player 1" : "Player 2") + " wins!";
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
     }
 
@@ -135,7 +149,7 @@ public class GameManager : MonoBehaviour
     {
         roundLocked = true;
 
-        string[] steps = { "3", "2", "1", "FIGHT!" };
+        string[] steps = { "3", "2", "1", "Fight!" };
         foreach (string step in steps)
         {
             countdownText.text = step;

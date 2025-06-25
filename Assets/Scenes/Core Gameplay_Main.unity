@@ -1711,10 +1711,11 @@ MonoBehaviour:
   player2ScoreText: {fileID: 1603122608}
   centerMessageText: {fileID: 1596150697}
   timerText: {fileID: 296047760}
+  countdownText: {fileID: 1596150697}
   pauseAfterPoint: 3
   maxScore: 3
   knockForce: {x: 4, y: 3}
-  matchTime: 10000
+  matchTime: 60
   leftBoundary: -8
   rightBoundary: 8
   gizmoHeight: 5
@@ -2155,7 +2156,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
