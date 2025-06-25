@@ -88,7 +88,7 @@ public class FighterController : MonoBehaviour
     void FixedUpdate()
     {
         
-        if (isKnocked || GameManager.Instance.roundLocked) return;
+        if (isCrouching || !isGrounded || isKnocked || GameManager.Instance.roundLocked) return;
 
         float horiz = isAttacking ? 0f : moveInput;
         rb.linearVelocity = new Vector2(horiz * moveSpeed, rb.linearVelocity.y);
@@ -214,16 +214,33 @@ public class FighterController : MonoBehaviour
             ActivateHurtBox(hurtIdle);
     }
 
-    public void FaceTowards(Vector3 pos)
+    public float flipThreshold = 0.1f; // <-- Add this to your header or as a field
+
+    public void FaceTowards(Vector3 targetPos)
     {
-        bool right = pos.x > transform.position.x;
-        if (right != facingRight)
+        if (!groundCheckPoint) return;
+
+        float dx = targetPos.x - transform.position.x;
+
+        // Only flip if the opponent is clearly to the other side
+        if (Mathf.Abs(dx) < flipThreshold) return;
+
+        bool shouldFaceRight = dx > 0;
+        if (shouldFaceRight != facingRight)
         {
-            facingRight = right;
-            Vector3 s = startScale; s.x *= facingRight ? 1 : -1;
-            transform.localScale = s;
+            Vector3 pivotWorldPos = groundCheckPoint.position;
+
+            facingRight = shouldFaceRight;
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * (facingRight ? 1 : -1);
+            transform.localScale = scale;
+
+            Vector3 newPivotWorldPos = groundCheckPoint.position;
+            Vector3 pivotOffset = pivotWorldPos - newPivotWorldPos;
+            transform.position += pivotOffset;
         }
     }
+
 
     /* ── Round control (called by GameManager) ------------------ */
     // public void PauseControl(bool on)

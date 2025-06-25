@@ -388,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3530839820681222667}
   - component: {fileID: 5130929782238378651}
-  - component: {fileID: 935374118389222424}
+  - component: {fileID: 2814122512872338116}
   - component: {fileID: 7544324456001466928}
   - component: {fileID: 5945607321705911263}
   - component: {fileID: 6803257801195666659}
@@ -472,8 +472,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &935374118389222424
-BoxCollider2D:
+--- !u!70 &2814122512872338116
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -506,18 +506,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.2839912, y: -0.015259236}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5003989, y: 0.94000006}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.43201762, y: 0.9084447}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.25221318, y: -0.012353325}
+  m_Size: {x: 0.33713025, y: 0.9152935}
+  m_Direction: 0
 --- !u!50 &7544324456001466928
 Rigidbody2D:
   serializedVersion: 5
@@ -533,7 +524,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -562,8 +553,8 @@ MonoBehaviour:
   jumpKey: w
   crouchKey: s
   attackKey: space
-  moveSpeed: 4
-  jumpForce: 5
+  moveSpeed: 5
+  jumpForce: 12
   groundCheckPoint: {fileID: 5256932866466042728}
   groundCheckRadius: 0.05
   groundLayer:
@@ -579,6 +570,7 @@ MonoBehaviour:
   facingRight: 1
   opponent: {fileID: 0}
   isBot: 0
+  flipThreshold: 0.5
 --- !u!95 &6803257801195666659
 Animator:
   serializedVersion: 7
@@ -720,7 +712,7 @@ Transform:
   m_GameObject: {fileID: 7193655926623224316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalPosition: {x: -0.25, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
