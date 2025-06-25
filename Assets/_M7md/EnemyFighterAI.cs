@@ -39,7 +39,7 @@ public class EnemyFighterAI : MonoBehaviour
 
     void Update()
     {
-        if (!player || !enabled) return;     // disabled during round pause
+        if (!player || !enabled || GameManager.Instance.roundLocked) return;     // disabled during round pause
 
         if (Time.time >= modeEnd) PickNextMode();
         ExecuteMode();

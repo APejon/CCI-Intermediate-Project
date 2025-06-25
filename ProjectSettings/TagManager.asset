@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - HurtBox
+  - P1
+  - P2
   layers:
   - Default
   - TransparentFX

@@ -28,13 +28,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [Header("Audio Sources")]
-    public AudioSource uiSource;
     public AudioSource player1Source;
     public AudioSource player2Source;
     public AudioSource otherSource;
 
     [Header("Audio Clip Dictionaries")]
-    public AudioDictionary uiSounds;
     public AudioDictionary player1Sounds;
     public AudioDictionary player2Sounds;
     public AudioDictionary otherSounds;
@@ -58,9 +56,6 @@ public class AudioManager : MonoBehaviour
 
     private void BuildSoundMap()
     {
-        foreach (var pair in uiSounds.ToDictionary())
-            soundMap[pair.Key] = (pair.Value, uiSource);
-
         foreach (var pair in player1Sounds.ToDictionary())
             soundMap[pair.Key] = (pair.Value, player1Source);
 

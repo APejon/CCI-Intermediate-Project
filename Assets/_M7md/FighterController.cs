@@ -134,6 +134,7 @@ public class FighterController : MonoBehaviour
     public void TryJump()
     {
         if (!isGrounded || isCrouching || isAttacking) return;
+        AudioManager.Instance.Play(gameObject.tag + "_jump");
         ActivateHurtBox(hurtJump);
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         isGrounded  = false;
@@ -149,6 +150,7 @@ public class FighterController : MonoBehaviour
     public void TryAttack()
     {
         if (isAttacking) return;
+        AudioManager.Instance.Play(gameObject.tag + "_whip");
         moveInput   = 0f;
         isAttacking = true;
         anim.SetBool("isAttacking", true);   // triggers Animator transition
