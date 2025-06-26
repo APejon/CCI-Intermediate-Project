@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &10317783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122516097}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a3b4056283e54d4db15a4b9946ad7f6, type: 3}
   m_Name: 
@@ -3046,19 +3046,23 @@ MonoBehaviour:
     - P1_jump
     - P1_whip
     - P1_hit
+    - P1_grunt
     clips:
     - {fileID: 8300000, guid: a3d3dec0781a9704cbed30450ed82b86, type: 3}
     - {fileID: 8300000, guid: 7c908376a4165004a81cd23ce1ad1e4c, type: 3}
     - {fileID: 8300000, guid: 209375ebf3157b14297215a2709ade54, type: 3}
+    - {fileID: 8300000, guid: 11cfea14eb79cd5498c50eed014d4967, type: 3}
   player2Sounds:
     keys:
     - P2_jump
     - P2_whip
     - P2_hit
+    - P2_grunt
     clips:
     - {fileID: 8300000, guid: a3d3dec0781a9704cbed30450ed82b86, type: 3}
     - {fileID: 8300000, guid: 7c908376a4165004a81cd23ce1ad1e4c, type: 3}
     - {fileID: 8300000, guid: 209375ebf3157b14297215a2709ade54, type: 3}
+    - {fileID: 8300000, guid: 6736286ef271fe84f8f0ec23faff80f4, type: 3}
   otherSounds:
     keys: []
     clips: []
