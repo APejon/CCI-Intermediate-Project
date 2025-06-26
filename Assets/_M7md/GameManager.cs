@@ -45,12 +45,14 @@ public class GameManager : MonoBehaviour
     float currentTimer;
     Coroutine timerCoroutine;
     public bool optionsOpen = false;
+    private bool pausing;
 
     void Start()
     {
         RefreshScoreUI();
         currentTimer = matchTime;
         StartCoroutine(StartCountdownThenFight());
+        pausing = false;
     }
 
     void Update()
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     void TogglePause()
     {
-        bool pausing = Time.timeScale == 1f;
+        pausing = !pausing;
         Time.timeScale = pausing ? 0f : 1f;
 
         if (UiManager.Instance != null)
@@ -152,6 +154,8 @@ public class GameManager : MonoBehaviour
         string[] steps = { "3", "2", "1", "Fight!" };
         foreach (string step in steps)
         {
+            while (pausing)
+                yield return null;
             countdownText.text = step;
             yield return new WaitForSecondsRealtime(1f);
         }
