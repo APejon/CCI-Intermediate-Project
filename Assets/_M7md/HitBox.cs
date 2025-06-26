@@ -22,13 +22,18 @@ public class HitBox : MonoBehaviour
         alreadyHit.Add(defender);
         GameManager.Instance.RegisterPoint(owner, defender, transform.position);
 
-        string sfxKey = defender.gameObject.tag + ("_hit");
-        AudioManager.Instance.Play(sfxKey);
+        string hitSFX = defender.gameObject.tag + ("_hit");
+        string gruntSFX = defender.gameObject.tag + ("_grunt");
+        AudioManager.Instance.Play(hitSFX);
+        AudioManager.Instance.Play(gruntSFX);
         
-        if (impactFx)
+        
+        if (impactFx != null)
         {
-            ParticleSystem fx = Instantiate(impactFx, transform.position, Quaternion.identity);
-            fx.Play();
+            Vector2 contactPoint = other.ClosestPoint(transform.position);
+            ParticleSystem fx = Instantiate(impactFx, contactPoint, Quaternion.identity);
+            //fx.Play();
+            Destroy(fx.gameObject, fx.main.duration + fx.main.startLifetime.constantMax);
         }
     }
 
