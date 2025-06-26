@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 7940f7ff8e5af77448faeb7ea9d38fb1
+guid: fed0bf96a1409cc4fb906a5623f38492
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1594404796976936033
-    second: DustPoof_0
+      213: -5239280099649623367
+    second: DustPoof3_0
   - first:
-      213: 4096718248285315475
-    second: DustPoof_1
+      213: 4288190609257244884
+    second: DustPoof3_1
   - first:
-      213: 2010421945533115375
-    second: DustPoof_2
+      213: 3276130419999506450
+    second: DustPoof3_2
   - first:
-      213: -6210233277928557507
-    second: DustPoof_3
-  - first:
-      213: 4002582004693838128
-    second: DustPoof_4
-  - first:
-      213: 3995364156766543721
-    second: DustPoof_5
-  - first:
-      213: 5022318438809971718
-    second: DustPoof_6
-  - first:
-      213: -6860277617014815295
-    second: DustPoof_7
+      213: -9022450029432840839
+    second: DustPoof3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DustPoof_0
+      name: DustPoof3_0
       rect:
         serializedVersion: 2
         x: 60
@@ -142,21 +130,21 @@ TextureImporter:
         width: 136
         height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9bc200e8498fd9e0800000000000000
-      internalID: -1594404796976936033
+      spriteID: 9ba6c9d12865a47b0800000000000000
+      internalID: -5239280099649623367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustPoof_1
+      name: DustPoof3_1
       rect:
         serializedVersion: 2
         x: 338
@@ -164,37 +152,59 @@ TextureImporter:
         width: 96
         height: 43
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39128ed9a877ad830800000000000000
-      internalID: 4096718248285315475
+      spriteID: 4d8a1f9a3a6b28b30800000000000000
+      internalID: 4288190609257244884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DustPoof_4
+      name: DustPoof3_2
       rect:
         serializedVersion: 2
-        x: 303
-        y: 78
-        width: 178
-        height: 170
+        x: 159
+        y: 180
+        width: 9
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 039a52e60270c8730800000000000000
-      internalID: 4002582004693838128
+      spriteID: 2100ce16247277d20800000000000000
+      internalID: 3276130419999506450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DustPoof3_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 166
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d51ff4081d9c280800000000000000
+      internalID: -9022450029432840839
       vertices: []
       indices: 
       edges: []
@@ -203,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 961d3e675adc50646b12b398e0957dc6
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -212,16 +222,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      DustPoof_0: -1594404796976936033
-      DustPoof_1: 4096718248285315475
-      DustPoof_2: 2010421945533115375
-      DustPoof_3: -6210233277928557507
-      DustPoof_4: 4002582004693838128
-      DustPoof_5: 3995364156766543721
-      DustPoof_6: 5022318438809971718
-      DustPoof_7: -6860277617014815295
-      DustPoof_8: -1932280140
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
