@@ -24,8 +24,10 @@ AnimationClip:
       value: {fileID: 3062078369962797845, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
     - time: 0.16666667
       value: {fileID: 5462837984932264294, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
-    - time: 0.33333334
+    - time: 0.25
       value: {fileID: 5462837984932264294, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
+    - time: 0.33333334
+      value: {fileID: 3062078369962797845, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -51,6 +53,7 @@ AnimationClip:
     - {fileID: 3062078369962797845, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
     - {fileID: 5462837984932264294, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
     - {fileID: 5462837984932264294, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
+    - {fileID: 3062078369962797845, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -75,4 +78,25 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.16666667
+    functionName: FC_EnableHitBox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: FC_DisableHitBox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: FC_EndAttackAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
