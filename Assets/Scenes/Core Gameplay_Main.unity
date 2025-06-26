@@ -516,6 +516,10 @@ PrefabInstance:
       propertyPath: knockbackForce.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6803257801195666659, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Controller
       value: 
