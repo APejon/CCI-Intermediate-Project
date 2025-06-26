@@ -105,27 +105,71 @@ public class FighterController : MonoBehaviour
     void HandleMoveKeys()
     {
         if (GameManager.Instance.roundLocked) return;
-        moveInput = Input.GetKey(leftKey)  ? -1f :
-                    Input.GetKey(rightKey) ?  1f : 0f;
+        // moveInput = Input.GetKey(leftKey) ? -1f :
+        //             Input.GetKey(rightKey) ? 1f : 0f;
+        if (gameObject.tag == "P1")
+        {
+            moveInput = Input.GetAxis("Horizontal_KB_P1");
+            if (moveInput == 0)
+                moveInput = Input.GetAxis("Horizontal_C_P1");
+            if (moveInput == 0)
+                moveInput = Input.GetAxis("Horizontal_CDPAD_P1");
+        }
+        else if (gameObject.tag == "P2")
+        {
+            moveInput = Input.GetAxis("Horizontal_KB_P2");
+            if (moveInput == 0)
+                moveInput = Input.GetAxis("Horizontal_C_P2");
+            if (moveInput == 0)
+                moveInput = Input.GetAxis("Horizontal_CDPAD_P2");
+        }
+
     }
 
     void HandleJumpKey()
     {
         if (GameManager.Instance.roundLocked || isKnocked) return;
-        if (Input.GetKeyDown(jumpKey) && isGrounded && !isCrouching)
+        if (/*Input.GetKeyDown(jumpKey)*/ (Input.GetButtonDown("Jump_KB_P1")
+        || Input.GetButtonDown("Jump_C_P1")
+        || Input.GetAxis("Jump_C_P1") < 0
+        || Input.GetAxis("Jump_CDPAD_P1") > 0)  && gameObject.tag == "P1" && isGrounded && !isCrouching)
+            TryJump();
+        else if (/*Input.GetKeyDown(jumpKey)*/ (Input.GetButtonDown("Jump_KB_P2")
+        || Input.GetButtonDown("Jump_C_P2")
+        || Input.GetAxis("Jump_C_P2") < 0
+        || Input.GetAxis("Jump_CDPAD_P2") > 0) && gameObject.tag == "P2" && isGrounded && !isCrouching)
             TryJump();
     }
 
     void HandleCrouchKeys()
     {
         if (GameManager.Instance.roundLocked) return;
-        if (Input.GetKeyDown(crouchKey) && isGrounded)      TryCrouch(true);
-        if (Input.GetKeyUp(crouchKey))                      TryCrouch(false);
+        if (/*Input.GetKeyDown(crouchKey)*/ (Input.GetButton("Crouch_KB_P1")
+        || Input.GetButton("Crouch_C_P1")
+        || Input.GetAxis("Crouch_C_P1") > 0
+        || Input.GetAxis("Crouch_CDPAD_P1") < 0) && gameObject.tag == "P1" && isGrounded)
+            TryCrouch(true);
+        else if (/*Input.GetKeyUp(crouchKey)*/ (Input.GetButtonUp("Crouch_KB_P1")
+        || Input.GetButtonUp("Crouch_C_P1")
+        || Input.GetAxis("Crouch_C_P1") == 0
+        || Input.GetAxis("Crouch_CDPAD_P1") == 0) && gameObject.tag == "P1")
+            TryCrouch(false);
+        if (/*Input.GetKeyDown(crouchKey)*/ (Input.GetButton("Crouch_KB_P2")
+        || Input.GetButton("Crouch_C_P2")
+        || Input.GetAxis("Crouch_C_P2") > 0
+        || Input.GetAxis("Crouch_CDPAD_P2") < 0) && gameObject.tag == "P2" && isGrounded)
+            TryCrouch(true);
+        else if (/*Input.GetKeyUp(crouchKey)*/ (Input.GetButtonUp("Crouch_KB_P2")
+        || Input.GetButtonUp("Crouch_C_P2")
+        || Input.GetAxis("Crouch_C_P2") == 0
+        || Input.GetAxis("Crouch_CDPAD_P2") == 0) && gameObject.tag == "P2")
+            TryCrouch(false);
     }
 
     void HandleAttackKey()
     {
-        if (Input.GetKeyDown(attackKey) && !GameManager.Instance.roundLocked) TryAttack();
+        if (/*Input.GetKeyDown(attackKey)*/ (Input.GetButtonDown("Fire_KB_P1") || Input.GetButtonDown("Fire_C_P1")) && gameObject.tag == "P1" && !GameManager.Instance.roundLocked) TryAttack();
+        if (/*Input.GetKeyDown(attackKey)*/ (Input.GetButtonDown("Fire_KB_P2") || Input.GetButtonDown("Fire_C_P2")) && gameObject.tag == "P2" && !GameManager.Instance.roundLocked) TryAttack();
     }
 
     /* ── Public actions for AI / GM ────────────────────────────── */
