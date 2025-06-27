@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: impactFx
       value: 
       objectReference: {fileID: 2616001941770903231, guid: a466f522b1d36964daa71fbae5d3452d, type: 3}
+    - target: {fileID: 839158463833190045, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1053056594}
     - target: {fileID: 985913960920034004, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -436,6 +440,10 @@ PrefabInstance:
       propertyPath: impactFx
       value: 
       objectReference: {fileID: 2616001941770903231, guid: a466f522b1d36964daa71fbae5d3452d, type: 3}
+    - target: {fileID: 4069481532968299757, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1053056594}
     - target: {fileID: 5130929782238378651, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Color.b
       value: 0.43467426
@@ -468,6 +476,10 @@ PrefabInstance:
       propertyPath: impactFx
       value: 
       objectReference: {fileID: 2616001941770903231, guid: a466f522b1d36964daa71fbae5d3452d, type: 3}
+    - target: {fileID: 5750983232913715381, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1053056594}
     - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Name
       value: OPPONENT FIGHTER
@@ -3566,6 +3578,10 @@ PrefabInstance:
       propertyPath: impactFx
       value: 
       objectReference: {fileID: 2616001941770903231, guid: a466f522b1d36964daa71fbae5d3452d, type: 3}
+    - target: {fileID: 839158463833190045, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1053056594}
     - target: {fileID: 985913960920034004, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -3654,6 +3670,10 @@ PrefabInstance:
       propertyPath: impactFx
       value: 
       objectReference: {fileID: 2616001941770903231, guid: a466f522b1d36964daa71fbae5d3452d, type: 3}
+    - target: {fileID: 4069481532968299757, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1053056594}
     - target: {fileID: 5130929782238378651, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3690,6 +3710,10 @@ PrefabInstance:
       propertyPath: impactFx
       value: 
       objectReference: {fileID: 2616001941770903231, guid: a466f522b1d36964daa71fbae5d3452d, type: 3}
+    - target: {fileID: 5750983232913715381, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1053056594}
     - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Name
       value: PLAYER FIGHTER

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -178,7 +177,7 @@ public class FighterController : MonoBehaviour
     public void TryJump()
     {
         if (!isGrounded || isCrouching || isAttacking) return;
-        AudioManager.Instance.Play(gameObject.tag + "_jump");
+        AudioManager.Instance.Play(gameObject.tag + "_jump", Random.Range(0.8f,1.2f), Random.Range(0.8f,1.2f));
         ActivateHurtBox(hurtJump);
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         isGrounded  = false;
@@ -194,7 +193,7 @@ public class FighterController : MonoBehaviour
     public void TryAttack()
     {
         if (isAttacking) return;
-        AudioManager.Instance.Play(gameObject.tag + "_whip");
+        AudioManager.Instance.Play(gameObject.tag + "_whip", Random.Range(0.8f,1.2f), Random.Range(0.8f,1.2f));
         moveInput   = 0f;
         isAttacking = true;
         anim.SetBool("isAttacking", true);   // triggers Animator transition

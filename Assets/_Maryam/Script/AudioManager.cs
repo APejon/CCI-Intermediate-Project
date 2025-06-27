@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,10 +67,12 @@ public class AudioManager : MonoBehaviour
             soundMap[pair.Key] = (pair.Value, otherSource);
     }
 
-    public void Play(string key)
+    public void Play(string key, float pitch, float volume)
     {
         if (soundMap.TryGetValue(key, out var data))
         {
+            data.Item2.pitch = pitch;
+            data.Item2.volume = volume;
             data.Item2.PlayOneShot(data.Item1);
         }
         else
@@ -77,4 +80,47 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning($"Audio key '{key}' not found.");
         }
     }
+
+    public void PlayWithEcho(string key, float volume, float pitch, float delay,  float decay)
+    {
+        if (soundMap.TryGetValue(key, out var data))
+        {
+            data.Item2.pitch = pitch;
+            data.Item2.volume = volume;
+
+            StartCoroutine(PlayEcho(key, 5, delay, decay));
+
+            // Disable echo after the sound plays
+            // StartCoroutine(DisableEchoAfter(key, data.Item1.length / pitch + 5f));
+        }
+    }
+
+    private IEnumerator PlayEcho(string key, int repeats, float delay, float decay)
+    {
+        if (soundMap.TryGetValue(key, out var data))
+        {
+            float volume = data.Item2.volume;
+            data.Item2.PlayOneShot(data.Item1);
+            for (int i = 0; i < repeats; i++)
+            {
+                yield return new WaitForSecondsRealtime(delay);
+                data.Item2.Stop();
+                volume *= decay;
+                data.Item2.volume = volume;
+                data.Item2.PlayOneShot(data.Item1);
+            }
+        }
+
+    }
+    
+    // private IEnumerator DisableEchoAfter(string key, float time)
+    // {
+    //     yield return new WaitForSeconds(time);
+    //     if (soundMap.TryGetValue(key, out var data))
+    //     {
+    //         var echo = data.Item2.GetComponent<AudioEchoFilter>();
+    //         if (echo != null)
+    //             echo.enabled = false;
+    //     }
+    // }
 }
