@@ -8,6 +8,7 @@ TagManager:
   - HurtBox
   - P1
   - P2
+  - HitBox
   layers:
   - Default
   - TransparentFX

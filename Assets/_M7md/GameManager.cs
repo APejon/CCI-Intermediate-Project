@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     const char STAR = 'O';
     const char DOT = '·';
 
-    int p1Score, p2Score;
+    public int p1Score, p2Score;
     public bool roundLocked;
     float currentTimer;
     Coroutine timerCoroutine;

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ using UnityEngine;
 public class HitBox : MonoBehaviour
 {
     public FighterController owner;          // filled by the attacker
-    public ParticleSystem    impactFx;       // optional flavour
+    public ParticleSystem impactFx;       // optional flavour
 
     private readonly HashSet<FighterController> alreadyHit = new();
 
@@ -26,8 +27,8 @@ public class HitBox : MonoBehaviour
         string gruntSFX = defender.gameObject.tag + ("_grunt");
         AudioManager.Instance.Play(hitSFX);
         AudioManager.Instance.Play(gruntSFX);
-        
-        
+
+
         if (impactFx != null)
         {
             Vector2 contactPoint = other.ClosestPoint(transform.position);
@@ -36,7 +37,6 @@ public class HitBox : MonoBehaviour
             Destroy(fx.gameObject, fx.main.duration + fx.main.startLifetime.constantMax);
         }
     }
-
 
     
 }
