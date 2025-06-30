@@ -6,9 +6,9 @@ public class UiManager : MonoBehaviour
 
     public static UiManager Instance { get; private set; }
 
-   // [Header("Panels")]
+    // [Header("Panels")
     public GameObject mainMenuPanel;
-   // public GameObject gamePlayUI;
+    public GameObject gamePlayUI;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject gameCredits;
@@ -38,8 +38,8 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         // Button listeners
-        if (startButton != null) startButton.onClick.AddListener(() => SceneLoader.Instance.LoadGameScene());
-        if (restartButton != null) restartButton.onClick.AddListener(() => SceneLoader.Instance.RestartScene());
+        if (startButton != null) startButton.onClick.AddListener(ShowGameUI);
+        if (restartButton != null) restartButton.onClick.AddListener(ShowMainMenu);
         if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
         ShowMainMenu();
@@ -80,7 +80,7 @@ public class UiManager : MonoBehaviour
     {
         // Deactivate all
         mainMenuPanel?.SetActive(false);
-       // gamePlayUI?.SetActive(false);
+        gamePlayUI?.SetActive(false);
         pausePanel?.SetActive(false);
         gameOverPanel?.SetActive(false);
         gameCredits?.SetActive(false);
