@@ -18,7 +18,7 @@ public class HurtBox : MonoBehaviour
     {
         playerRenderer = GetComponentInParent<SpriteRenderer>();
         originalMaterial = playerRenderer.material;
-        shakeMagnitude = 0.01f;
+        shakeMagnitude = 0.05f;
         lastHitBackground.enabled = true;
         Color alph = lastHitBackground.color;
         alph.a = 0;
@@ -66,7 +66,8 @@ public class HurtBox : MonoBehaviour
     {
         Vector3 originalCamPosition = Camera.transform.localPosition;
         Color originalColor = playerRenderer.color;
-        playerRenderer.color = Color.white;
+        // playerRenderer.color = Color.white;
+        playerRenderer.material = flashMaterial;
 
         Time.timeScale = 0f;
         shakeTimer = (gameManager.p1Score == 3 || gameManager.p2Score == 3) ? 2f : 0.5f;
@@ -74,12 +75,13 @@ public class HurtBox : MonoBehaviour
         while (shakeTimer > 0f)
         {
             Vector2 shakeOffset = Random.insideUnitCircle * shakeMagnitude;
-            Camera.transform.localPosition = originalCamPosition + (Vector3)shakeOffset;
+            Camera.transform.localPosition = originalCamPosition + new Vector3(shakeOffset.x, 0f, 0f);
 
             if (gameManager.p1Score == 3 || gameManager.p2Score == 3)
             {
                 Color alph = lastHitBackground.color;
                 alph.a = Mathf.Lerp(0, 1, shakeTimer);
+                Time.timeScale = Mathf.Lerp(1, 0, shakeTimer);
                 lastHitBackground.color = alph;
             }
 
@@ -88,7 +90,8 @@ public class HurtBox : MonoBehaviour
         }
 
         Camera.transform.localPosition = originalCamPosition;
-        playerRenderer.color = originalColor;
+        // playerRenderer.color = originalColor;
+        playerRenderer.material = originalMaterial;
         Time.timeScale = 1f;
     }
 
