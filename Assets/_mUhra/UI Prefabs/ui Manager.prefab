@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 0}
+  gamePlayUI: {fileID: 0}
   pausePanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   gameCredits: {fileID: 0}
@@ -52,4 +53,4 @@ MonoBehaviour:
   restartButton: {fileID: 0}
   quitButton: {fileID: 0}
   openWebButton: {fileID: 0}
-  url: https://itch.io/profile/jalboot
+  url: https://jalboot.itch.io/
