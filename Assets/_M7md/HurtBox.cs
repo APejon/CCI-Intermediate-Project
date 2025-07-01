@@ -28,7 +28,7 @@ public class HurtBox : MonoBehaviour
     {
         if (!other.CompareTag("HitBox")) return;
 
-        StartCoroutine(PauseAndShake());
+       StartCoroutine(PauseAndShake2());
     }
 
     IEnumerator PauseAndShake()
@@ -59,4 +59,35 @@ public class HurtBox : MonoBehaviour
         Time.timeScale = 1f;
         shakeTimer = 0.5f;
     }
+    
+    IEnumerator PauseAndShake2()
+    {
+        Vector3 originalCamPosition = Camera.transform.localPosition;
+        Color originalColor = playerRenderer.color;
+        playerRenderer.color = Color.white;
+
+        Time.timeScale = 0f;
+        shakeTimer = (gameManager.p1Score == 3 || gameManager.p2Score == 3) ? 2f : 0.5f;
+
+        while (shakeTimer > 0f)
+        {
+            Vector2 shakeOffset = Random.insideUnitCircle * shakeMagnitude;
+            Camera.transform.localPosition = originalCamPosition + (Vector3)shakeOffset;
+
+            if (gameManager.p1Score == 3 || gameManager.p2Score == 3)
+            {
+                Color alph = lastHitBackground.color;
+                alph.a = Mathf.Lerp(0, 1, shakeTimer);
+                lastHitBackground.color = alph;
+            }
+
+            shakeTimer -= Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        Camera.transform.localPosition = originalCamPosition;
+        playerRenderer.color = originalColor;
+        Time.timeScale = 1f;
+    }
+
 }
