@@ -8,6 +8,7 @@ public class HurtBox : MonoBehaviour
     [SerializeField] Material flashMaterial;
     private float shakeMagnitude;
     private float shakeTimer;
+    private float OriginalshakeTimer;
     private Transform originalCamTransform;
     [SerializeField] GameObject Camera;
     [SerializeField] GameManager gameManager;
@@ -37,27 +38,28 @@ public class HurtBox : MonoBehaviour
         playerRenderer.material = flashMaterial;
         Time.timeScale = 0f;
         if (gameManager.p1Score == 3 || gameManager.p2Score == 3)
-            shakeTimer = 2f;
+            OriginalshakeTimer = 2f;
         else
-            shakeTimer = 0.5f;
+            OriginalshakeTimer = 0.5f;
+        shakeTimer = OriginalshakeTimer;
         while (shakeTimer > 0f)
         {
             Vector2 shakeOffset = Random.insideUnitCircle * shakeMagnitude;
-            Camera.transform.localPosition = Camera.transform.localPosition + new Vector3(shakeOffset.x, shakeOffset.y, 0f);
+            Camera.transform.localPosition = Camera.transform.localPosition + new Vector3(shakeOffset.x * 4, 0f, 0f);
             if (gameManager.p1Score == 3 || gameManager.p2Score == 3)
             {
                 Color alph = lastHitBackground.color;
                 alph.a = Mathf.Lerp(0, 1, shakeTimer);
+                Time.timeScale = Mathf.Lerp(1, 0, shakeTimer);
                 lastHitBackground.color = alph;
             }
             shakeTimer -= Time.unscaledDeltaTime;
             Camera.transform.localPosition = originalCamTransform.localPosition;
             yield return null;
         }
-        yield return new WaitForSecondsRealtime(shakeTimer);
+        shakeTimer = OriginalshakeTimer;
         playerRenderer.material = originalMaterial;
         Time.timeScale = 1f;
-        shakeTimer = 0.5f;
     }
     
     IEnumerator PauseAndShake2()
