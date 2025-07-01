@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: a73b84fc397bffd43ac66467bcdd4620
+guid: a13199574088ace42b8d78f037366b18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6671981675504452300
-    second: controls (1)_0
-  - first:
-      213: -7603437238471047075
-    second: controls (1)_1
-  - first:
-      213: 6705998041185291396
-    second: controls (1)_2
-  - first:
-      213: -182078372334662787
-    second: controls (1)_3
-  - first:
-      213: 809372495333301334
-    second: controls (1)_4
+      213: 8408520414298884795
+    second: OIP-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: controls (1)_0
+      name: OIP-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 148
-        y: 165
-        width: 127
-        height: 127
+        x: 12
+        y: 139
+        width: 448
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,96 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc2cb54fbf3a79c50800000000000000
-      internalID: 6671981675504452300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: controls (1)_4
-      rect:
-        serializedVersion: 2
-        x: 481
-        y: 0
-        width: 453
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91050db09a13705479eded3018328f09
-      internalID: -209962002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: controls (1)_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 17
-        width: 127
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1781219d2312bee4c8592dada897f9e0
-      internalID: -603041458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: controls (1)_2
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 17
-        width: 127
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3929b5709eefe7b489d598c6777908ef
-      internalID: 1345008052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: controls (1)_3
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 17
-        width: 127
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17ca213e2a273fa43b88e597189f561a
-      internalID: 1842765221
+      spriteID: bbac7ec34c011b470800000000000000
+      internalID: 8408520414298884795
       vertices: []
       indices: 
       edges: []
@@ -238,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3163483f801b7e840a7fab9f7125596f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -247,12 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      controls (1)_0: 6671981675504452300
-      controls (1)_1: -603041458
-      controls (1)_2: 1345008052
-      controls (1)_3: 1842765221
-      controls (1)_4: -209962002
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

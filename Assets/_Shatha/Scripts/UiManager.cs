@@ -38,8 +38,8 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         // Button listeners
-        if (startButton != null) startButton.onClick.AddListener(ShowGameUI);
-        if (restartButton != null) restartButton.onClick.AddListener(ShowMainMenu);
+        if (startButton != null) startButton.onClick.AddListener(OnStartClicked);
+        if (restartButton != null) restartButton.onClick.AddListener(OnRestartClicked);
         if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
         ShowMainMenu();
@@ -52,7 +52,7 @@ public class UiManager : MonoBehaviour
     public void ShowMainMenu()
     {
         SetActivePanel(mainMenuPanel);
-        //ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
+        ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
     }
 
     public void ShowGameUI()
@@ -71,6 +71,25 @@ public class UiManager : MonoBehaviour
     public void ShowGameOver()
     {
         FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gameOverPanel));
+    }
+
+    private void OnStartClicked()
+    {
+        FadeInFadeOut.Instance.FadeAndDo(() =>
+        {
+            // Instead of loading a new scene, just hide menu and show gameplay panels
+            SetActivePanel(null); // if you're showing gameplay UI, enable it here
+            // Or load scene: SceneManager.LoadScene("GameScene"); if you're using scene system
+        });
+    }
+
+    private void OnRestartClicked()
+    {
+        FadeInFadeOut.Instance.FadeAndDo(() =>
+        {
+            // Example: Reset panels instead of loading scene
+            ShowGameUI(); // or ShowMainMenu(); or custom reset logic
+        });
     }
 
     private void SetActivePanel(GameObject targetPanel)

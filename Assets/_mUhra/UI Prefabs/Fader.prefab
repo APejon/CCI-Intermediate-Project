@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeDuration: 1
-  _Fader: {fileID: 0}
+  _Fader: {fileID: 2684289749950668892, guid: ae7882fdf35c22146b2d43bbc363051f, type: 3}
