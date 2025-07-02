@@ -193,10 +193,10 @@ public class FighterController : MonoBehaviour
     public void TryAttack()
     {
         if (isAttacking) return;
-        AudioManager.Instance.Play(gameObject.tag + "_whip", Random.Range(0.8f,1.2f), Random.Range(0.8f,1.2f));
+        AudioManager.Instance.Play(gameObject.tag + "_whip", Random.Range(0.9f,1.1f), Random.Range(0.9f,1.1f));
         moveInput   = 0f;
         isAttacking = true;
-        anim.SetBool("isAttacking", true);   // triggers Animator transition
+        anim.SetTrigger("Attack");   // triggers Animator transition
     }
 
     /* ── Animation Events --------------------------------------- */
@@ -230,6 +230,7 @@ public class FighterController : MonoBehaviour
     {
         isAttacking = false;
         anim.SetBool("isAttacking", isAttacking);
+        Debug.Log("ATTACK ENDED");
 
         if (isCrouching && !Input.GetKey(crouchKey))
             TryCrouch(false);            // stand up if key no longer held
