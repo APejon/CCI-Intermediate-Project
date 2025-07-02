@@ -61,7 +61,8 @@ public class UiManager : MonoBehaviour
     public void ShowGameUI()
     {
         //mainMenuPanel?.SetActive(false);
-        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
+        //  FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
+        gamePlayUI.gameObject.SetActive(true);
     }
 
     public void ShowPauseMenu()
