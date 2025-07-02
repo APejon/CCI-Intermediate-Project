@@ -63,6 +63,7 @@ public class AudioManager2 : MonoBehaviour
     // Call this from your button instead of StartGame()
     public void StartGameWithSound()
     {
+
         PlayButtonClick();
         StartCoroutine(DelayedStartGame());
     }
