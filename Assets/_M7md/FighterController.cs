@@ -77,7 +77,7 @@ public class FighterController : MonoBehaviour
 
         anim.SetBool("isGrounded",  isGrounded);
         anim.SetBool("isCrouching", isCrouching);
-        anim.SetBool("isAttacking", isAttacking);
+        //anim.SetBool("isAttacking", isAttacking);
         
         /* ---- NEW: walk toggle ---- */
         bool walking = !isAttacking && Mathf.Abs(moveInput) > 0.01f;
