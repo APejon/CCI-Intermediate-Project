@@ -70,7 +70,7 @@ public class AudioManager2 : MonoBehaviour
     private System.Collections.IEnumerator DelayedStartGame()
     {
         yield return new WaitForSeconds(0.2f); // wait to let the click sound play
-       SceneManager.LoadScene(0);
+       //SceneManager.LoadScene(0);
         PlayGameTheme();
     }
     public void ToggleMuteFromUI(Toggle toggle)

@@ -26,6 +26,8 @@ public class FadeInFadeOut : MonoBehaviour
         {
             Destroy(gameObject);
         }
+      
+        //_Fader.gameObject.setactive(true);
     }
 
     private void Start()
@@ -57,9 +59,12 @@ public class FadeInFadeOut : MonoBehaviour
         float timer = 0f;
         _Fader.blocksRaycasts = true;
 
+        
+
         while (timer < FadeDuration)
         {
             float alpha = Mathf.Lerp(startAlpha, endAlpha, timer / FadeDuration);
+
             _Fader.alpha = alpha;
             timer += Time.deltaTime;
             yield return null;

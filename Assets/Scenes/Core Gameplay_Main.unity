@@ -1421,6 +1421,10 @@ PrefabInstance:
       value: ui Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 2062795839}
+    - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: gamePlayUI
       value: 
       objectReference: {fileID: 2137406880}
@@ -2125,7 +2129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1168311504313182914, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1181224114888243859, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2235,6 +2239,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 5063175465482342027, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8864400561980521771, guid: e66c9f4334a07b54cbfec2307adc5324, type: 3}
     - target: {fileID: 5286506195712412869, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2329,7 +2337,7 @@ PrefabInstance:
       objectReference: {fileID: 375865079}
     - target: {fileID: 7363189802587002065, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7536985155015373964, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2339,6 +2347,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 7661552457715119809, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8227421343337616713, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_Color.a
       value: 0.70980394
@@ -2361,7 +2373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8481716483112847278, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8531572513606547297, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_Sprite
@@ -3819,6 +3831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2062795839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7661552457715119809, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+  m_PrefabInstance: {fileID: 1030770006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2068651579 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4765961070540426355, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
