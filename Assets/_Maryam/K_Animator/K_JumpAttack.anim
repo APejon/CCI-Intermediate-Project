@@ -26,7 +26,7 @@ AnimationClip:
       value: {fileID: 5462837984932264294, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
     - time: 0.29166666
       value: {fileID: 3062078369962797845, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
-    - time: 0.375
+    - time: 0.5
       value: {fileID: 3062078369962797845, guid: 18c59fc2c407cd149acbc1595443309a, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.41666666
+    m_StopTime: 0.5416667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,20 +80,20 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.29166666
-    functionName: FC_EnableHitBox
+    functionName: FC_EnableJumpHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: FC_DisableHitBox
+    functionName: FC_DisableJumpHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.375
+  - time: 0.5
     functionName: FC_EndAttackAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
