@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject gameCredits;
+    public GameObject fadePanel;
 
     //  [Header("Buttons")]
     public Button startButton;
@@ -42,7 +43,8 @@ public class UiManager : MonoBehaviour
         if (restartButton != null) restartButton.onClick.AddListener(OnRestartClicked);
         if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
-        ShowMainMenu();
+        fadePanel.SetActive(true);
+        SetActivePanel(mainMenuPanel);
     }
     public void OpenWeb()
     {
@@ -51,12 +53,14 @@ public class UiManager : MonoBehaviour
     // === UI Control Methods ===
     public void ShowMainMenu()
     {
-        SetActivePanel(mainMenuPanel);
-        ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
+        
+        //ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
+        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(mainMenuPanel));
     }
 
     public void ShowGameUI()
     {
+        //mainMenuPanel?.SetActive(false);
         FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
     }
 
