@@ -2347,6 +2347,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 375865079}
     - target: {fileID: 2153704742849783048, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153704742849783048, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.0008544922
       objectReference: {fileID: 0}
@@ -2410,6 +2414,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 3724575374180120413, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4145903647799627675, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2530,6 +2538,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 9057899478146694741, guid: 94ac0549c07a0a141b7d3a4abfb60ee3, type: 3}
+    - target: {fileID: 6458857313401418342, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6866229559268192617, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2557,6 +2569,10 @@ PrefabInstance:
     - target: {fileID: 7661552457715119809, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695933397281369902, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -29.92749
       objectReference: {fileID: 0}
     - target: {fileID: 8227421343337616713, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_Color.a
@@ -2597,6 +2613,10 @@ PrefabInstance:
     - target: {fileID: 9071889902199335882, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071889902199335882, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
