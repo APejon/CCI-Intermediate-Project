@@ -101,13 +101,13 @@ public class UiManager : MonoBehaviour
     {
         // Deactivate all
         mainMenuPanel?.SetActive(false);
-        gamePlayUI?.SetActive(false);
         pausePanel?.SetActive(false);
         gameOverPanel?.SetActive(false);
         gameCredits?.SetActive(false);
         pausePanel.SetActive(false);
         // Activate target
         targetPanel?.SetActive(true);
+        gamePlayUI?.SetActive(true);
 
         // Activate the chosen panel
 
