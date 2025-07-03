@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     public float rightBoundary = 8f;
     public float gizmoHeight = 5f;
 
+    [Header("Main Camera")] public CameraControl CamScript;
+
     const char STAR = 'O';
     const char DOT = '·';
 
@@ -46,6 +49,9 @@ public class GameManager : MonoBehaviour
     Coroutine timerCoroutine;
     public bool optionsOpen = false;
     private bool pausing;
+
+    private void OnEnable() => 
+        CamScript.enabled = true;
 
     void Start()
     {

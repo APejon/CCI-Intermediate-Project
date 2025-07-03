@@ -6,7 +6,7 @@ public class UiManager : MonoBehaviour
 
     public static UiManager Instance { get; private set; }
 
-    // [Header("Panels")
+    [Header("Panels")]
     public GameObject mainMenuPanel;
     public GameObject gamePlayUI;
     public GameObject pausePanel;
@@ -14,11 +14,14 @@ public class UiManager : MonoBehaviour
     public GameObject gameCredits;
     public GameObject fadePanel;
 
-    //  [Header("Buttons")]
+    [Header("Buttons")]
     public Button startButton;
     public Button restartButton;
     public Button quitButton;
     public Button openWebButton;
+    
+    [Header("Scripts")]
+    public GameManager gameManager;
 
     public string url = "https://itch.io/profile/jalboot"; // Replace with your desired URL
 
@@ -85,6 +88,8 @@ public class UiManager : MonoBehaviour
             // Instead of loading a new scene, just hide menu and show gameplay panels
             SetActivePanel(null); // if you're showing gameplay UI, enable it here
             // Or load scene: SceneManager.LoadScene("GameScene"); if you're using scene system
+
+            gameManager.enabled = true;
         });
     }
 
@@ -107,9 +112,6 @@ public class UiManager : MonoBehaviour
         pausePanel.SetActive(false);
         // Activate target
         targetPanel?.SetActive(true);
-        gamePlayUI?.SetActive(true);
-
-        // Activate the chosen panel
 
     }
 }
