@@ -914,7 +914,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 67.7
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1532,7 +1532,7 @@ PrefabInstance:
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: startButton
       value: 
-      objectReference: {fileID: 805462649}
+      objectReference: {fileID: 0}
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: P2Controller
       value: 
@@ -2066,17 +2066,6 @@ Transform:
   - {fileID: 1475042751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &805462649 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5914109972801918919, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
-  m_PrefabInstance: {fileID: 1030770006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &829348951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,7 +2150,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2324,7 +2313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.634, y: 0.46121767}
-  m_AnchoredPosition: {x: 0.5, y: 2.4958344}
+  m_AnchoredPosition: {x: 0.5, y: 2.4956055}
   m_SizeDelta: {x: 1, y: 0.9899998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &952500243
@@ -2399,6 +2388,54 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: spacing
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: topDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: bottomDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: imageSize.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: imageSize.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: scrollSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: backgroundImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: images.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: 'images.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2645050474553366069, guid: dad61b95dba6c584f99881ee8145e4ff, type: 3}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: 'images.Array.data[1]'
+      value: 
+      objectReference: {fileID: -8285412988959015622, guid: 699fb95801ebc5c419479ae9e4c1a4ba, type: 3}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: 'images.Array.data[2]'
+      value: 
+      objectReference: {fileID: -917868248326505854, guid: 015638c46dc1b484795faa42f84db805, type: 3}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: 'images.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4492854119877865850, guid: d3ebea53a2c29d9498f94664a7c6cf16, type: 3}
     - target: {fileID: 2642824924529508032, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2486,6 +2523,30 @@ PrefabInstance:
     - target: {fileID: 4254253570712396213, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382037678170139143, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382037678170139143, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382037678170139143, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382037678170139143, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382037678170139143, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382037678170139143, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4408573793409518990, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4028,7 +4089,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
