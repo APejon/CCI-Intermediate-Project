@@ -914,7 +914,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.7
+  m_fontSize: 18
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1498,6 +1498,10 @@ PrefabInstance:
       value: ui Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
+      propertyPath: P2Ai
+      value: 
+      objectReference: {fileID: 1122516104}
+    - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 2062795839}
@@ -1522,9 +1526,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1053056594}
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
+      propertyPath: scrIntroOne
+      value: 
+      objectReference: {fileID: 1030770007}
+    - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: startButton
       value: 
       objectReference: {fileID: 805462649}
+    - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
+      propertyPath: P2Controller
+      value: 
+      objectReference: {fileID: 1122516106}
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: gameOverPanel
       value: 
@@ -2149,7 +2161,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2312,7 +2324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.634, y: 0.46121767}
-  m_AnchoredPosition: {x: 0.5, y: 2.4958496}
+  m_AnchoredPosition: {x: 0.5, y: 2.4958344}
   m_SizeDelta: {x: 1, y: 0.9899998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &952500243
@@ -2333,7 +2345,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1168311504313182914, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1181224114888243859, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2355,6 +2367,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 1978914480497380970, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 208034616}
+    - target: {fileID: 1978914480497380970, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 375865079}
+    - target: {fileID: 1978914480497380970, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowGameCredits
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978914480497380970, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 2153704742849783048, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00012207031
@@ -2386,6 +2414,22 @@ PrefabInstance:
     - target: {fileID: 2969867647712768583, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 25.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032194965600838942, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 208034616}
+    - target: {fileID: 3032194965600838942, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 375865079}
+    - target: {fileID: 3032194965600838942, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTwoPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032194965600838942, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 3150495015755848266, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontAsset
@@ -2459,6 +2503,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8864400561980521771, guid: e66c9f4334a07b54cbfec2307adc5324, type: 3}
+    - target: {fileID: 5234061997813605030, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 208034616}
+    - target: {fileID: 5234061997813605030, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 375865079}
+    - target: {fileID: 5234061997813605030, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnArcade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234061997813605030, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 5286506195712412869, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2555,6 +2615,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6627523778147273083, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 208034616}
+    - target: {fileID: 6627523778147273083, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 375865079}
+    - target: {fileID: 6627523778147273083, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowPauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627523778147273083, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6866229559268192617, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2639,6 +2715,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+--- !u!1 &1030770007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7363189802587002065, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+  m_PrefabInstance: {fileID: 1030770006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1053056592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,7 +4028,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1

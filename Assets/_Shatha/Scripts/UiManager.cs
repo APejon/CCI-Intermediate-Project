@@ -78,12 +78,26 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        if (scrIntroOne.activeInHierarchy)
+        if (scrIntroOne.activeInHierarchy == false) return;
+
+
+        bool controllerPressed = false;
+
+        // Check the first few joystick buttons (common ones: 0–15)
+        for (int i = 0; i < 16; i++)
         {
-            
-            if (Input.anyKey)
-                ShowGameUI();
-            
+            if (Input.GetKeyDown("joystick button " + i))
+            {
+                controllerPressed = true;
+                break;
+            }
+        }
+
+        if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || controllerPressed)
+        {
+            Debug.Log("Pressed something");
+
+            ShowGameUI();
         }
     }
 
@@ -95,15 +109,13 @@ public class UiManager : MonoBehaviour
     public void ShowMainMenu()
     {
         
-        //ScreenFader.Instance.FadeOut(mainMenuPanel, 1f);
         FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(mainMenuPanel));
     }
 
     public void ShowGameUI()
     {
-        //mainMenuPanel?.SetActive(false);
-        //  FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
-        gamePlayUI.gameObject.SetActive(true);
+
+        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
     }
 
     public void ShowPauseMenu()
@@ -131,13 +143,13 @@ public class UiManager : MonoBehaviour
         });
     }
 
-    public void OnOnePlayerStart()
+    public void OnArcade()
     {
         bMultiplayer = false;
         scrIntroOne.gameObject.SetActive(true);
     }
 
-    public void TwoPlayerStart()
+    public void OnTwoPlayer()
     {
         bMultiplayer = true;
         scrIntroOne.gameObject.SetActive(true);
@@ -169,6 +181,7 @@ public class UiManager : MonoBehaviour
         gameOverPanel?.SetActive(false);
         gameCredits?.SetActive(false);
         pausePanel.SetActive(false);
+        scrIntroOne.SetActive(false);
         // Activate target
         targetPanel?.SetActive(true);
 
