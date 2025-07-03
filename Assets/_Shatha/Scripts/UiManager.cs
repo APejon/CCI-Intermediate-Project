@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject gameCredits;
+    public GameObject scrIntroOne;  // First intro screen shown after pressing start, usually controls screen
     public GameObject fadePanel;
 
     //  [Header("Buttons")]
@@ -21,6 +22,31 @@ public class UiManager : MonoBehaviour
     public Button openWebButton;
 
     public string url = "https://itch.io/profile/jalboot"; // Replace with your desired URL
+
+    public FighterController P2Controller;  
+    public EnemyFighterAI P2Ai;
+
+    private bool _bMultiplayer = false; // If false = 1 player vs computer, true = two player controllers
+    public bool bMultiplayer
+    {
+        get
+        {
+            return _bMultiplayer;
+        }
+        set {
+            _bMultiplayer = value;
+            if (value )  // Two player mode
+            {
+                P2Controller.enabled = true;
+                P2Ai.enabled = false;
+            } else  // Single player Arcade mode
+            {
+                P2Controller.enabled = false;
+                P2Ai.enabled = true;
+            }
+        }
+    }
+    
 
     void Awake()
     {
@@ -46,6 +72,18 @@ public class UiManager : MonoBehaviour
         fadePanel.SetActive(true);
         SetActivePanel(mainMenuPanel);
     }
+
+    void Update()
+    {
+        if (scrIntroOne.activeInHierarchy)
+        {
+            
+            if (Input.anyKey)
+                ShowGameUI();
+            
+        }
+    }
+
     public void OpenWeb()
     {
         Application.OpenURL(url);
@@ -87,6 +125,27 @@ public class UiManager : MonoBehaviour
             // Or load scene: SceneManager.LoadScene("GameScene"); if you're using scene system
         });
     }
+
+    public void OnOnePlayerStart()
+    {
+        bMultiplayer = false;
+        scrIntroOne.gameObject.SetActive(true);
+    }
+
+    public void TwoPlayerStart()
+    {
+        bMultiplayer = true;
+        scrIntroOne.gameObject.SetActive(true);
+    }
+
+    public void IntroScreenOne()
+    {
+        gamePlayUI.gameObject.SetActive(true);
+    }
+
+
+
+
 
     private void OnRestartClicked()
     {
