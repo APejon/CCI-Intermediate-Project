@@ -45,7 +45,6 @@ public class UiManager : MonoBehaviour
                 P2Ai.enabled = false;
             } else  // Single player Arcade mode
             {
-                P2Controller.enabled = false;
                 P2Ai.enabled = true;
             }
         }
@@ -84,7 +83,7 @@ public class UiManager : MonoBehaviour
 
         bool controllerPressed = false;
 
-        // Check the first few joystick buttons (common ones: 0–15)
+        // Check the first few joystick buttons (common ones: 0ï¿½15)
         for (int i = 0; i < 16; i++)
         {
             if (Input.GetKeyDown("joystick button " + i))

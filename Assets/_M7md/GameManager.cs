@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,8 +22,6 @@ public class GameManager : MonoBehaviour
     public Transform player2Spawn;
 
     [Header("UI (TMP)")]
-    public TMP_Text player1ScoreText;
-    public TMP_Text player2ScoreText;
     public TMP_Text centerMessageText;
     public TMP_Text timerText;
     public TMP_Text countdownText;
@@ -40,6 +39,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Main Camera")] public CameraControl CamScript;
 
+    [Header("Score Sprites")]
+    public Sprite filledSprite;
+    public Sprite emptySprite;
+
+    [Header("Score UI Images")]
+    public Image[] player1ScoreImages;
+    public Image[] player2ScoreImages;
+    
     const char STAR = 'O';
     const char DOT = '·';
 
@@ -121,19 +128,19 @@ public class GameManager : MonoBehaviour
 
         if (p1Score == 0 && p2Score == 0)
         {
-            centerMessageText.text = "Time’s up! No winner.";
+            centerMessageText.text = "Time’s up!\nNo winner.";
         }
         else if (p1Score > p2Score)
         {
-            centerMessageText.text = "Time’s up! Player 1 wins!";
+            centerMessageText.text = "Time’s up!\nPlayer 1 wins!";
         }
         else if (p2Score > p1Score)
         {
-            centerMessageText.text = "Time’s up! Player 2 wins!";
+            centerMessageText.text = "Time’s up!\nPlayer 2 wins!";
         }
         else
         {
-            centerMessageText.text = "Time’s up! It’s a tie!";
+            centerMessageText.text = "Time’s up!\nIt’s a tie!";
         }
     }
 
@@ -175,13 +182,16 @@ public class GameManager : MonoBehaviour
 
     void RefreshScoreUI()
     {
-        player1ScoreText.text = BuildScoreString(p1Score);
-        player2ScoreText.text = BuildScoreString(p2Score);
+        UpdateScoreImages(player1ScoreImages, p1Score);
+        UpdateScoreImages(player2ScoreImages, p2Score);
     }
 
-    string BuildScoreString(int score)
+    void UpdateScoreImages(Image[] scoreImages, int score)
     {
-        return new string(STAR, score) + new string(DOT, maxScore - score);
+        for (int i = 0; i < scoreImages.Length; i++)
+        {
+            scoreImages[i].sprite = i < score ? filledSprite : emptySprite;
+        }
     }
 
     void ResetPositions()
