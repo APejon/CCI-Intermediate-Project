@@ -2397,6 +2397,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: spawnDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: bottomDelay
       value: 10
       objectReference: {fileID: 0}
@@ -2417,25 +2421,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: delayBeforeStart
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: startPointOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: delayBetweenLoops
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: images.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: 'images.Array.data[0]'
       value: 
-      objectReference: {fileID: -2645050474553366069, guid: dad61b95dba6c584f99881ee8145e4ff, type: 3}
+      objectReference: {fileID: 4492854119877865850, guid: d3ebea53a2c29d9498f94664a7c6cf16, type: 3}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: 'images.Array.data[1]'
       value: 
-      objectReference: {fileID: -8285412988959015622, guid: 699fb95801ebc5c419479ae9e4c1a4ba, type: 3}
+      objectReference: {fileID: -2645050474553366069, guid: dad61b95dba6c584f99881ee8145e4ff, type: 3}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: 'images.Array.data[2]'
       value: 
-      objectReference: {fileID: -917868248326505854, guid: 015638c46dc1b484795faa42f84db805, type: 3}
+      objectReference: {fileID: -8285412988959015622, guid: 699fb95801ebc5c419479ae9e4c1a4ba, type: 3}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: 'images.Array.data[3]'
       value: 
-      objectReference: {fileID: 4492854119877865850, guid: d3ebea53a2c29d9498f94664a7c6cf16, type: 3}
+      objectReference: {fileID: -917868248326505854, guid: 015638c46dc1b484795faa42f84db805, type: 3}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: comicPanels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2642824924529508032, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontAsset
       value: 

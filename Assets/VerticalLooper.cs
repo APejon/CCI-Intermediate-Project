@@ -7,19 +7,72 @@ public class VerticalLooper : MonoBehaviour
     public Sprite[] images;
     public Vector2 imageSize = new Vector2(800, 600);
     public float scrollSpeed = 50f;
-    public float spacing = 10f; // New: spacing between images
+    public float spacing = 10f;
+    public bool preserveAspect = true;
+
+    [Header("Loop Control")]
+    public float startPointOffset = 100f;
+    public float delayBetweenLoops = 1f;
+    public float delayBeforeStart = 1f;
 
     [Header("Background")]
-    public Color backgroundColor = Color.black; // New: background color
-    
+    public Color backgroundColor = Color.black;
+
     private RectTransform container;
     private float imageHeight;
     private int imageCount;
+
+    private bool isPaused = true;
+    private bool delayDone = false;
+    private float startTime;
+    private float pauseEndTime;
 
     void Start()
     {
         CreateBlackBackground();
         BuildScrollingImages();
+        container.anchoredPosition = new Vector2(0, -startPointOffset);
+
+        startTime = Time.realtimeSinceStartup;
+        isPaused = true;
+        delayDone = false;
+    }
+
+    void Update()
+    {
+        if (!delayDone)
+        {
+            if (Time.realtimeSinceStartup - startTime >= delayBeforeStart)
+            {
+                delayDone = true;
+                isPaused = false;
+                Debug.Log("Initial delay finished. Scrolling begins.");
+            }
+            return;
+        }
+
+        if (isPaused)
+        {
+            if (Time.realtimeSinceStartup >= pauseEndTime)
+            {
+                isPaused = false;
+                Debug.Log("Loop pause finished. Resuming scroll.");
+            }
+            return;
+        }
+
+        if (container == null) return;
+
+        container.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
+
+        float resetPoint = imageCount * imageHeight;
+        if (container.anchoredPosition.y >= resetPoint)
+        {
+            container.anchoredPosition -= new Vector2(0, resetPoint);
+            isPaused = true;
+            pauseEndTime = Time.realtimeSinceStartup + delayBetweenLoops;
+            Debug.Log("Reached reset point. Pausing before next loop.");
+        }
     }
 
     void CreateBlackBackground()
@@ -49,7 +102,7 @@ public class VerticalLooper : MonoBehaviour
         imageHeight = imageSize.y + spacing;
         imageCount = images.Length;
 
-        for (int i = 0; i < imageCount * 2; i++) // double up for looping
+        for (int i = 0; i < imageCount * 2; i++)
         {
             GameObject go = new GameObject("Image_" + i, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
             go.transform.SetParent(container, false);
@@ -59,42 +112,23 @@ public class VerticalLooper : MonoBehaviour
 
             Image img = go.GetComponent<Image>();
             img.sprite = images[i % imageCount];
-            img.preserveAspect = true;
+            img.preserveAspect = preserveAspect;
+            img.raycastTarget = false;
         }
-    }
-
-    void Update()
-    {
-        container.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
-        float resetPoint = imageCount * imageHeight;
-
-        if (container.anchoredPosition.y >= resetPoint)
-            container.anchoredPosition -= new Vector2(0, resetPoint);
     }
 
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        if (!Application.isPlaying || container == null)
-        {
-            float height = imageSize.y + spacing;
-            DrawMarginGizmos(transform as RectTransform, height);
-        }
-        else
-        {
-            DrawMarginGizmos(container, imageHeight);
-        }
-    }
+        if (images == null || images.Length == 0) return;
 
-    void DrawMarginGizmos(RectTransform rt, float height)
-    {
+        float totalHeight = (imageSize.y + spacing) * images.Length * 2;
+        Vector3 top = transform.position;
+        Vector3 bottom = top + Vector3.down * totalHeight;
+
         Gizmos.color = Color.green;
-
-        Vector3 worldTop = rt.TransformPoint(Vector3.zero);
-        Vector3 worldBottom = rt.TransformPoint(new Vector3(0, -imageCount * height * 2, 0));
-
-        Gizmos.DrawLine(worldTop + Vector3.left * 100, worldTop + Vector3.right * 100);
-        Gizmos.DrawLine(worldBottom + Vector3.left * 100, worldBottom + Vector3.right * 100);
+        Gizmos.DrawLine(top + Vector3.left * 500, top + Vector3.right * 500);
+        Gizmos.DrawLine(bottom + Vector3.left * 500, bottom + Vector3.right * 500);
     }
 #endif
 }
