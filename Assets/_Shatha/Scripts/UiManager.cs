@@ -14,6 +14,7 @@ public class UiManager : MonoBehaviour
     public GameObject gameCredits;
     public GameObject scrIntroOne;  // First intro screen shown after pressing start, usually controls screen
     public GameObject fadePanel;
+     
 
     [Header("Buttons")]
     public Button startButton;
@@ -130,7 +131,7 @@ public class UiManager : MonoBehaviour
     {
         FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gameOverPanel));
     }
-
+  
     private void OnStartClicked()
     {
         FadeInFadeOut.Instance.FadeAndDo(() =>

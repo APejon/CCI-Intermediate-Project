@@ -1,10 +1,43 @@
 fileFormatVersion: 2
-guid: d3ebea53a2c29d9498f94664a7c6cf16
+guid: 31a5ef75103c9ae4094b1c05e7848f4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4492854119877865850
-    second: page_4_0
+      213: 4316736075179665238
+    second: game controls_0
+  - first:
+      213: 4702583566946549199
+    second: game controls_1
+  - first:
+      213: -229409409056868373
+    second: game controls_2
+  - first:
+      213: 5430003004885452974
+    second: game controls_3
+  - first:
+      213: 5583016883231259835
+    second: game controls_4
+  - first:
+      213: -4097560878496126870
+    second: game controls_5
+  - first:
+      213: 6518238436126262542
+    second: game controls_6
+  - first:
+      213: 2878465947906154600
+    second: game controls_7
+  - first:
+      213: 6097726059256578008
+    second: game controls_8
+  - first:
+      213: 7489136181552738856
+    second: game controls_9
+  - first:
+      213: -9115408526267652611
+    second: game controls_10
+  - first:
+      213: -3288639316024301609
+    second: game controls_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +146,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: page_4_0
+      name: game controls_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2500
-        height: 2500
+        x: 123
+        y: 36
+        width: 984
+        height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7178f29403d95e30800000000000000
-      internalID: 4492854119877865850
+      spriteID: 657a23ed69028eb30800000000000000
+      internalID: 4316736075179665238
       vertices: []
       indices: 
       edges: []
@@ -138,7 +171,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 257068581c4d0bd43834735cfeaa5e2f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +181,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      page_4_0: 4492854119877865850
+      game controls_0: 4316736075179665238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
