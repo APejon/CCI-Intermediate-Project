@@ -2437,13 +2437,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef5bdf7fef85c4da960f358d12107c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 100
-  sprites:
-  - {fileID: -2645050474553366069, guid: dad61b95dba6c584f99881ee8145e4ff, type: 3}
-  - {fileID: -8285412988959015622, guid: 699fb95801ebc5c419479ae9e4c1a4ba, type: 3}
-  - {fileID: -917868248326505854, guid: 015638c46dc1b484795faa42f84db805, type: 3}
-  - {fileID: 4492854119877865850, guid: d3ebea53a2c29d9498f94664a7c6cf16, type: 3}
+  images: []
   imageSize: {x: 800, y: 600}
+  scrollSpeed: 100
+  spacing: 10
+  preserveAspect: 1
+  startPointOffset: 100
+  delayBetweenLoops: 1
+  delayBeforeStart: 1
+  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &6573410034681473958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,7 +4158,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7695933397281369902}
+    m_TransformParent: {fileID: 1280839249109693273}
     m_Modifications:
     - target: {fileID: 2073293598568683767, guid: 025ea487fa8293e459f97918ae42c5ae, type: 3}
       propertyPath: m_Name
@@ -4431,15 +4433,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7065436180031337460, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       insertIndex: 5
       addedObject: {fileID: 3479496019630868618}
+    - targetCorrespondingSourceObject: {fileID: 7065436180031337460, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8886665525181991733}
     - targetCorrespondingSourceObject: {fileID: 1961614740886400261, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       insertIndex: 1
       addedObject: {fileID: 4382037678170139143}
     - targetCorrespondingSourceObject: {fileID: 5530368076100258900, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       insertIndex: 0
       addedObject: {fileID: 3739296302572543671}
-    - targetCorrespondingSourceObject: {fileID: 1803268209340526467, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8886665525181991733}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
 --- !u!224 &1280839249109693273 stripped
@@ -4460,10 +4462,5 @@ RectTransform:
 --- !u!225 &7695550336343141457 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 1803438787257478396, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
-  m_PrefabInstance: {fileID: 8343776236744097965}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &7695933397281369902 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1803268209340526467, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
   m_PrefabInstance: {fileID: 8343776236744097965}
   m_PrefabAsset: {fileID: 0}
