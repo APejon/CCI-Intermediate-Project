@@ -31,6 +31,7 @@ public class UiManager : MonoBehaviour
     public EnemyFighterAI P2Ai;
 
     private bool _bMultiplayer = false; // If false = 1 player vs computer, true = two player controllers
+    private bool isPaused;
     public bool bMultiplayer
     {
         get
@@ -78,6 +79,8 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P)) TogglePause();
+        
         if (scrIntroOne.activeInHierarchy == false) return;
 
 
@@ -98,6 +101,7 @@ public class UiManager : MonoBehaviour
             Debug.Log("Pressed something");
 
             ShowGameUI();
+            gameManager.enabled = true;
         }
     }
 
@@ -117,10 +121,20 @@ public class UiManager : MonoBehaviour
 
         FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
     }
-
-    public void ShowPauseMenu()
+    
+    public void TogglePause()
     {
-        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(pausePanel));
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
+
+        if (isPaused)
+        {
+            pausePanel.SetActive(true);
+        }
+        else
+        {
+            pausePanel.SetActive(false);
+        }
     }
     public void ShowGameCredits()
     {
@@ -139,7 +153,7 @@ public class UiManager : MonoBehaviour
             SetActivePanel(null); // if you're showing gameplay UI, enable it here
             // Or load scene: SceneManager.LoadScene("GameScene"); if you're using scene system
 
-            gameManager.enabled = true;
+            
         });
     }
 
