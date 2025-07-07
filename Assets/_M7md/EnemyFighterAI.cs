@@ -79,7 +79,10 @@ public class EnemyFighterAI : MonoBehaviour
     void ExecuteMode()
     {
         if (ctrl.IsAttacking || ctrl.IsCrouching || GameManager.Instance.roundLocked) {
-            ctrl.SetMoveInput(0f); // stop AI movement while locked
+            ctrl.SetMoveInput(0f);
+            Debug.Log("ExecuteMode Aborted");// stop AI movement while locked
+            Debug.Log("CROUCHING: " + ctrl.IsCrouching);
+            Debug.Log("ATTACKING: " + ctrl.IsAttacking);
             return;
         }
 

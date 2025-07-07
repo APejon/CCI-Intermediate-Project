@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
         else { Destroy(gameObject); }
-
-        ResetMatch();
-
     }
 
     [Header("Fighters & Spawns")]
@@ -58,7 +55,6 @@ public class GameManager : MonoBehaviour
     float currentTimer;
     Coroutine timerCoroutine;
     public bool optionsOpen = false;
-    private bool pausing;
 
     public enum CurrentWinnerType
     {
@@ -70,33 +66,31 @@ public class GameManager : MonoBehaviour
 
     public CurrentWinnerType CurrentWinner = CurrentWinnerType.Unknown;
 
-    private void OnEnable() => 
-        CamScript.enabled = true;
-
-    void Start()
+    private void OnEnable()
     {
-        ResetMatch();
+        CamScript.enabled = true;
+        roundLocked = true;
     }
-
+    
     public void ResetMatch()
     {
         Debug.Log("Reset Match");
         RefreshScoreUI();
         currentTimer = matchTime;
-        
-        pausing = false;
         p1Score = 0;
         p2Score = 0;
-        roundLocked = false;
 
         centerMessageText.text = "";
         ResetPositions();
+        StartCoroutine(StartCountdownThenFight());
     }
 
     // This starts the 3,2,1 counter
     public void StartMatch()
     {
         Debug.Log("Start Match");
+        currentTimer = matchTime;
+        timerText.text = matchTime.ToString();
         StartCoroutine(StartCountdownThenFight());
     }
 
@@ -116,22 +110,6 @@ public class GameManager : MonoBehaviour
             //}
         }
     }
-
-    // void TogglePause()
-    // {
-    //     pausing = !pausing;
-    //     Time.timeScale = pausing ? 0f : 1f;
-    //
-    //     if (UiManager.Instance != null)
-    //     {
-    //         if (pausing)
-    //             UiManager.Instance.ShowPauseMenu();
-    //         else
-    //             UiManager.Instance.ShowGameUI(); // Or hide pause panel however you prefer
-    //     }
-    //
-    //     Debug.Log(pausing ? "Game Paused" : "Game Resumed");
-    // }
 
     public void RegisterPoint(FighterController attacker, FighterController defender, Vector2 hitPoint)
 {
@@ -231,8 +209,6 @@ public class GameManager : MonoBehaviour
         string[] steps = { "3", "2", "1", "Fight!" };
         foreach (string step in steps)
         {
-            while (pausing)
-                yield return null;
             countdownText.text = step;
             yield return new WaitForSecondsRealtime(1f);
         }
