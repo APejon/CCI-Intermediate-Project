@@ -1398,6 +1398,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &629682495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7896988665866416971, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+  m_PrefabInstance: {fileID: 1030770006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &675607717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1629,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &985096967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3035891714042902255, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+  m_PrefabInstance: {fileID: 1030770006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1030770006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1728,6 +1738,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 7251061588203312071, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: panelP1Winner
+      value: 
+      objectReference: {fileID: 629682495}
+    - target: {fileID: 7251061588203312071, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: panelP2Winner
+      value: 
+      objectReference: {fileID: 985096967}
     - target: {fileID: 7363189802587002065, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1846,6 +1864,7 @@ MonoBehaviour:
   p2Score: 0
   roundLocked: 0
   optionsOpen: 0
+  CurrentWinner: 0
 --- !u!1 &1077197863
 GameObject:
   m_ObjectHideFlags: 0

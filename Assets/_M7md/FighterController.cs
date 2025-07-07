@@ -250,7 +250,7 @@ public class FighterController : MonoBehaviour
         if (skipGroundCheck)
         {
             isGrounded = false;
-            Debug.Log("SKIPPING GROUND");
+            //Debug.Log("SKIPPING GROUND");
             return;
         }
         isGrounded = Physics2D.OverlapCircle
@@ -297,7 +297,7 @@ public class FighterController : MonoBehaviour
     public void ResetMotion() => rb.linearVelocity = Vector2.zero;
     public void Knockback(Vector2 impulse)
     {
-        Debug.Log("Knockback Force: " + impulse);
+        //Debug.Log("Knockback Force: " + impulse);
         rb.linearVelocity = Vector2.zero;
 
         float sign = opponent.position.x > transform.position.x ? -1f : 1f;

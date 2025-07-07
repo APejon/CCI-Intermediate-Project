@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
         else { Destroy(gameObject); }
+
+        ResetMatch();
+
     }
 
     [Header("Fighters & Spawns")]
@@ -57,24 +60,53 @@ public class GameManager : MonoBehaviour
     public bool optionsOpen = false;
     private bool pausing;
 
+    public enum CurrentWinnerType
+    {
+        Unknown,
+        P1,
+        P2,
+        Tie
+    };
+
+    public CurrentWinnerType CurrentWinner = CurrentWinnerType.Unknown;
+
     private void OnEnable() => 
         CamScript.enabled = true;
 
     void Start()
     {
+
+    }
+
+    void ResetMatch()
+    {
         RefreshScoreUI();
         currentTimer = matchTime;
         StartCoroutine(StartCountdownThenFight());
         pausing = false;
+        p1Score = 0;
+        p2Score = 0;
+        roundLocked = false;
+
+        centerMessageText.text = "";
+        ResetPositions();
     }
 
     void Update()
     {
-
-        // if (Input.GetKeyDown(KeyCode.P))
-        // {
-        //     TogglePause();
-        // }
+        if (true)
+        {
+           // if (Input.GetKeyDown(KeyCode.LeftControl)) {
+                if (Input.GetKey(KeyCode.Alpha1))
+                {
+                    StartCoroutine(EndGameRoutine(player1));
+                } else
+                if (Input.GetKey(KeyCode.Alpha2))
+                {
+                    StartCoroutine(EndGameRoutine(player2));
+                }
+            //}
+        }
     }
 
     // void TogglePause()
@@ -160,10 +192,27 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartCountdownThenFight());
     }
 
+    /// <summary>
+    /// Go to the Win Screen
+    /// </summary>
+    /// <param name="winner"></param>
+    /// <returns></returns>
     IEnumerator EndGameRoutine(FighterController winner)
     {
+        if (winner == player1)
+        {
+            CurrentWinner = CurrentWinnerType.P1;
+        } else if (winner == player2) {
+            CurrentWinner = CurrentWinnerType.P2;
+        } else
+        {
+            CurrentWinner = CurrentWinnerType.Tie;
+        }
+            roundLocked = true;
         centerMessageText.text = (winner == player1 ? "Player 1" : "Player 2") + " wins!";
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
+
+        UiManager.Instance.ShowGameOver();
     }
 
     IEnumerator StartCountdownThenFight()

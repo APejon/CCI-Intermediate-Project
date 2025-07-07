@@ -30,6 +30,8 @@ public class UiManager : MonoBehaviour
     public FighterController P2Controller;  
     public EnemyFighterAI P2Ai;
 
+
+
     private bool _bMultiplayer = false; // If false = 1 player vs computer, true = two player controllers
     private bool isPaused;
     public bool bMultiplayer
@@ -175,10 +177,13 @@ public class UiManager : MonoBehaviour
     }
 
 
+    public void OnReturnToMainMenu()
+    {
+        FadeInFadeOut.Instance.FadeAndDo(() => SceneManager.LoadScene(0));
+    }
 
 
-
-    private void OnRestartClicked()
+    public void OnRestartClicked()
     {
         FadeInFadeOut.Instance.FadeAndDo(() =>
         {
