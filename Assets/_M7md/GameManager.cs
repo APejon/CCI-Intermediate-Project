@@ -94,23 +94,29 @@ public class GameManager : MonoBehaviour
     // }
 
     public void RegisterPoint(FighterController attacker, FighterController defender, Vector2 hitPoint)
+{
+    if (roundLocked) return;
+    roundLocked = true;
+
+    if (timerCoroutine != null)
     {
-        if (roundLocked) return;
-        roundLocked = true;
-
-        if (timerCoroutine != null) StopCoroutine(timerCoroutine);
-        defender.Knockback(knockForce);
-
-        if (attacker == player1) ++p1Score;
-        else ++p2Score;
-
-        RefreshScoreUI();
-
-        if (p1Score >= maxScore || p2Score >= maxScore)
-            StartCoroutine(EndGameRoutine(attacker));
-        else
-            StartCoroutine(PointPauseRoutine());
+        StopCoroutine(timerCoroutine);
+        timerCoroutine = null;
     }
+
+    defender.Knockback(knockForce);
+
+    if (attacker == player1) ++p1Score;
+    else ++p2Score;
+
+    RefreshScoreUI();
+
+    if (p1Score >= maxScore || p2Score >= maxScore)
+        StartCoroutine(EndGameRoutine(attacker));
+    else
+        StartCoroutine(PointPauseRoutine());
+}
+
 
     IEnumerator MatchTimerRoutine()
     {
