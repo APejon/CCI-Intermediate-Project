@@ -68,31 +68,6 @@ public class GameManager : MonoBehaviour
         pausing = false;
     }
 
-    void Update()
-    {
-
-        // if (Input.GetKeyDown(KeyCode.P))
-        // {
-        //     TogglePause();
-        // }
-    }
-
-    // void TogglePause()
-    // {
-    //     pausing = !pausing;
-    //     Time.timeScale = pausing ? 0f : 1f;
-    //
-    //     if (UiManager.Instance != null)
-    //     {
-    //         if (pausing)
-    //             UiManager.Instance.ShowPauseMenu();
-    //         else
-    //             UiManager.Instance.ShowGameUI(); // Or hide pause panel however you prefer
-    //     }
-    //
-    //     Debug.Log(pausing ? "Game Paused" : "Game Resumed");
-    // }
-
     public void RegisterPoint(FighterController attacker, FighterController defender, Vector2 hitPoint)
 {
     if (roundLocked) return;

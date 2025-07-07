@@ -61,6 +61,14 @@ public class FighterController : MonoBehaviour
     void Update()
     {
         CheckGrounded();
+        if (skipGroundCheck)
+        {
+            groundCheckTimer += Time.deltaTime;
+            if (groundCheckTimer >= 0.05f) // fallback
+            {
+                EnableGroundCheck();
+            }
+        }
         
         if (isGrounded && opponent) FaceTowards(opponent.position);
         if (!isBot && Input.GetKeyUp(crouchKey))
@@ -80,7 +88,7 @@ public class FighterController : MonoBehaviour
         anim.SetBool("isAttacking", isAttacking);
         
         /* ---- NEW: walk toggle ---- */
-        bool walking = !isAttacking && Mathf.Abs(moveInput) > 0.01f;
+        bool walking = !isAttacking && !GameManager.Instance.roundLocked && Mathf.Abs(moveInput) > 0.01f;
         anim.SetBool("isWalking", walking); 
     }
 
@@ -294,11 +302,16 @@ public class FighterController : MonoBehaviour
     // {
     //     GameManager.Instance.roundLocked = on;
     // }
-    public void ResetMotion() => rb.linearVelocity = Vector2.zero;
+    public void ResetMotion()
+    {
+        rb.linearVelocity = Vector2.zero;
+        moveInput   = 0f;
+        
+    }
     public void Knockback(Vector2 impulse)
     {
         Debug.Log("Knockback Force: " + impulse);
-        rb.linearVelocity = Vector2.zero;
+        ResetMotion();
 
         float sign = opponent.position.x > transform.position.x ? -1f : 1f;
         Vector2 knockDir = new Vector2(sign * Mathf.Abs(impulse.x), impulse.y);
@@ -314,12 +327,13 @@ public class FighterController : MonoBehaviour
     }
     
     bool skipGroundCheck;
-    
+    float groundCheckTimer;
     void GroundCheckDisable()
     {
         skipGroundCheck = true;
+        groundCheckTimer = 0f;
+        Invoke(nameof(EnableGroundCheck), 0.05f);
         Debug.Log("Ground Check Disabled");
-        Invoke(nameof(EnableGroundCheck), 0.2f); // or use animation event
     }
 
     void EnableGroundCheck()
@@ -330,8 +344,11 @@ public class FighterController : MonoBehaviour
 
     public void ResetKnock()
     {
-        isKnocked = false;
-        anim.SetTrigger("Reset");
+        if (isKnocked)
+        {
+            isKnocked = false;
+            anim.SetTrigger("Reset");
+        }
     }
     
 

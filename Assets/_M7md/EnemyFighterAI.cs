@@ -39,7 +39,10 @@ public class EnemyFighterAI : MonoBehaviour
 
     void Update()
     {
-        if (!player || !enabled || GameManager.Instance.roundLocked) return;     // disabled during round pause
+        if (!player || !enabled || GameManager.Instance.roundLocked) {
+            Debug.Log("AI Disabled: Round Paused");
+            return;     // disabled during round pause
+        }
 
         if (Time.time >= modeEnd) PickNextMode();
         ExecuteMode();
@@ -75,6 +78,11 @@ public class EnemyFighterAI : MonoBehaviour
     /* ── Modes -------------------------------------------------- */
     void ExecuteMode()
     {
+        if (ctrl.IsAttacking || ctrl.IsCrouching || GameManager.Instance.roundLocked) {
+            ctrl.SetMoveInput(0f); // stop AI movement while locked
+            return;
+        }
+
         switch (mode)
         {
             case Behaviour.Idle:    ctrl.SetMoveInput(0f);     break;
@@ -98,7 +106,7 @@ public class EnemyFighterAI : MonoBehaviour
     }
 
     void PickNextMode()
-    {
+    {   Debug.Log("PickNextMode");
         float r = Random.value;
         mode = r < idleProb ? Behaviour.Idle : r < idleProb + retreatProb ? Behaviour.Retreat : Behaviour.Advance;
 
