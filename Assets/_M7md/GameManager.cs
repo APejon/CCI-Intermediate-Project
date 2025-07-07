@@ -75,14 +75,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        ResetMatch();
     }
 
-    void ResetMatch()
+    public void ResetMatch()
     {
+        Debug.Log("Reset Match");
         RefreshScoreUI();
         currentTimer = matchTime;
-        StartCoroutine(StartCountdownThenFight());
+        
         pausing = false;
         p1Score = 0;
         p2Score = 0;
@@ -90,6 +91,13 @@ public class GameManager : MonoBehaviour
 
         centerMessageText.text = "";
         ResetPositions();
+    }
+
+    // This starts the 3,2,1 counter
+    public void StartMatch()
+    {
+        Debug.Log("Start Match");
+        StartCoroutine(StartCountdownThenFight());
     }
 
     void Update()
@@ -213,6 +221,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
 
         UiManager.Instance.ShowGameOver();
+        //this.enabled = false;
     }
 
     IEnumerator StartCountdownThenFight()

@@ -103,7 +103,7 @@ public class UiManager : MonoBehaviour
             Debug.Log("Pressed something");
 
             ShowGameUI();
-            gameManager.enabled = true;
+            GameManager.Instance.StartMatch();
         }
     }
 
@@ -120,7 +120,7 @@ public class UiManager : MonoBehaviour
 
     public void ShowGameUI()
     {
-
+        GameManager.Instance.ResetMatch();
         FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
     }
     
