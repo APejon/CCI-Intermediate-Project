@@ -46,9 +46,9 @@ public class FighterController : MonoBehaviour
     Vector3     startScale;
 
 
-    private bool isGrounded, isAttacking, isCrouching, isKnocked = false;
-    private bool skipGroundCheck = false;
-    float moveInput;
+    public bool isGrounded, isAttacking, isCrouching, isKnocked = false;
+    public bool skipGroundCheck = false;
+    public float moveInput;
 
     void Awake()
     {
@@ -61,13 +61,10 @@ public class FighterController : MonoBehaviour
     /* ── Main loops ────────────────────────────────────────────── */
     void Update()
     {
-        if (!skipGroundCheck)
-            CheckGrounded();
-        
         if (isGrounded && opponent) FaceTowards(opponent.position);
         if (!isBot && Input.GetKeyUp(crouchKey))
             TryCrouch(false);
-        if (isAttacking)            return;          // lock input
+        //if (isAttacking)            return;          // lock input
 
         if (!isBot)
         {
@@ -88,6 +85,9 @@ public class FighterController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+        if (!skipGroundCheck)
+            CheckGrounded();
         
         if (isCrouching || !isGrounded || isKnocked || GameManager.Instance.roundLocked) return;
 
@@ -301,12 +301,20 @@ public class FighterController : MonoBehaviour
         moveInput   = 0f;
         
     }
+
+    public void DisableHitboxes()
+    {
+        FC_DisableHitBox();
+        FC_DisableCrouchHitbox();
+        FC_DisableJumpHitbox();
+    }
     public void Knockback(Vector2 impulse)
     {
-        Debug.Log("Knockback Force: " + impulse);
+        DisableHitboxes();
         anim.SetTrigger("Knocked");
-        skipGroundCheck = true;
+        // skipGroundCheck = true;
         isGrounded = false;
+        isAttacking = false;
         
         ResetMotion();
 
@@ -332,7 +340,15 @@ public class FighterController : MonoBehaviour
         anim.SetBool("isCrouching", false);
         anim.SetBool("isAttacking", false);
         anim.SetBool("isWalking", false);
+        anim.SetBool("isGrounded", true);
         // anim.ResetTrigger("Knocked");
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheckPoint == null) return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }
     
 
