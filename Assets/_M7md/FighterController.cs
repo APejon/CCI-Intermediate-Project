@@ -321,13 +321,18 @@ public class FighterController : MonoBehaviour
         //Invoke(nameof(EndKnockback), 0.2f); // adjust duration as needed
     }
 
-    public void ResetKnock()
+    public void ResetAnimator()
     {
         if (isKnocked)
         {
             isKnocked = false;
             anim.SetTrigger("Reset");
         }
+        
+        anim.SetBool("isCrouching", false);
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isWalking", false);
+        // anim.ResetTrigger("Knocked");
     }
     
 

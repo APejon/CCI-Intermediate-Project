@@ -34,11 +34,20 @@ public class EnemyFighterAI : MonoBehaviour
     {
         ctrl = GetComponent<FighterController>();
         ctrl.isBot = true;
-        PickNextMode();
+        StartAI();
     }
+
+    public void StartAI() => PickNextMode();
+    public void ResetAI()
+    {
+        lastAttack = 0f;
+        crouchRelease = 0f;
+    }
+    
 
     void Update()
     {
+        Debug.Log("AI Update Running");
         if (!player || !enabled || GameManager.Instance.roundLocked) {
             Debug.Log("AI Disabled: Round Paused");
             return;     // disabled during round pause
@@ -59,14 +68,19 @@ public class EnemyFighterAI : MonoBehaviour
         {
             ctrl.TryAttack();
             lastAttack = Time.time;
+            Debug.Log("AI ATTACKS!");
         }
 
         if (!ctrl.IsCrouching && Random.value < jumpChance * Time.deltaTime)
+        {
             ctrl.TryJump();
+            Debug.Log("AI JUMP!");
+        }
 
         if (Time.time >= crouchRelease)
         {
             ctrl.TryCrouch(false);
+            Debug.Log("AI CROUCH!");
             if (Random.value < crouchChance * Time.deltaTime)
             {
                 ctrl.TryCrouch(true);
@@ -88,7 +102,7 @@ public class EnemyFighterAI : MonoBehaviour
 
         switch (mode)
         {
-            case Behaviour.Idle:    ctrl.SetMoveInput(0f);     break;
+            case Behaviour.Idle:    ctrl.SetMoveInput(0f);        break;
             case Behaviour.Advance: Move( +1f);                break;
             case Behaviour.Retreat: Move( -1f);                break;
         }

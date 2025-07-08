@@ -21,10 +21,8 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 2056192575, guid: 6d776c8597603a94f8aa7bd7819547a0, type: 3}
-    - time: 0.16666667
       value: {fileID: 1438039720, guid: 6d776c8597603a94f8aa7bd7819547a0, type: 3}
-    - time: 0.33333334
+    - time: 0.125
       value: {fileID: -576188079, guid: 6d776c8597603a94f8aa7bd7819547a0, type: 3}
     attribute: m_Sprite
     path: 
@@ -48,7 +46,6 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 2056192575, guid: 6d776c8597603a94f8aa7bd7819547a0, type: 3}
     - {fileID: 1438039720, guid: 6d776c8597603a94f8aa7bd7819547a0, type: 3}
     - {fileID: -576188079, guid: 6d776c8597603a94f8aa7bd7819547a0, type: 3}
   m_AnimationClipSettings:
@@ -56,7 +53,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -76,8 +73,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.33333334
-    functionName: EnableGroundCheck
+  - time: 0.125
+    functionName: FC_EnableGroundCheck
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

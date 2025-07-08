@@ -242,8 +242,10 @@ public class GameManager : MonoBehaviour
         player1.ResetMotion();
         player2.ResetMotion();
 
-        player1.ResetKnock();
-        player2.ResetKnock();
+        player1.ResetAnimator();
+        player2.ResetAnimator();
+        
+        if (player2.TryGetComponent(out EnemyFighterAI ai2)) ai2.ResetAI();
     }
 
     void OnDrawGizmos()
