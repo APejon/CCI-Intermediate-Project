@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class VerticalLooper : MonoBehaviour
 {
     [Header("Image Settings")]
     public Sprite[] images;
-    public Vector2 imageSize = new Vector2(800, 600);
     public float scrollSpeed = 50f;
     public float spacing = 10f;
     public bool preserveAspect = true;
@@ -19,13 +19,14 @@ public class VerticalLooper : MonoBehaviour
     public Color backgroundColor = Color.black;
 
     private RectTransform container;
-    private float imageHeight;
     private int imageCount;
 
     private bool isPaused = true;
     private bool delayDone = false;
     private float startTime;
     private float pauseEndTime;
+
+    private float totalScrollHeight = 0f;
 
     void Start()
     {
@@ -65,10 +66,9 @@ public class VerticalLooper : MonoBehaviour
 
         container.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
 
-        float resetPoint = imageCount * imageHeight;
-        if (container.anchoredPosition.y >= resetPoint)
+        if (container.anchoredPosition.y >= totalScrollHeight)
         {
-            container.anchoredPosition -= new Vector2(0, resetPoint);
+            container.anchoredPosition -= new Vector2(0, totalScrollHeight);
             isPaused = true;
             pauseEndTime = Time.realtimeSinceStartup + delayBetweenLoops;
             Debug.Log("Reached reset point. Pausing before next loop.");
@@ -99,22 +99,36 @@ public class VerticalLooper : MonoBehaviour
         container.offsetMin = Vector2.zero;
         container.offsetMax = Vector2.zero;
 
-        imageHeight = imageSize.y + spacing;
         imageCount = images.Length;
+        float currentY = spacing/2;
+        float containerWidth = ((RectTransform)transform).rect.width;
 
         for (int i = 0; i < imageCount * 2; i++)
         {
+            Sprite sprite = images[i % imageCount];
+            float spriteAspect = sprite.rect.height / sprite.rect.width;
+            float targetWidth = containerWidth;
+            float targetHeight = targetWidth * spriteAspect;
+
             GameObject go = new GameObject("Image_" + i, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
             go.transform.SetParent(container, false);
+
             RectTransform rt = go.GetComponent<RectTransform>();
-            rt.sizeDelta = imageSize;
-            rt.anchoredPosition = new Vector2(0, -i * imageHeight);
+            rt.anchorMin = new Vector2(0.5f, 1f);
+            rt.anchorMax = new Vector2(0.5f, 1f);
+            rt.pivot = new Vector2(0.5f, 1f);
+            rt.sizeDelta = new Vector2(targetWidth, targetHeight);
+            rt.anchoredPosition = new Vector2(0, -currentY);
 
             Image img = go.GetComponent<Image>();
-            img.sprite = images[i % imageCount];
+            img.sprite = sprite;
             img.preserveAspect = preserveAspect;
             img.raycastTarget = false;
+
+            currentY += targetHeight + spacing;
         }
+
+        totalScrollHeight = currentY / 2f; // Only scroll by the first full set
     }
 
 #if UNITY_EDITOR
@@ -122,7 +136,8 @@ public class VerticalLooper : MonoBehaviour
     {
         if (images == null || images.Length == 0) return;
 
-        float totalHeight = (imageSize.y + spacing) * images.Length * 2;
+        float heightEstimate = 600f + spacing;
+        float totalHeight = heightEstimate * images.Length * 2;
         Vector3 top = transform.position;
         Vector3 bottom = top + Vector3.down * totalHeight;
 

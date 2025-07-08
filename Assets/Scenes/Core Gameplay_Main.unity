@@ -397,6 +397,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1846560720306399539, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846560720306399539, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_TagString
       value: HitBox
       objectReference: {fileID: 0}
@@ -576,6 +580,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2e5a544c112cfaf479bd14a1dfcf3a7f, type: 2}
+    - target: {fileID: 8515989616698339182, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
