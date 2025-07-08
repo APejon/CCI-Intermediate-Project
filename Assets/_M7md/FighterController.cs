@@ -47,6 +47,7 @@ public class FighterController : MonoBehaviour
 
 
     private bool isGrounded, isAttacking, isCrouching, isKnocked = false;
+    private bool skipGroundCheck = false;
     float moveInput;
 
     void Awake()
@@ -60,15 +61,8 @@ public class FighterController : MonoBehaviour
     /* ── Main loops ────────────────────────────────────────────── */
     void Update()
     {
-        CheckGrounded();
-        if (skipGroundCheck)
-        {
-            groundCheckTimer += Time.deltaTime;
-            if (groundCheckTimer >= 0.05f) // fallback
-            {
-                EnableGroundCheck();
-            }
-        }
+        if (!skipGroundCheck)
+            CheckGrounded();
         
         if (isGrounded && opponent) FaceTowards(opponent.position);
         if (!isBot && Input.GetKeyUp(crouchKey))
@@ -243,6 +237,11 @@ public class FighterController : MonoBehaviour
         if (isCrouching && !Input.GetKey(crouchKey))
             TryCrouch(false);            // stand up if key no longer held
     }
+    
+    public void FC_EnableGroundCheck()
+    {
+        skipGroundCheck = false;
+    }
 
     /* ── Helpers ------------------------------------------------ */
     void ActivateHurtBox(GameObject target)
@@ -255,12 +254,6 @@ public class FighterController : MonoBehaviour
 
     void CheckGrounded()
     {
-        if (skipGroundCheck)
-        {
-            isGrounded = false;
-            Debug.Log("SKIPPING GROUND");
-            return;
-        }
         isGrounded = Physics2D.OverlapCircle
         (
             groundCheckPoint.position, groundCheckRadius, groundLayer
@@ -311,6 +304,10 @@ public class FighterController : MonoBehaviour
     public void Knockback(Vector2 impulse)
     {
         Debug.Log("Knockback Force: " + impulse);
+        anim.SetTrigger("Knocked");
+        skipGroundCheck = true;
+        isGrounded = false;
+        
         ResetMotion();
 
         float sign = opponent.position.x > transform.position.x ? -1f : 1f;
@@ -318,28 +315,10 @@ public class FighterController : MonoBehaviour
         Debug.Log("Knock Direction: " + knockDir);
 
         rb.AddForce(knockDir, ForceMode2D.Impulse);
-        GroundCheckDisable();
         
-        anim.SetTrigger("Knocked");
         isKnocked = true;
         
         //Invoke(nameof(EndKnockback), 0.2f); // adjust duration as needed
-    }
-    
-    bool skipGroundCheck;
-    float groundCheckTimer;
-    void GroundCheckDisable()
-    {
-        skipGroundCheck = true;
-        groundCheckTimer = 0f;
-        Invoke(nameof(EnableGroundCheck), 0.05f);
-        Debug.Log("Ground Check Disabled");
-    }
-
-    void EnableGroundCheck()
-    {
-        Debug.Log("Ground Check Enabled");
-        skipGroundCheck = false;
     }
 
     public void ResetKnock()

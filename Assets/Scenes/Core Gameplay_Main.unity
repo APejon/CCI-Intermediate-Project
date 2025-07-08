@@ -1632,6 +1632,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168311504313182914, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1271276679636679272, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 59.41162
@@ -3268,6 +3272,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5256932866466042728, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.64
+      objectReference: {fileID: 0}
     - target: {fileID: 5569404513524108500, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -3299,6 +3307,10 @@ PrefabInstance:
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: moveSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive
