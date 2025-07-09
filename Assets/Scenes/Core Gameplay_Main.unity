@@ -509,6 +509,10 @@ PrefabInstance:
       value: OPPONENT FIGHTER
       objectReference: {fileID: 0}
     - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -567,6 +571,14 @@ PrefabInstance:
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: knockbackForce.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive
@@ -1736,6 +1748,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 7363189802587002065, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7536985155015373964, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2011,6 +2027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359239379}
   - component: {fileID: 1359239380}
+  - component: {fileID: 1359239381}
   m_Layer: 0
   m_Name: FlashSprite
   m_TagString: Untagged
@@ -2088,6 +2105,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1359239381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359239378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c079cad136737949b07d52f82e67f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1475042751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1206443610710266816, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
@@ -2103,6 +2132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478076596}
   - component: {fileID: 1478076597}
+  - component: {fileID: 1478076598}
   m_Layer: 0
   m_Name: FlashSprite
   m_TagString: Untagged
@@ -2180,6 +2210,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1478076598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478076595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c079cad136737949b07d52f82e67f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1506241774 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1168311504313182914, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
@@ -2958,9 +3000,93 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2840616174219113450, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840616174219113450, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516340935068712985, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516340935068712985, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516340935068712985, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516340935068712985, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516340935068712985, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516340935068712985, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6549926106794500106, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
       propertyPath: m_Name
       value: Gameplay UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582614192588725291, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708089530863826, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708089530863826, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708089530863826, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708089530863826, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708089530863826, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708089530863826, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321989894582181922, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321989894582181922, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321989894582181922, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321989894582181922, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321989894582181922, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321989894582181922, guid: 708cd45ba671ec446b7c40d0c68b8893, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3137,6 +3263,10 @@ PrefabInstance:
       value: PLAYER FIGHTER
       objectReference: {fileID: 0}
     - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_TagString
       value: P1
       objectReference: {fileID: 0}
@@ -3154,7 +3284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: groundCheckRadius
-      value: 0.001
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive
