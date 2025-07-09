@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class txtBoxScroll : MonoBehaviour
 {
-    //public Text TextToScroll;            // UnityEngine.UI.Text — not TextMesh
+    //public Text TextToScroll;            // UnityEngine.UI.Text ï¿½ not TextMesh
     public float speed = 50f;            // Scroll speed in units per second
 
     public RectTransform rectScrollText;
@@ -22,9 +22,9 @@ public class txtBoxScroll : MonoBehaviour
         float textHeight = rectScrollText.rect.height;
 
         // Start just below screen
-        startY = -textHeight;
+        //startY = -textHeight;
         // End just above screen
-        endY = screenHeight;
+        //endY = screenHeight;
 
         // Apply initial position
         Vector2 startPos = rectScrollText.anchoredPosition;
