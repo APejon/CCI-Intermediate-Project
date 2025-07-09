@@ -24,9 +24,8 @@ public class HurtBox : MonoBehaviour
         lastHitBackground.color = alph;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void PauseAndShake()
     {
-        if (!other.CompareTag("HitBox")) return;
         StartCoroutine(PauseAndShake2());
     }
     
