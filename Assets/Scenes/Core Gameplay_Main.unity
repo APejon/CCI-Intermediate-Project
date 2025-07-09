@@ -1131,10 +1131,10 @@ MonoBehaviour:
   minZoom: 2
   maxZoom: 4
   zoomSpeed: 1
-  minX: -7.5
-  maxX: 7.5
-  minY: -6
-  maxY: 4
+  minX: -8
+  maxX: 7.9
+  minY: -5.365
+  maxY: 3.37
 --- !u!1001 &534208396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,6 +2067,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 6091498078961648749, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetMatch
+      objectReference: {fileID: 0}
     - target: {fileID: 6866229559268192617, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2298,8 +2302,8 @@ MonoBehaviour:
   maxScore: 3
   knockForce: {x: 8, y: 7}
   matchTime: 60
-  leftBoundary: -8
-  rightBoundary: 8
+  leftBoundary: -7.75
+  rightBoundary: 7.75
   gizmoHeight: 5
   CamScript: {fileID: 519420033}
   filledSprite: {fileID: -529945575390591003, guid: 92438ae7918c40d4e9aa7617805dce85, type: 3}

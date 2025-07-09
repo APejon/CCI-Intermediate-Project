@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
     
     public void ResetMatch()
     {
-        // player1.EndReset();
-        // player2.EndReset();
+        player1.EndReset();
+        player2.EndReset();
         
         Debug.Log("Reset Match");
         RefreshScoreUI();
