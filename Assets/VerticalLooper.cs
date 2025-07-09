@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class VerticalLooper : MonoBehaviour
 {
@@ -10,77 +9,64 @@ public class VerticalLooper : MonoBehaviour
     public float spacing = 10f;
     public bool preserveAspect = true;
 
-    [Header("Loop Control")]
-    public float startPointOffset = 100f;
-    public float delayBetweenLoops = 1f;
+    [Header("Timing")]
     public float delayBeforeStart = 1f;
+    public float delayBetweenLoops = 1f;
 
     [Header("Background")]
     public Color backgroundColor = Color.black;
 
     private RectTransform container;
-    private int imageCount;
-
-    private bool isPaused = true;
-    private bool delayDone = false;
+    private float totalScrollHeight;
+    private bool scrolling = false;
     private float startTime;
-    private float pauseEndTime;
+    private float loopPauseUntil;
+    
+    [Header("Start Offset")]
+    public float startYOffset = 100f; // Positive = starts lower on screen
 
-    private float totalScrollHeight = 0f;
 
     void Start()
     {
         CreateBlackBackground();
-        BuildScrollingImages();
-        container.anchoredPosition = new Vector2(0, -startPointOffset);
+        BuildImageLoop();
 
-        startTime = Time.realtimeSinceStartup;
-        isPaused = true;
-        delayDone = false;
+        container.anchoredPosition = new Vector2(0, startYOffset);
+        scrolling = false;
+        startTime = Time.time;
     }
+
 
     void Update()
     {
-        if (!delayDone)
+        if (!scrolling)
         {
-            if (Time.realtimeSinceStartup - startTime >= delayBeforeStart)
+            if (Time.time >= startTime + delayBeforeStart && Time.time >= loopPauseUntil)
             {
-                delayDone = true;
-                isPaused = false;
-                Debug.Log("Initial delay finished. Scrolling begins.");
+                scrolling = true;
             }
             return;
         }
 
-        if (isPaused)
+        Vector2 pos = container.anchoredPosition;
+        pos.y += scrollSpeed * Time.deltaTime;
+
+        if (pos.y >= totalScrollHeight + startYOffset)
         {
-            if (Time.realtimeSinceStartup >= pauseEndTime)
-            {
-                isPaused = false;
-                Debug.Log("Loop pause finished. Resuming scroll.");
-            }
-            return;
+            pos.y -= totalScrollHeight;
+            scrolling = false;
+            loopPauseUntil = Time.time + delayBetweenLoops;
         }
 
-        if (container == null) return;
-
-        container.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
-
-        if (container.anchoredPosition.y >= totalScrollHeight)
-        {
-            container.anchoredPosition -= new Vector2(0, totalScrollHeight);
-            isPaused = true;
-            pauseEndTime = Time.realtimeSinceStartup + delayBetweenLoops;
-            Debug.Log("Reached reset point. Pausing before next loop.");
-        }
+        container.anchoredPosition = pos;
     }
 
     void CreateBlackBackground()
     {
         GameObject bg = new GameObject("Background", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
         bg.transform.SetParent(transform, false);
-        Image bgImage = bg.GetComponent<Image>();
-        bgImage.color = backgroundColor;
+        Image img = bg.GetComponent<Image>();
+        img.color = backgroundColor;
         RectTransform rt = bg.GetComponent<RectTransform>();
         rt.anchorMin = Vector2.zero;
         rt.anchorMax = Vector2.one;
@@ -89,61 +75,44 @@ public class VerticalLooper : MonoBehaviour
         bg.transform.SetAsFirstSibling();
     }
 
-    void BuildScrollingImages()
+    void BuildImageLoop()
     {
-        GameObject containerGO = new GameObject("Scroller", typeof(RectTransform));
+        GameObject containerGO = new GameObject("ImageContainer", typeof(RectTransform));
         containerGO.transform.SetParent(transform, false);
         container = containerGO.GetComponent<RectTransform>();
-        container.anchorMin = Vector2.zero;
-        container.anchorMax = Vector2.one;
+        container.anchorMin = new Vector2(0, 0);
+        container.anchorMax = new Vector2(1, 1);
+        container.pivot = new Vector2(0.5f, 0.5f);
+        container.anchoredPosition = Vector2.zero;
         container.offsetMin = Vector2.zero;
         container.offsetMax = Vector2.zero;
 
-        imageCount = images.Length;
-        float currentY = spacing/2;
-        float containerWidth = ((RectTransform)transform).rect.width;
+        float width = ((RectTransform)transform).rect.width;
+        float currentY = 0f;
 
-        for (int i = 0; i < imageCount * 2; i++)
+        for (int i = 0; i < images.Length * 2; i++) // duplicate images for seamless loop
         {
-            Sprite sprite = images[i % imageCount];
-            float spriteAspect = sprite.rect.height / sprite.rect.width;
-            float targetWidth = containerWidth;
-            float targetHeight = targetWidth * spriteAspect;
+            Sprite sprite = images[i % images.Length];
+            float aspect = sprite.rect.height / sprite.rect.width;
+            float height = preserveAspect ? width * aspect : sprite.rect.height;
 
-            GameObject go = new GameObject("Image_" + i, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-            go.transform.SetParent(container, false);
-
-            RectTransform rt = go.GetComponent<RectTransform>();
+            GameObject imgGO = new GameObject("Img_" + i, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            imgGO.transform.SetParent(container, false);
+            RectTransform rt = imgGO.GetComponent<RectTransform>();
             rt.anchorMin = new Vector2(0.5f, 1f);
             rt.anchorMax = new Vector2(0.5f, 1f);
             rt.pivot = new Vector2(0.5f, 1f);
-            rt.sizeDelta = new Vector2(targetWidth, targetHeight);
+            rt.sizeDelta = new Vector2(width, height);
             rt.anchoredPosition = new Vector2(0, -currentY);
 
-            Image img = go.GetComponent<Image>();
+            Image img = imgGO.GetComponent<Image>();
             img.sprite = sprite;
             img.preserveAspect = preserveAspect;
             img.raycastTarget = false;
 
-            currentY += targetHeight + spacing;
+            currentY += height + spacing;
         }
 
-        totalScrollHeight = currentY / 2f; // Only scroll by the first full set
+        totalScrollHeight = currentY / 2f; // only scroll through one set
     }
-
-#if UNITY_EDITOR
-    void OnDrawGizmosSelected()
-    {
-        if (images == null || images.Length == 0) return;
-
-        float heightEstimate = 600f + spacing;
-        float totalHeight = heightEstimate * images.Length * 2;
-        Vector3 top = transform.position;
-        Vector3 bottom = top + Vector3.down * totalHeight;
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(top + Vector3.left * 500, top + Vector3.right * 500);
-        Gizmos.DrawLine(bottom + Vector3.left * 500, bottom + Vector3.right * 500);
-    }
-#endif
 }
