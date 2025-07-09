@@ -1699,6 +1699,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1134180790297237218, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1639453302098561240, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_SizeDelta.x
       value: 400
@@ -1802,6 +1806,14 @@ PrefabInstance:
     - target: {fileID: 2427583227474279939, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: scrollSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: startYOffset
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: startPointOffset
