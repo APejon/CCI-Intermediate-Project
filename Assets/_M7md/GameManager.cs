@@ -153,18 +153,22 @@ public class GameManager : MonoBehaviour
         if (p1Score == 0 && p2Score == 0)
         {
             centerMessageText.text = "Time’s up!\nNo winner.";
+            StartCoroutine(EndGameRoutine(null));
         }
         else if (p1Score > p2Score)
         {
             centerMessageText.text = "Time’s up!\nPlayer 1 wins!";
+            StartCoroutine(EndGameRoutine(player1));
         }
         else if (p2Score > p1Score)
         {
             centerMessageText.text = "Time’s up!\nPlayer 2 wins!";
+            StartCoroutine(EndGameRoutine(player2));
         }
         else
         {
             centerMessageText.text = "Time’s up!\nIt’s a tie!";
+            StartCoroutine(EndGameRoutine(null));
         }
     }
 
