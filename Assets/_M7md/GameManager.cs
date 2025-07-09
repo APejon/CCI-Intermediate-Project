@@ -78,10 +78,11 @@ public class GameManager : MonoBehaviour
         player2.EndReset();
         
         Debug.Log("Reset Match");
-        RefreshScoreUI();
+        
         currentTimer = matchTime;
         p1Score = 0;
         p2Score = 0;
+        RefreshScoreUI();
         
         player1.isWon = false;
         player1.isLost = false;

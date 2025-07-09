@@ -376,6 +376,7 @@ public class FighterController : MonoBehaviour
         anim.SetTrigger("Reset");
         isWon = false;
         isLost = false;
+        DisableHitboxes();
     }
     
     void OnDrawGizmosSelected()
