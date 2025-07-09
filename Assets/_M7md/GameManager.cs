@@ -184,12 +184,12 @@ public class GameManager : MonoBehaviour
         }
         else if (p1Score > p2Score)
         {
-            centerMessageText.text = "Time’s up!\nPlayer 1 wins!";
+            centerMessageText.text = "Time’s up!\nKhaled wins!";
             StartCoroutine(EndGameRoutine(player1));
         }
         else if (p2Score > p1Score)
         {
-            centerMessageText.text = "Time’s up!\nPlayer 2 wins!";
+            centerMessageText.text = "Time’s up!\nSaeed wins!";
             StartCoroutine(EndGameRoutine(player2));
         }
         else
@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
             CurrentWinner = CurrentWinnerType.Tie;
         }
             roundLocked = true;
-        centerMessageText.text = (winner == player1 ? "Player 1" : "Player 2") + " wins!";
+        centerMessageText.text = (winner == player1 ? "Khaled" : "Saeed") + " wins!";
         winner.triggerWinPose();
         
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
