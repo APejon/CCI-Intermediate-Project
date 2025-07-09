@@ -20,6 +20,7 @@ public class FighterController : MonoBehaviour
     public Transform groundCheckPoint;
     public float     groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
 
     /* ── Hurt- / Hit-boxes ─────────────────────────────────────── */
     [Header("Hurt-/Hit-Boxes")] 
@@ -44,6 +45,7 @@ public class FighterController : MonoBehaviour
     Rigidbody2D rb;
     Animator    anim;
     Vector3     startScale;
+    float       flip = 0f;
 
 
     public bool isGrounded, isAttacking, isCrouching, isKnocked = false;
@@ -74,13 +76,24 @@ public class FighterController : MonoBehaviour
             HandleAttackKey();
         }
 
-        anim.SetBool("isGrounded",  isGrounded);
+        anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isCrouching", isCrouching);
         anim.SetBool("isAttacking", isAttacking);
-        
+
         /* ---- NEW: walk toggle ---- */
         bool walking = !isAttacking && !GameManager.Instance.roundLocked && Mathf.Abs(moveInput) > 0.01f;
-        anim.SetBool("isWalking", walking); 
+        anim.SetBool("isWalking", walking);
+
+        if (!isGrounded && Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius * 10, playerLayer))
+        {
+            flip += Time.deltaTime;
+            if (flip < 0.5f)
+                rb.linearVelocity = new Vector2(10 * transform.localScale.x, 0);
+            else
+                rb.linearVelocity = new Vector2(10 * -transform.localScale.x, 0);
+        }
+        if (isGrounded)
+            flip = 0f;
     }
 
     void FixedUpdate()
