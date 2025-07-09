@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -48,7 +49,8 @@ public class FighterController : MonoBehaviour
     float       flip = 0f;
 
 
-    public bool isGrounded, isAttacking, isCrouching, isKnocked = false;
+    public bool isGrounded, isAttacking, isCrouching; 
+    public bool isKnocked = false, isWon = false, isLost = false;
     public bool skipGroundCheck = false;
     public float moveInput;
 
@@ -324,7 +326,6 @@ public class FighterController : MonoBehaviour
     public void Knockback(Vector2 impulse)
     {
         DisableHitboxes();
-        anim.SetTrigger("Knocked");
         // skipGroundCheck = true;
         isGrounded = false;
         isAttacking = false;
@@ -336,10 +337,23 @@ public class FighterController : MonoBehaviour
         Debug.Log("Knock Direction: " + knockDir);
 
         rb.AddForce(knockDir, ForceMode2D.Impulse);
+
+        if (isLost)
+        {
+            anim.SetTrigger("Lost");
+            anim.SetTrigger("S_Lost");
+            return;
+        }
         
+        anim.SetTrigger("Knocked");
         isKnocked = true;
         
         //Invoke(nameof(EndKnockback), 0.2f); // adjust duration as needed
+    }
+
+    public void triggerWinPose()
+    {
+            anim.SetTrigger("Won");
     }
 
     public void ResetAnimator()
@@ -355,6 +369,13 @@ public class FighterController : MonoBehaviour
         anim.SetBool("isWalking", false);
         anim.SetBool("isGrounded", true);
         // anim.ResetTrigger("Knocked");
+    }
+
+    public void EndReset()
+    {
+        anim.SetTrigger("Reset");
+        isWon = false;
+        isLost = false;
     }
     
     void OnDrawGizmosSelected()

@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: playerLayer.m_Bits
-      value: 128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive
@@ -1668,6 +1668,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 2610744683250510541, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: startPointOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3032194965600838942, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1676,6 +1680,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 3342419046159811774, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3434775360601695667, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3215,6 +3223,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1053056594}
     - target: {fileID: 5130929782238378651, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_Size.x
+      value: 7.316072
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130929782238378651, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
+      propertyPath: m_Size.y
+      value: 7.3142858
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130929782238378651, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 815424164945274260, guid: fa35969c661fb82469423ecc92900f43, type: 3}
@@ -3288,7 +3304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: playerLayer.m_Bits
-      value: 256
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive

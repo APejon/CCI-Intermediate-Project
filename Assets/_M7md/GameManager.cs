@@ -74,11 +74,20 @@ public class GameManager : MonoBehaviour
     
     public void ResetMatch()
     {
+        // player1.EndReset();
+        // player2.EndReset();
+        
         Debug.Log("Reset Match");
         RefreshScoreUI();
         currentTimer = matchTime;
         p1Score = 0;
         p2Score = 0;
+        
+        player1.isWon = false;
+        player1.isLost = false;
+        
+        player2.isWon = false;
+        player2.isLost = false;
 
         centerMessageText.text = "";
         ResetPositions();
@@ -102,10 +111,16 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKey(KeyCode.Alpha1))
                 {
                     StartCoroutine(EndGameRoutine(player1));
+                    player1.isWon = true;
+                    player2.isLost = true;
+                    player2.Knockback(knockForce);
                 } else
                 if (Input.GetKey(KeyCode.Alpha2))
                 {
                     StartCoroutine(EndGameRoutine(player2));
+                    player2.isWon = true;
+                    player1.isLost = true;
+                    player1.Knockback(knockForce);
                 }
             //}
         }
@@ -122,10 +137,21 @@ public class GameManager : MonoBehaviour
         timerCoroutine = null;
     }
 
-    defender.Knockback(knockForce);
-
     if (attacker == player1) ++p1Score;
     else ++p2Score;
+
+    if (p1Score >= maxScore)
+    {
+        player1.isWon = true;
+        player2.isLost = true;
+    }
+    else if (p2Score >= maxScore)
+    {
+        player2.isWon = true;
+        player1.isLost = true;
+    }
+    
+    defender.Knockback(knockForce);
 
     RefreshScoreUI();
 
@@ -200,6 +226,8 @@ public class GameManager : MonoBehaviour
         }
             roundLocked = true;
         centerMessageText.text = (winner == player1 ? "Player 1" : "Player 2") + " wins!";
+        winner.triggerWinPose();
+        
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
 
         UiManager.Instance.ShowGameOver();

@@ -1,28 +1,34 @@
 fileFormatVersion: 2
-guid: 52f2f79b668c5fa43adb8867affb65f7
+guid: 65d7e5ee38d5b6f48bb32d464928ac88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6909219707831531725
-    second: Khalid-lose-pose_0
+      213: -6710235280071530716
+    second: S_Lose_Pose_0
   - first:
-      213: -8631707103997749566
-    second: Khalid-lose-pose_1
+      213: 629767626882644715
+    second: S_Lose_Pose_1
   - first:
-      213: 2194801250212584343
-    second: Khalid-lose-pose_2
+      213: 7072180292835729024
+    second: S_Lose_Pose_2
   - first:
-      213: -8341807693016955369
-    second: Khalid-lose-pose_3
+      213: -4724362343232322046
+    second: S_Lose_Pose_3
   - first:
-      213: -676469673736600566
-    second: Khalid-lose-pose_4
+      213: 6745115060230076653
+    second: S_Lose_Pose_4
   - first:
-      213: -3451596332665327307
-    second: Khalid-lose-pose_5
+      213: 5974355474053996383
+    second: S_Lose_Pose_5
   - first:
-      213: 1906204794074749730
-    second: Khalid-lose-pose_6
+      213: 8518930243669919183
+    second: S_Lose_Pose_6
+  - first:
+      213: -1075590133696425306
+    second: S_Lose_Pose_7
+  - first:
+      213: 4604127702975034722
+    second: S_Lose_Pose_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,155 +137,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: K_lose.1
+      name: S_Lose_Pose_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2160
-        width: 1920
-        height: 1080
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd0fc388a81d7294d90089fc038dbfd9
-      internalID: -1346723353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: K_lose.2
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 2160
-        width: 1920
-        height: 1080
-      alignment: 9
-      pivot: {x: 0.7, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91cfbc2ddf21fca478be7fa99c00773d
-      internalID: -1009398630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: K_lose.3
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 2160
-        width: 1920
-        height: 1080
-      alignment: 9
-      pivot: {x: 0.55, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa4482377718cda4faa2d7420977c81c
-      internalID: 872347583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: K_lose.4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1080
-        width: 1920
-        height: 1080
-      alignment: 9
-      pivot: {x: 0.425, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 612c7d91ec38b604f94520c7295131f4
-      internalID: 1995805137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: K_lose.5
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 1080
-        width: 1920
-        height: 1080
+        y: 2048
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a45cda4f1b0a5c428859449bd281f1d
-      internalID: -2021435853
+      spriteID: ba515b615bf928644b98744169c88e8b
+      internalID: -748289864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: K_lose.6
+      name: S_Lose_Pose_1
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 1080
-        width: 1920
-        height: 1080
-      alignment: 9
-      pivot: {x: 0.425, y: 0.5}
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fa7b17ae5909d7428919fd81cfcb6f9
-      internalID: -1557695985
+      spriteID: a67ea914bb5291740b17e5d365739ee9
+      internalID: -1824022937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: K_lose.7
+      name: S_Lose_Pose_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72638e6a8632974a8fbc57f8523ae32
+      internalID: -804401428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Lose_Pose_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff4236abeb76794c8494eb9efa90e43
+      internalID: -718686339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Lose_Pose_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f458806ca3c7d6418d65597afcee10a
+      internalID: -122024760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Lose_Pose_5
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931ac3fe660add34a8d942a590ca5078
+      internalID: 36303296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Lose_Pose_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
-      alignment: 9
-      pivot: {x: 0.425, y: 0.5}
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b4138e28dcc6243a289d0aba7a4068
-      internalID: -1721624928
+      spriteID: ff492fac66d340f4bb3829e8533684ee
+      internalID: -1183599337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Lose_Pose_7
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e895f5d427eca3f44a151cfd07e80c1f
+      internalID: -722487840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Lose_Pose_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082001e32b40d274485b11c3b0ea9c44
+      internalID: 1697249213
       vertices: []
       indices: 
       edges: []
@@ -288,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bf022738cb2a5da46a25c7411fec3838
+    spriteID: dda7513541986d64d8ec50edc7b24a21
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +348,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      K_lose.1: -1346723353
-      K_lose.2: -1009398630
-      K_lose.3: 872347583
-      K_lose.4: 1995805137
-      K_lose.5: -2021435853
-      K_lose.6: -1557695985
-      K_lose.7: -1721624928
+      S_Lose_Pose_0: -748289864
+      S_Lose_Pose_1: -1824022937
+      S_Lose_Pose_2: -804401428
+      S_Lose_Pose_3: -718686339
+      S_Lose_Pose_4: -122024760
+      S_Lose_Pose_5: 36303296
+      S_Lose_Pose_6: -1183599337
+      S_Lose_Pose_7: -722487840
+      S_Lose_Pose_8: 1697249213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
