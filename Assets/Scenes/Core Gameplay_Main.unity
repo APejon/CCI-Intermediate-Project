@@ -2338,7 +2338,7 @@ MonoBehaviour:
   maxScore: 3
   knockForce: {x: 8, y: 7}
   matchTime: 30
-  leftBoundary: -7.75
+  leftBoundary: -7.85
   rightBoundary: 7.75
   gizmoHeight: 5
   CamScript: {fileID: 519420033}
@@ -3771,7 +3771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256932866466042728, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.64
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 5569404513524108500, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsTrigger
