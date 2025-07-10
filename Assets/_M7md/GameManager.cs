@@ -79,7 +79,14 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("Reset Match");
         
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+            timerCoroutine = null;
+        }
         currentTimer = matchTime;
+        timerText.text = matchTime.ToString();
+        
         p1Score = 0;
         p2Score = 0;
         RefreshScoreUI();
@@ -179,22 +186,22 @@ public class GameManager : MonoBehaviour
 
         if (p1Score == 0 && p2Score == 0)
         {
-            centerMessageText.text = "Time’s up!\nNo winner.";
+            //centerMessageText.text = "Time’s up!\nNo winner.";
             StartCoroutine(EndGameRoutine(null));
         }
         else if (p1Score > p2Score)
         {
-            centerMessageText.text = "Time’s up!\nKhaled wins!";
+            //centerMessageText.text = "Time’s up!\nKhaled wins!";
             StartCoroutine(EndGameRoutine(player1));
         }
         else if (p2Score > p1Score)
         {
-            centerMessageText.text = "Time’s up!\nSaeed wins!";
+            //centerMessageText.text = "Time’s up!\nSaeed wins!";
             StartCoroutine(EndGameRoutine(player2));
         }
         else
         {
-            centerMessageText.text = "Time’s up!\nIt’s a tie!";
+            //centerMessageText.text = "Time’s up!\nIt’s a tie!";
             StartCoroutine(EndGameRoutine(null));
         }
     }
@@ -219,16 +226,19 @@ public class GameManager : MonoBehaviour
         if (winner == player1)
         {
             CurrentWinner = CurrentWinnerType.P1;
+            centerMessageText.text = "KO";
         } else if (winner == player2) {
             CurrentWinner = CurrentWinnerType.P2;
+            centerMessageText.text = "KO";
         } else
         {
             CurrentWinner = CurrentWinnerType.Tie;
+            centerMessageText.text = "DRAW";
         }
-            roundLocked = true;
-        centerMessageText.text = (winner == player1 ? "Khaled" : "Saeed") + " wins!";
-        winner.triggerWinPose();
         
+        roundLocked = true;
+        if(winner != null) winner.triggerWinPose();
+            
         yield return new WaitForSecondsRealtime(pauseAfterPoint);
 
         UiManager.Instance.ShowGameOver();
@@ -239,7 +249,7 @@ public class GameManager : MonoBehaviour
     {
         roundLocked = true;
 
-        string[] steps = { "3", "2", "1", "Fight!" };
+        string[] steps = { "3", "3", "2", "1", "Fight!" };
         foreach (string step in steps)
         {
             countdownText.text = step;

@@ -126,7 +126,7 @@ public class UiManager : MonoBehaviour
 
     public void ResetMatch()
     {
-        FadeInFadeOut.Instance.FadeAndDo(() => GameManager.Instance.ResetMatch());
+        GameManager.Instance.ResetMatch();
     }
     
     public void TogglePause()
@@ -149,7 +149,7 @@ public class UiManager : MonoBehaviour
     }
     public void ShowGameOver()
     {
-        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gameOverPanel));
+        SetActivePanel(gameOverPanel);
     }
   
     private void OnStartClicked()
