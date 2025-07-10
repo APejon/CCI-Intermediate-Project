@@ -105,7 +105,7 @@ public class UiManager : MonoBehaviour
         {
             Debug.Log("Pressed something");
 
-            ShowGameUI();
+            FadeInFadeOut.Instance.FadeAndDo(() => ShowGameUI());
             GameManager.Instance.StartMatch();
         }
     }
@@ -124,7 +124,7 @@ public class UiManager : MonoBehaviour
     public void ShowGameUI()
     {
         //GameManager.Instance.ResetMatch();
-        FadeInFadeOut.Instance.FadeAndDo(() => SetActivePanel(gamePlayUI));
+        SetActivePanel(gamePlayUI);
     }
 
     public void ResetMatch()
@@ -195,11 +195,9 @@ public class UiManager : MonoBehaviour
 
     public void OnRestartClicked()
     {
-        FadeInFadeOut.Instance.FadeAndDo(() =>
-        {
             // Example: Reset panels instead of loading scene
             ShowGameUI(); // or ShowMainMenu(); or custom reset logic
-        });
+
     }
 
     private void SetActivePanel(GameObject targetPanel)
