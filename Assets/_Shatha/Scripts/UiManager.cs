@@ -74,7 +74,7 @@ public class UiManager : MonoBehaviour
         // Button listeners
         if (startButton != null) startButton.onClick.AddListener(OnStartClicked);
         if (restartButton != null) restartButton.onClick.AddListener(OnRestartClicked);
-        if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
+        //if (quitButton != null) quitButton.onClick.AddListener(() => Application.Quit());
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
         fadePanel.SetActive(true);
         SetActivePanel(mainMenuPanel);

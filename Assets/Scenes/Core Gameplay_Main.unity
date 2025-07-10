@@ -1217,7 +1217,7 @@ PrefabInstance:
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: quitButton
       value: 
-      objectReference: {fileID: 1694579359}
+      objectReference: {fileID: 0}
     - target: {fileID: 8369634225458987319, guid: fb31fcd9fc023124a94bf72528102935, type: 3}
       propertyPath: gameCredits
       value: 
@@ -3145,17 +3145,6 @@ Transform:
   - {fileID: 1529548568}
   m_Father: {fileID: 757697179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1694579359 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1734115270591595645, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
-  m_PrefabInstance: {fileID: 1030770006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1729139713
 GameObject:
   m_ObjectHideFlags: 0
