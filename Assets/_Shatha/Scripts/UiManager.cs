@@ -189,7 +189,7 @@ public class UiManager : MonoBehaviour
 
     public void OnReturnToMainMenu()
     {
-        FadeInFadeOut.Instance.FadeAndDo(() => SceneManager.LoadScene(0));
+        FadeInFadeOut.Instance.FadeAndDo(() => SceneManager.LoadScene("Core Gameplay_Main"));
     }
 
 

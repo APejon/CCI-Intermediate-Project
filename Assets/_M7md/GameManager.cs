@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         centerMessageText.text = "";
         ResetPositions();
         StartCoroutine(StartCountdownThenFight());
+        audiomanager.PlayGameTheme();
         audiomanager.SlowDown();
     }
 
