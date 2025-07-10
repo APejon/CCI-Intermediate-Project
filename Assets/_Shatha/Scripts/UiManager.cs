@@ -78,6 +78,7 @@ public class UiManager : MonoBehaviour
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
         fadePanel.SetActive(true);
         SetActivePanel(mainMenuPanel);
+        audiomanager.SlowDown();
         audiomanager.PlayTitleTheme();
     }
 

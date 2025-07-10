@@ -589,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: playerLayer.m_Bits
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive
@@ -2265,6 +2265,7 @@ MonoBehaviour:
   roundLocked: 0
   optionsOpen: 0
   CurrentWinner: 0
+  audiomanager: {fileID: 375865079}
 --- !u!1 &1122516097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5787185917743253441, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
@@ -3227,6 +3228,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6198502164252170445, guid: a3b040bad9451054cacdc80ddd2fc6c2, type: 3}
+      propertyPath: endTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 5078464c4a3d1eb499c448fc9a9ff2fe, type: 3}
+    - target: {fileID: 6198502164252170445, guid: a3b040bad9451054cacdc80ddd2fc6c2, type: 3}
       propertyPath: gameTheme
       value: 
       objectReference: {fileID: 8300000, guid: 69deb31b30c7615489fd56c78778d71b, type: 3}
@@ -3718,7 +3723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945607321705911263, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: playerLayer.m_Bits
-      value: 0
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 6486042379679588252, guid: 58917b24f53c4bb4ebd8f0f038637627, type: 3}
       propertyPath: m_IsActive

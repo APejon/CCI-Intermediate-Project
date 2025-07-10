@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public int p1Score, p2Score;
     public bool roundLocked;
     float currentTimer;
+    bool speedUpOnce = true;
     Coroutine timerCoroutine;
     public bool optionsOpen = false;
 
@@ -65,20 +66,21 @@ public class GameManager : MonoBehaviour
     };
 
     public CurrentWinnerType CurrentWinner = CurrentWinnerType.Unknown;
+    public AudioManager2 audiomanager;
 
     private void OnEnable()
     {
         CamScript.enabled = true;
         roundLocked = true;
     }
-    
+
     public void ResetMatch()
     {
         player1.EndReset();
         player2.EndReset();
-        
+
         Debug.Log("Reset Match");
-        
+
         if (timerCoroutine != null)
         {
             StopCoroutine(timerCoroutine);
@@ -86,20 +88,21 @@ public class GameManager : MonoBehaviour
         }
         currentTimer = matchTime;
         timerText.text = matchTime.ToString();
-        
+
         p1Score = 0;
         p2Score = 0;
         RefreshScoreUI();
-        
+
         player1.isWon = false;
         player1.isLost = false;
-        
+
         player2.isWon = false;
         player2.isLost = false;
 
         centerMessageText.text = "";
         ResetPositions();
         StartCoroutine(StartCountdownThenFight());
+        audiomanager.SlowDown();
     }
 
     // This starts the 3,2,1 counter
@@ -179,6 +182,10 @@ public class GameManager : MonoBehaviour
                 currentTimer -= Time.deltaTime;
                 timerText.text = Mathf.CeilToInt(currentTimer).ToString();
             }
+            if (speedUpOnce && currentTimer < 10f)
+            {
+                audiomanager.SpeedUp();
+            }
             yield return null;
         }
 
@@ -223,14 +230,19 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator EndGameRoutine(FighterController winner)
     {
+        audiomanager.SlowDown();
+        audiomanager.PlayEndTheme();
         if (winner == player1)
         {
             CurrentWinner = CurrentWinnerType.P1;
             centerMessageText.text = "KO";
-        } else if (winner == player2) {
+        }
+        else if (winner == player2)
+        {
             CurrentWinner = CurrentWinnerType.P2;
             centerMessageText.text = "KO";
-        } else
+        }
+        else
         {
             CurrentWinner = CurrentWinnerType.Tie;
             centerMessageText.text = "DRAW";

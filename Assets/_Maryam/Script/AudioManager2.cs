@@ -12,6 +12,7 @@ public class AudioManager2 : MonoBehaviour
     public AudioSource sfxSource;           // Added for sound effects like button clicks
     public AudioClip titleTheme;
     public AudioClip gameTheme;
+    public AudioClip endTheme;
     public AudioClip buttonClickSound;      // Added for button sound
 
     [Header("UI")]
@@ -50,6 +51,13 @@ public class AudioManager2 : MonoBehaviour
         musicSource.Play();
     }
 
+    public void PlayEndTheme()
+    {
+        musicSource.clip = endTheme;
+        musicSource.loop = false;
+        musicSource.Play();
+    }
+
     // New method to play button click sound
     public void PlayButtonClick()
     {
@@ -70,7 +78,7 @@ public class AudioManager2 : MonoBehaviour
     private System.Collections.IEnumerator DelayedStartGame()
     {
         yield return new WaitForSeconds(0.2f); // wait to let the click sound play
-       //SceneManager.LoadScene(0);
+                                               //SceneManager.LoadScene(0);
         PlayGameTheme();
     }
     public void ToggleMuteFromUI()
@@ -83,5 +91,15 @@ public class AudioManager2 : MonoBehaviour
             musicSource.volume = 0;
         else
             musicSource.volume = 1;
+    }
+
+    public void SpeedUp()
+    {
+        musicSource.pitch = 1.5f;
+    }
+
+    public void SlowDown()
+    {
+        musicSource.pitch = 1f;
     }
 }
