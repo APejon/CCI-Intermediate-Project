@@ -24,6 +24,7 @@ public class UiManager : MonoBehaviour
     
     [Header("Scripts")]
     public GameManager gameManager;
+    public AudioManager2 audiomanager;
 
     public string url = "https://itch.io/profile/jalboot"; // Replace with your desired URL
 
@@ -77,6 +78,7 @@ public class UiManager : MonoBehaviour
         if (openWebButton != null) openWebButton.onClick.AddListener(OpenWeb); // Hook URL button
         fadePanel.SetActive(true);
         SetActivePanel(mainMenuPanel);
+        audiomanager.PlayTitleTheme();
     }
 
     void Update()
@@ -167,12 +169,14 @@ public class UiManager : MonoBehaviour
     public void OnArcade()
     {
         bMultiplayer = false;
+        audiomanager.PlayGameTheme();
         scrIntroOne.gameObject.SetActive(true);
     }
 
     public void OnTwoPlayer()
     {
         bMultiplayer = true;
+        audiomanager.PlayGameTheme();
         scrIntroOne.gameObject.SetActive(true);
     }
 
