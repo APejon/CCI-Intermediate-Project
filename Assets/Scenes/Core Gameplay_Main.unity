@@ -1703,6 +1703,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1168311504313182914, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1639453302098561240, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_SizeDelta.x
       value: 400
@@ -1971,6 +1975,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 375865079}
+    - target: {fileID: 7007288840954963756, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.17626953
+      objectReference: {fileID: 0}
     - target: {fileID: 7107480434988259530, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_text
       value: "Producer\r\nMuhra Alshamsi\r\n\r\nDesigner\r\nMohammed Alkhyeli\r\n\r\n\r\nPROGRAM
