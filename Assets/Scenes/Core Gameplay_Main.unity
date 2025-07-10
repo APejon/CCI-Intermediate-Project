@@ -1716,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1134180790297237218, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1168311504313182914, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_IsActive
@@ -2009,21 +2009,22 @@ PrefabInstance:
     - target: {fileID: 7107480434988259530, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_text
       value: "Producer\r\nMuhra Alshamsi\r\n\r\nDesigner\r\nMohammed Alkhyeli\r\n\r\n\r\nPROGRAM
-        UNIT\n\r\nLead Programmer\r\nMohammed Alkhyeli\r\n\r\nUI Programmer\r\nMahra
+        UNIT\r\n\r\nLead Programmer\r\nMohammed Alkhyeli\r\n\r\nUI Programmer\r\nMahra
         Alhammadi\r\nMariam Alsuwaidi\r\nMuhra Alshamsi\r\n\r\nProgram Support\r\nAmmar
-        Albreiki\r\nRashid Hafez\r\nMark Barazzuol \r\n\r\n\r\nART UNIT\n\r\nArt
-        Producer\r\nAli Alhashemi\r\n\r\nLevel Designer\r\nReem Almehrzi\r\n\r\nIllustration
-        Coordinator\r\n\rRaisa Alqubaisi\n\r\nCharacter Illustrator\n\rRaisa Alqubaisi\n-
-        Mallak\n\n\r\nComic Artist\r\nAli Alqubaisi\nWadha Kindi\r\n\r\n\nBackground
-        Artist\r\nFatima Alqubaisi\n\r\n\r\nGraphic Designer\r\nBudour Alahbabi\r\nHuda
+        Albreiki\r\nRashid Hafez\r\nMark Barazzuol \r\n\r\n\r\nART UNIT\r\n\r\nArt
+        Producer\r\nAli Alhashemi\r\n\r\nLevel Designer\r\nReem Almehrzi\r\n\r\nCharacter
+        Artist\r\nMallak Almahri\r\nRaisa Alqubaisi\r\n\r\nAnimators\r\nAli Alqubaisi\r\nFatima
+        Almazrouei\r\nHanan Fahmi\r\nShamsa Alqubaisi\r\nMallak Almahri\r\nRaisa
+        Alqubaisi\r\n\r\nBackground Artist\r\nFatima Alqubaisi\r\nMallak Almahri\r\n\r\nComic
+        Artist\r\nAli Alqubaisi\r\nMallak Almahri\r\nShamsa Alqubaisi\r\n\r\nComic
+        Colorist\r\nWadha Alkindi\r\n\r\nGraphic Designer\r\nBudour Alahbabi\r\nHuda
         Alhammadi\r\n\r\nEffect Designer\r\nReem Almehrzi\r\n\r\nUI Implementation\r\nShatha
-        Alzaabi\nReem Almehrzi\r\nReem Albraiki\r\n\r\n\r\nSOUND UNIT\r\nShatha Alzaabi\nMohammed
-        Alkhyeli\r\r\n\r\n\r\nMARKETING UNIT\r\n\r\nMarketing Coordinator\r\nMahra
-        Alhammadi\r\n\r\nWebsite Designer\r\nReem Albraiki\r\r\n\r\n-----------------------------\n{Maybe}
-        Social Media\r\n-Salma\n-----------------------------\r\n\r\n\r\nSPECIAL
-        THANKS\r\n\rToaster Production\nCreative Bridge Program\nEndless Studios\nMubadala\nShamma
-        Alnuaimi\nShamsa Alshamsi\r\nMariam Alminhali\r\nKhalifa Almeraikhi\r\n\r\n\r\nExecutive
-        Producer\r\nMark Barazzuol\r\n\r\nProduced by\r\nJalboot Gaming"
+        Alzaabi\r\nReem Almehrzi\r\nReem Albraiki\r\n\r\n\r\nSOUND UNIT\r\nShatha
+        Alzaabi\r\nMohammed Alkhyeli\r\n\r\n\r\nMARKETING UNIT\r\n\r\nMarketing Coordinator\r\nMahra
+        Alhammadi\r\n\r\nWebsite Designer\r\nReem Albraiki\r\n\r\n\r\nSPECIAL THANKS\r\n\r\nToaster
+        Production\r\nCreative Bridge Program\r\nEndless Studios\r\nMubadala\r\nShamma
+        Alnuaimi\r\nShamsa Alshamsi\r\nMariam Alminhali\r\nKhalifa Almeraikhi\r\n\r\nExecutive
+        Producer\r\nMark Barazzuol\r\n\r\nProduced by\r\nJalboot Games"
       objectReference: {fileID: 0}
     - target: {fileID: 7107480434988259530, guid: aed9e9ab93f3d554aae7b44c4f4f3248, type: 3}
       propertyPath: m_fontStyle
