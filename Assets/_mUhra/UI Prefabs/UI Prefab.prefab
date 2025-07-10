@@ -810,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577458726493770876, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1797087420147714478, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -909,8 +909,24 @@ PrefabInstance:
       value: 2.3943653
       objectReference: {fileID: 0}
     - target: {fileID: 2469734321884924037, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.2245282
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469734321884924037, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.9120796
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469734321884924037, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469734321884924037, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469734321884924037, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281985535
       objectReference: {fileID: 0}
     - target: {fileID: 2494708483682457913, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1035,6 +1051,10 @@ PrefabInstance:
     - target: {fileID: 4105130131875571402, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -155.90002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221699309548948584, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      propertyPath: m_text
+      value: Khaled
       objectReference: {fileID: 0}
     - target: {fileID: 4280693300026368523, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
@@ -1200,6 +1220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5350902122985393974, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
+      propertyPath: m_text
+      value: Saeed
+      objectReference: {fileID: 0}
     - target: {fileID: 5438344384928676323, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1330,7 +1354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6336624267040959072, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: delayBeforeStart
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6336624267040959072, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: startPointOffset
@@ -1658,7 +1682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8968469150268085839, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9021788179112505945, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_fontSize

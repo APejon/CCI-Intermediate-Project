@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartCountdownThenFight());
     }
 
-    void Update()
+   /* void Update()
     {
         if (true)
         {
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
                 }
             //}
         }
-    }
+    }*/
 
     public void RegisterPoint(FighterController attacker, FighterController defender, Vector2 hitPoint)
 {
