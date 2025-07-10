@@ -15,26 +15,25 @@ public class AudioManager2 : MonoBehaviour
     public AudioClip buttonClickSound;      // Added for button sound
 
     [Header("UI")]
-    public Toggle muteToggle;
+    public bool muteToggle;
 
     void Awake()
     {
         // Singleton pattern to keep the audio manager alive between scenes
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        // if (Instance == null)
+        // {
+        //     Instance = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }
+        // else if (Instance != this)
+        // {
+        //     Destroy(gameObject);
+        //     return;
+        // }
     }
 
     void Start()
     {
-        PlayTitleTheme();
     }
 
     public void PlayTitleTheme()
@@ -74,10 +73,15 @@ public class AudioManager2 : MonoBehaviour
        //SceneManager.LoadScene(0);
         PlayGameTheme();
     }
-    public void ToggleMuteFromUI(Toggle toggle)
+    public void ToggleMuteFromUI()
     {
-        bool isMuted = toggle.isOn;           // "Is checkbox checked?"
-        musicSource.mute = isMuted;           // Mute if checked
-        PlayerPrefs.SetInt("MusicMuted", isMuted ? 1 : 0);
+        // bool isMuted = toggle.isOn;           // "Is checkbox checked?"
+        // musicSource.mute = isMuted;           // Mute if checked
+        // PlayerPrefs.SetInt("MusicMuted", isMuted ? 1 : 0);
+        muteToggle = !muteToggle;
+        if (muteToggle)
+            musicSource.volume = 0;
+        else
+            musicSource.volume = 1;
     }
 }
