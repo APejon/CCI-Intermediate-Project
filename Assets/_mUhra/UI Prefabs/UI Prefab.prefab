@@ -683,15 +683,16 @@ PrefabInstance:
         UNIT\n\r\nLead Programmer\r\nMohammed Alkhyeli\r\n\r\nUI Programmer\r\nMahra
         Alhammadi\r\nMariam Alsuwaidi\r\nMuhra Alshamsi\r\n\r\nProgram Support\r\nAmmar
         Albreiki\r\nRashid Hafez\r\nMark Barazzuol \r\n\r\n\r\nART UNIT\n\r\nArt
-        Producer\r\nAli Alhashemi\r\n\r\nLevel Designer\r\nReem Almehrzi\r\n\r\nCharacter
-        Artist\nMallak Almahri\nRaisa Alqubaisi\n\nAnimators\nAli Alqubaisi\nFatima
-        Almazrouei\nHanan Fahmi\nShamsa Alqubaisi\nMallak Almahri\nRaisa Alqubaisi\n\nBackground
-        Artist\nFatima Alqubaisi\nMallak Almahri\n\nComic Artist\nAli Alqubaisi\nMallak
-        Almahri\nShamsa Alqubaisi\n\nComic Colorist\nWadha Alkindi\n\r\nGraphic Designer\r\nBudour
-        Alahbabi\r\nHuda Alhammadi\r\n\r\nEffect Designer\r\nReem Almehrzi\r\n\r\nUI
-        Implementation\r\nShatha Alzaabi\nReem Almehrzi\r\nReem Albraiki\r\n\r\n\r\nSOUND
-        UNIT\r\nShatha Alzaabi\nMohammed Alkhyeli\r\r\n\r\n\r\nMARKETING UNIT\r\n\r\nMarketing
-        Coordinator\r\nMahra Alhammadi\r\n\r\nWebsite Designer\r\nReem Albraiki\r\r\n\r\r\n\r\nSPECIAL
+        Producer\nRaisa Alqubaisi\r\nAli Alhashemi\r\n\r\nLevel Designer\r\nReem
+        Almehrzi\r\n\r\nCharacter Artist\nMallak Almahri\nRaisa Alqubaisi\n\nAnimators\nAli
+        Alqubaisi\nFatima Almazrouei\nHanan Fahmi\nShamsa Alqubaisi\nMallak Almahri\nRaisa
+        Alqubaisi\n\nBackground Artist\nFatima Alqubaisi\nMallak Almahri\n\nComic
+        Artist\nAli Alqubaisi\nMallak Almahri\nShamsa Alqubaisi\n\nComic Colorist\nWadha
+        Alkindi\n\r\nGraphic Designer\r\nBudour Alahbabi\r\nHuda Alhammadi\r\n\r\nEffect
+        Designer\r\nReem Almehrzi\r\n\r\nUI Implementation\r\nShatha Alzaabi\nReem
+        Almehrzi\r\nReem Albraiki\r\n\r\n\r\nSOUND UNIT\r\nShatha Alzaabi\nMohammed
+        Alkhyeli\r\r\n\r\n\r\nMARKETING UNIT\r\n\r\nMarketing Coordinator\r\nMahra
+        Alhammadi\r\n\r\nWebsite Designer\r\nReem Albraiki\r\r\n\r\r\n\r\nSPECIAL
         THANKS\r\n\rToaster Production\nCreative Bridge Program\nEndless Studios\nMubadala\nShamma
         Alnuaimi\nShamsa Alshamsi\r\nMariam Alminhali\r\nKhalifa Almeraikhi\r\n\r\nExecutive
         Producer\r\nMark Barazzuol\r\n\r\nProduced by\r\nJalboot Games"
@@ -706,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1254775364936915047, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_fontStyle
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 1254775364936915047, guid: 0d2c6a6272c4d054f8dcf1537d6ff5a8, type: 3}
       propertyPath: m_sharedMaterial
